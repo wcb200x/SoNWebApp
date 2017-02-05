@@ -43,6 +43,8 @@ textarea {
   padding-top: 15px;
   padding-bottom: 10px;
   min-height: 64px;
-  margin-bottom: 23px;
   border: 1px solid transparent;
+}
+body{
+    padding-top:0px;
 }
