@@ -26,3 +26,23 @@ textarea {
 .body-content{
     padding-top: 100px;
 }
+
+.navbar-inverse {
+  background-color: #CCCCCC;
+  border-color: transparent;
+}
+.navbar-inverse .navbar-brand {
+  color: #AD0000;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #AD0000;
+}
+
+.navbar {
+  position: relative;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  min-height: 64px;
+  margin-bottom: 23px;
+  border: 1px solid transparent;
+}
