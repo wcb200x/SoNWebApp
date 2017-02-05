@@ -1,13 +1,26 @@
 ﻿@{
     ViewBag.Title = "";
 }
+<script src="@Url.Content("~/Scripts/DayPilot/daypilot-all.min.js")" type="text/javascript"></script> 
 
 <div class="jumbotron">
     <h1>Whats Happening in the School of Nursing</h1>
     <p class="lead">(News/Calendar will go here)</p>
     <p><a href="https://louisville.edu"></a></p>
 </div>
+<div>
 
+@{ ViewBag.Title = "ASP.NET MVC Razor Event Calendar"; }
+<h2>ASP.NET MVC Razor Event Calendar</h2>
+
+    @Html.DayPilotCalendar("dpc", new DayPilotCalendarConfig
+{
+    BackendUrl = Url.Content("~/Calendar/Backend"),
+})
+
+    
+
+</div>
 <div class="row">
     <div class="col-md-4">
         <h2>Apply Online</h2>
