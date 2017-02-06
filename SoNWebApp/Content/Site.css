@@ -40,6 +40,8 @@ textarea {
   padding-bottom: 10px;
   min-height: 64px;
   border: 1px solid transparent;
+  border-bottom: 5px solid;
+  border-bottom-color: black;
 }
 body{
     padding-top:0px;
