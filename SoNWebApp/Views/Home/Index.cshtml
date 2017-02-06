@@ -3,24 +3,26 @@
 }
 <script src="@Url.Content("~/Scripts/DayPilot/daypilot-all.min.js")" type="text/javascript"></script> 
 
-<div class="jumbotron">
-    <center>
-        <h1>What's Happening In The School of Nursing?</h1>
-    </center>
-    <p class="lead"></p>
-    <p><a href="https://louisville.edu"></a></p>
-</div>
-<div>
+<div class="row">
+    <div class="col-md-4">
+        <a href="@Url.Action("Index","Home")"><img src="~/Content/Images/SONAD.jpg" alt="Louisville" /></a>
+    </div>
+    <div>
+        <br />
+        <br />
+        <div>
+            @{ ViewBag.Title = "Upcoming Events"; }
+            <center>
+                <h2>Upcoming Events</h2>
+            </center>
+            @Html.DayPilotCalendar("dpc", new DayPilotCalendarConfig
+   {
+       BackendUrl = Url.Content("~/Calendar/Backend"),
+   })
 
-@{ ViewBag.Title = "ASP.NET MVC Razor Event Calendar"; }
-<h2>ASP.NET MVC Razor Event Calendar</h2>
+        </div>
 
-    @Html.DayPilotCalendar("dpc", new DayPilotCalendarConfig
-{
-    BackendUrl = Url.Content("~/Calendar/Backend"),
-})
-
-    
+    </div>
 
 </div>
 <div class="row">
