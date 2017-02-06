@@ -22,12 +22,31 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-
-                        <li>@Html.ActionLink("Home", "Index", "Home", new { style = "font-weight:bold;" })</li>
-                        <li>@Html.ActionLink("About", "About", "Home", new { style = "font-weight:bold;" })</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home", new { style = "font-weight:bold;" })</li>
-                        <li>@Html.ActionLink("Student", "Student", "Home", new { style = "font-weight:bold;" })</li>
-                        <li>@Html.ActionLink("Staff", "Staff", "Home", new { style = "font-weight:bold;" })</li>
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px; margin-left: 30px;">
+                                    Student
+                                </button>
+                                <ul class="dropdown-menu" style="margin-left: 30px">
+                                    <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
+                                    <li>@Html.ActionLink("Courses", "Index", "Course")</li>
+                                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px;">
+                                    Staff
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Students", "Index", "Student")</li>
+                                    <li>@Html.ActionLink("Enrollments", "Index", "Enrollment")</li>
+                                    <li>@Html.ActionLink("Absence Management", "Index", "Absence")</li>
+                                    <li>@Html.ActionLink("User Management", "Index", "UserManagement")</li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>
