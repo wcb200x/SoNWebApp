@@ -55,6 +55,10 @@ body > div.navbar.navbar-inverse.navbar-fixed-top > div.container{
     margin-right: 20px;
 }
 
-.calendar-panel{
+/*.calendar-panel{
     margin-top:120px;
+}*/
+
+.panel-danger>.panel-heading {
+background-color: #AD0000;
 }
