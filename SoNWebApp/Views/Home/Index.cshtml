@@ -4,44 +4,23 @@
 <script src="@Url.Content("~/Scripts/DayPilot/daypilot-all.min.js")" type="text/javascript"></script> 
 
 <div class="row">
-    <div>
+    <div class="panel panel-danger" > 
+        <div class="panel-heading calendar-panel" style="color:white;">
+         <h2 class="text-center" >Upcoming Events</h2> 
+</div>
+        <div class="panel-body">
 
-        <div>
-            @{ ViewBag.Title = ""; }
-            <center>
-                <h2>Upcoming Events</h2>
-            </center>
-            @Html.DayPilotCalendar("dpc", new DayPilotCalendarConfig
-   {
-       BackendUrl = Url.Content("~/Calendar/Backend"),
-   })
+            <div>
+                @Html.DayPilotCalendar("dpc", new DayPilotCalendarConfig
+       {
+           BackendUrl = Url.Content("~/Calendar/Backend"),
+           ViewType = DayPilot.Web.Mvc.Enums.Calendar.ViewType.WorkWeek
+       })
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
-<div class="row">
-    <div class="col-md-4">
-        <center>
-            <h2>Twitter Feed</h2>
-            <p> SON Twiter Feed Coming Soon</p>
-            <p><a class="wrapper" href="https://twitter.com/uofl_son">View Twitter Profile &raquo;</a></p>
-        </center>
-        
-    </div>
-    <div class="col-md-4">
-        <center>
-        <h2>Facebook Feed</h2>
-        <p>SON Facebook Feed Coming Soon</p>
-        <p><a class="wrapper" href="https://www.facebook.com/UniversityOfLouisvilleSchoolOfNursing">View Full Facebook Page &raquo;</a></p>
-            </center>
-    </div>
-    <div class="col-md-4">
-        <center>
-            <h2>LinkedIn Feed</h2>
-            <p>SON LinkedIn Feed Coming Soon</p>
-            <p><a class="wrapper" href="https://www.linkedin.com/school/7650">View Full LinkedIn Profile &raquo;</a></p>
-        </center>
-    </div>
 </div>
