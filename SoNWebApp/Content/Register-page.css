@@ -1,12 +1,7 @@
 ﻿
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-.login-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
-}
-.forgotpassword-page {
+.register-page {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
@@ -59,7 +54,7 @@
   text-decoration: none;
 }
 .form .register-form {
-  display: none;
+ 
 }
 .container {
   position: relative;
@@ -109,4 +104,3 @@ body > div.container.body-content > footer {
    color: #ffffff;
 
 }
-
