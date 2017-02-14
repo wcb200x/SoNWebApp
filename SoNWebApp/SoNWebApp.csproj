@@ -219,6 +219,7 @@
     <Content Include="Content\Images\SONAD.jpg" />
     <Content Include="Content\Images\UofLSONLogo.png" />
     <Content Include="Content\Login-page.css" />
+    <Content Include="Content\Register-page.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
