@@ -1,0 +1,66 @@
+﻿@model SoNWebApp.Models.Courses
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Courses</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatalogNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatalogNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Credits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Credits)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProgramID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProgramID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CampusID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CampusID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -29,5 +29,12 @@ namespace SoNWebApp.Models
         {
             return new ApplicationDbContext();
         }
+        public DbSet <Student> Students { get; set; }
+        public DbSet <Program> Programs { get; set; }
+        public DbSet <Courses> Courses  { get; set; }
+        public DbSet <Enrollment> Enrollments { get; set; }
+        public DbSet <Campus> Campuses { get; set; }
+        public DbSet <Event> Events { get; set; }
+
     }
 }
