@@ -41,7 +41,7 @@ namespace SoNWebApp.Controllers
         {
             ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject");
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name");
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "FirstName");
+            ViewBag.StudentNumber = new SelectList(db.Students, "ID", "FirstName");
             return View();
         }
 
@@ -50,7 +50,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EnrollmentID,CourseID,StudentID,ProgramID")] Enrollment enrollment)
+        public ActionResult Create([Bind(Include = "EnrollmentID,CourseID,StudentNumber,ProgramID")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {
@@ -61,7 +61,7 @@ namespace SoNWebApp.Controllers
 
             ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "FirstName", enrollment.StudentID);
+            ViewBag.StudentNumber = new SelectList(db.Students, "ID", "FirstName", enrollment.StudentNumber);
             return View(enrollment);
         }
 
@@ -79,7 +79,7 @@ namespace SoNWebApp.Controllers
             }
             ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "FirstName", enrollment.StudentID);
+            ViewBag.StudentNumber = new SelectList(db.Students, "ID", "FirstName", enrollment.StudentNumber);
             return View(enrollment);
         }
 
@@ -98,7 +98,7 @@ namespace SoNWebApp.Controllers
             }
             ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "FirstName", enrollment.StudentID);
+            ViewBag.StudentNumber = new SelectList(db.Students, "ID", "FirstName", enrollment.StudentNumber);
             return View(enrollment);
         }
 

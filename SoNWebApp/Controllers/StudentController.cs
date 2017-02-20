@@ -46,7 +46,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FirstName,MiddleName,LastName,EmailAddress,PhoneNumber,Address,City,State,ZipCode,Standing,CampusID,EnrollmentDate")] Student student)
+        public ActionResult Create([Bind(Include = "ID,StudentNumber,FirstName,MiddleName,LastName,EmailAddress,PhoneNumber,Address,City,State,ZipCode,Standing,HasGraduated,CampusID,GPA,EnrollmentDate")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FirstName,MiddleName,LastName,EmailAddress,PhoneNumber,Address,City,State,ZipCode,Standing,CampusID,EnrollmentDate")] Student student)
+        public ActionResult Edit([Bind(Include = "ID,StudentNumber,FirstName,MiddleName,LastName,EmailAddress,PhoneNumber,Address,City,State,ZipCode,Standing,HasGraduated,CampusID,GPA,EnrollmentDate")] Student student)
         {
             if (ModelState.IsValid)
             {

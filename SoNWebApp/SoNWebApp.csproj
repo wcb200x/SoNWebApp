@@ -213,6 +213,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Campus.cs" />
     <Compile Include="Models\Courses.cs" />
     <Compile Include="Models\Enrollment.cs" />
@@ -237,6 +238,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\hawks.cis420.net - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\SoN Release.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DayPilot\daypilot-all.min.js" />
