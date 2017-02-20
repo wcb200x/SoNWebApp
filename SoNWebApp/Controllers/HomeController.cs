@@ -6,6 +6,8 @@ using System.Web.Mvc;
 
 namespace SoNWebApp.Controllers
 {
+
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
