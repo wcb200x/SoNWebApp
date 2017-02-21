@@ -5,21 +5,11 @@
 <style>
 
     
-.login-page {
-  width: 5000px;
-  padding: 8% 0 0;
-  margin: auto;
-}
-.forgotpassword-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
-}
 .form {
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  max-width: 600px;
+  max-width: 450px;
   margin: 0 auto 100px;
   padding: 15px;
   text-align: center;
@@ -48,9 +38,12 @@
   font-size: 20px;
   cursor: pointer;
 }
-.form button:hover,.form button:active,.form button:focus {
-  background: #000000;
+.btn-default:hover {
+  color: #FFFFFF!important;
+  background-color: #000000 !important;
+  border-color: rgba(0, 0, 0, 0);
 }
+
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
@@ -66,7 +59,7 @@
 .container {
   position: relative;
   z-index: 1;
-  max-width: 600px;
+  max-width: 450px;
   margin: 0 auto;
 }
 .container:before, .container:after {
@@ -104,6 +97,7 @@ body {
   background: linear-gradient(to left, #Ad0000, #AD0000);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;   
+  font-size: 17px !important;
 }
 
 body > div.container.body-content > footer {
@@ -132,22 +126,22 @@ body > div.container.body-content > footer {
         
 <div class="row">
     <div class="col-md-12">
-        <section id="loginForm" style="background-color:white; position: relative; margin: 0 auto 100px; padding: 65px;" >
+        <section id="loginForm" style="background-color:white; margin: 0 auto 100px; padding: 50px; margin-top: 25px;">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
                     <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Username@louisville.edu" })
                         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    @*@Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })*@
                     <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder ="Password" } )
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -161,15 +155,15 @@ body > div.container.body-content > footer {
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
+                    <div class="col-md-offset-1 col-md-10">
+                      <center>  <input type="submit" value="Log in" class="btn btn-default"/> </center>
                     </div>
                 </div>
                 <p>
-                    @Html.ActionLink("Need an account?", "Register")
+                  <center>  @Html.ActionLink("Need an account?", "Register") </center>
                 </p>
                     <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    <center>  @Html.ActionLink("Forgot your password?", "ForgotPassword") </center>
                     </p>
             }
         </section>
