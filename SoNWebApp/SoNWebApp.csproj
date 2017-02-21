@@ -317,8 +317,9 @@
     <Content Include="Views\Program\Details.cshtml" />
     <Content Include="Views\Program\Edit.cshtml" />
     <Content Include="Views\Program\Index.cshtml" />
-    <Content Include="Views\Student\ClinicalCompliance.cshtml" />
     <Content Include="Views\Student\StudentDashboard.cshtml" />
+    <Content Include="Views\Shared\StudentLayoutPage.cshtml" />
+    <Content Include="Views\Student\ClinicalCompliance.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -346,7 +347,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>63993</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
