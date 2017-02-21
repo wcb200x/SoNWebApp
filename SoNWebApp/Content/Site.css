@@ -38,7 +38,7 @@ textarea {
   position: relative;
   padding-top: 15px;
   padding-bottom: 10px;
-  min-height: 64px;
+  height: 100%;
   border: 1px solid transparent;
   border-bottom: 5px solid;
   border-bottom-color: black;
@@ -56,7 +56,7 @@ body > div.navbar.navbar-inverse.navbar-fixed-top > div.container{
 }
 
 /*.calendar-panel{
-    margin-top:120px;
+    margin-top:170px;
 }*/
 
 .panel-danger>.panel-heading {
