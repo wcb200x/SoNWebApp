@@ -115,11 +115,23 @@ namespace SoNWebApp.Controllers
             return RedirectToAction("Index");
         }
         
-        public ActionResult StudentDashboard(int? id)
+        public ActionResult StudentDashboard()
         {
             return View();
         }
-        public ActionResult ClinicalCompliance(int? id)
+        public ActionResult ClinicalCompliance()
+        {
+            return View();
+        }
+        public ActionResult Advisor()
+        {
+            return View();
+        }
+        public ActionResult Alerts()
+        {
+            return View();
+        }
+        public ActionResult ProgramOfStudy()
         {
             return View();
         }
