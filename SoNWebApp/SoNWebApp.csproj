@@ -199,6 +199,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdvisorController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\CampusController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
@@ -320,9 +322,18 @@
     <Content Include="Views\Student\StudentDashboard.cshtml" />
     <Content Include="Views\Shared\StudentLayoutPage.cshtml" />
     <Content Include="Views\Student\ClinicalCompliance.cshtml" />
+    <Content Include="Views\Shared\AdvisorLayoutPage.cshtml" />
+    <Content Include="Views\Advisor\StudentRecords.cshtml" />
+    <Content Include="Views\Advisor\Reports.cshtml" />
+    <Content Include="Views\Advisor\CRM.cshtml" />
+    <Content Include="Views\Advisor\Search.cshtml" />
+    <Content Include="Views\Student\ProgramOfStudy.cshtml" />
+    <Content Include="Views\Student\Alerts.cshtml" />
+    <Content Include="Views\Student\Advisor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
     <Folder Include="Views\Enrollment\Calendar\" />
   </ItemGroup>
   <ItemGroup>
