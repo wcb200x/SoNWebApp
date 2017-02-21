@@ -114,6 +114,15 @@ namespace SoNWebApp.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        
+        public ActionResult StudentDashboard(int? id)
+        {
+            return View();
+        }
+        public ActionResult ClinicalCompliance(int? id)
+        {
+            return View();
+        }
 
         protected override void Dispose(bool disposing)
         {

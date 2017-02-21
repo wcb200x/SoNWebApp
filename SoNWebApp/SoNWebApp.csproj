@@ -317,10 +317,12 @@
     <Content Include="Views\Program\Details.cshtml" />
     <Content Include="Views\Program\Edit.cshtml" />
     <Content Include="Views\Program\Index.cshtml" />
+    <Content Include="Views\Student\ClinicalCompliance.cshtml" />
+    <Content Include="Views\Student\StudentDashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Calendar\" />
+    <Folder Include="Views\Enrollment\Calendar\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
