@@ -6,7 +6,7 @@
 
     
 .login-page {
-  width: 360px;
+  width: 5000px;
   padding: 8% 0 0;
   margin: auto;
 }
@@ -19,9 +19,9 @@
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  max-width: 360px;
+  max-width: 600px;
   margin: 0 auto 100px;
-  padding: 45px;
+  padding: 15px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -66,7 +66,7 @@
 .container {
   position: relative;
   z-index: 1;
-  max-width: 300px;
+  max-width: 600px;
   margin: 0 auto;
 }
 .container:before, .container:after {
@@ -115,20 +115,67 @@ body > div.container.body-content > footer {
 
 </style>
 </head>
-<div class="login-page">
-    <div class="form">
-        <form class="login-form">
-            <input type="email" placeholder="username@louisville.edu" name="Email" required/>
-            <input type="password" placeholder="password" name="Password" required/>
-            <button type="submit">login</button>
-            <p class="message">Forgot your password? <a href="@Url.Action("ForgotPassword","Account")">Reset it here</a></p>
-            <p class="message">Not registered? <a href="@Url.Action("Register","Account")">Create an account</a></p>
-        </form>
-    </div>
-</div>
+@*<div class="login-page">
+        <div class="form">
+            <form class="login-form">
+                <input type="email" placeholder="username@louisville.edu" name="Email" required/>
+                <input type="password" placeholder="password" name="Password" required/>
+                <button type="submit">login</button>
+                <p class="message">Forgot your password? <a href="@Url.Action("ForgotPassword", "Account")">Reset it here</a></p>
+                <p class="message">Not registered? <a href="@Url.Action("Register", "Account")">Create an account</a></p>
+            </form>
+        </div>
+    </div>*@
                 
-           
 
+
+        
+<div class="row">
+    <div class="col-md-12">
+        <section id="loginForm" style="background-color:white; position: relative; margin: 0 auto 100px; padding: 65px;" >
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Log in" class="btn btn-default" />
+                    </div>
+                </div>
+                <p>
+                    @Html.ActionLink("Need an account?", "Register")
+                </p>
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    </p>
+            }
+        </section>
+        </div>
+    </div>
+ 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
