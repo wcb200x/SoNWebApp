@@ -33,14 +33,52 @@
                                 <li><p><a class="col-md-12" href="https://www.paypal.com">Donate Now &raquo;</a></p></li>
                                 <li><p><a class="col-md-12" href="http://louisville.edu/nursing/giving">Learn More &raquo;</a></p></li>
                             </ul>
+                            
                         </div>
-                    </li>
-                </ul>
+                        </ul>
+                        </div>
+                        @{
+                            if (User.IsInRole("Advisor"))
+                            {          <div class="list-inline">
+                                        <div class="navbar-collapse collapse" style="font-weight:bold; color:white">
+                                            <ul class="list-inline">
+                                                <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; margin-left: 40px; border-color: #AD0000;"><a href="/Student/StudentRecords"><font color="white">StudentRecords</font></a></div></li>
+                                                <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/Reports"><font color="white">Reports</font></a></div></li>
+                                                <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/CRM"><font color="white">CRM</font></a></div></li>
+                                                <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/Calendar"><font color="white">Calendar</font></a></div></li>
+                                                <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/Search"><font color="white">Search</font></a></div></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                   
+                           
+                            
+                            }}
+                        @{
+                            if (User.IsInRole("Student"))
+                            {
+                             
+                                    <div class="list-inline">
+                                        <div class="navbar-collapse collapse" style="font-weight:bold; color:white">
+                                            <ul class="list-inline">
+                                                <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; margin-left: 40px; border-color: #AD0000;"><a href="/Student/ClinicalCompliance"><font color="white">Clinical Compliance</font></a></div></li>
+                                                <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/ProgramOfStudy"><font color="white">Program of Study</font></a></div></li>
+                                                <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/Alerts"><font color="white">Alerts</font></a></div></li>
+                                                <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/Advisor"><font color="white">Advisor</font></a></div></li>
+                                                <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/Calendar"><font color="white">Calendar</font></a></div></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                               
+
+
+                            }}
+                  
                     @Html.Partial("_LoginPartial")
-                
-            </div>
+
+                </div>
         </div>
-    </div>
+    
   
 
     <div class="container body-content">
