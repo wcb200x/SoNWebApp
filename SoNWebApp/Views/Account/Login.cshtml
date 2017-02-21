@@ -118,8 +118,8 @@ body > div.container.body-content > footer {
 <div class="login-page">
     <div class="form">
         <form class="login-form">
-            <input type="email" placeholder="username@louisville.edu" />
-            <input type="password" placeholder="password" />
+            <input type="email" placeholder="username@louisville.edu" name="Email" required/>
+            <input type="password" placeholder="password" name="Password" required/>
             <button type="submit">login</button>
             <p class="message">Forgot your password? <a href="@Url.Action("ForgotPassword","Account")">Reset it here</a></p>
             <p class="message">Not registered? <a href="@Url.Action("Register","Account")">Create an account</a></p>
