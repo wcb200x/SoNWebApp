@@ -330,10 +330,12 @@
     <Content Include="Views\Student\ProgramOfStudy.cshtml" />
     <Content Include="Views\Student\Alerts.cshtml" />
     <Content Include="Views\Student\Advisor.cshtml" />
+    <Content Include="Views\Shared\AdminLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Alerts\" />
     <Folder Include="Views\Enrollment\Calendar\" />
   </ItemGroup>
   <ItemGroup>
