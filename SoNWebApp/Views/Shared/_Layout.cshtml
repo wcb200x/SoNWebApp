@@ -6,11 +6,102 @@
 
     <title>@ViewBag.Title University of Louisville School of Nursing</title>
 
+    @RenderSection("styles", required: false)
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/calendarstyles.css")
 
+    @Styles.Render("http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all")
+    @Styles.Render("~/Theme/assets/global/plugins/font-awesome/css/font-awesome.min.css")
+    @Styles.Render("~/Theme/assets/global/plugins/simple-line-icons/simple-line-icons.min.css")
+    @Styles.Render("~/Theme/assets/global/plugins/bootstrap/css/bootstrap.min.css")
+    @Styles.Render("~/Theme/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css")
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    @Styles.Render("~/Theme/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css")
+    @Styles.Render("~/Theme/assets/global/plugins/morris/morris.css")
+    @Styles.Render("~/Theme/assets/global/plugins/fullcalendar/fullcalendar.min.css")
+    @Styles.Render("~/Theme/assets/global/plugins/jqvmap/jqvmap/jqvmap.css")
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    @Styles.Render("~/Theme/assets/global/css/components.min.css")
+    @Styles.Render("~/Theme/assets/global/css/plugins.min.css")
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    @Styles.Render("~/Theme/assets/layouts/layout3/css/layout.min.css")
+    @Styles.Render("~/Theme/assets/layouts/layout3/css/themes/default.min.css")
+    @Styles.Render("~/Theme/assets/layouts/layout3/css/custom.min.css")
+
+    @Scripts.Render("~/Theme/assets/global/plugins/jquery.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/bootstrap/js/bootstrap.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/js.cookie.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/jquery.blockui.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js")
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    @Scripts.Render("~/Theme/assets/global/plugins/moment.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/morris/morris.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/morris/raphael-min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/counterup/jquery.waypoints.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/counterup/jquery.counterup.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/amcharts/amcharts/amcharts.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/amcharts/amcharts/serial.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/amcharts/amcharts/pie.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/amcharts/amcharts/radar.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/amcharts/amcharts/themes/light.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/amcharts/amcharts/themes/patterns.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/amcharts/amcharts/themes/chalk.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/amcharts/ammap/ammap.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/amcharts/ammap/maps/js/worldLow.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/amcharts/amstockcharts/amstock.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/fullcalendar/fullcalendar.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/horizontal-timeline/horizontal-timeline.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/flot/jquery.flot.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/flot/jquery.flot.resize.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/flot/jquery.flot.categories.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/jquery.sparkline.min.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js")
+    @Scripts.Render("~/Theme/assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js")
+
+
+    
+
+
+
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL SCRIPTS -->
+    @Scripts.Render("~/Theme/assets/global/scripts/app.min.js")
+    <!-- END THEME GLOBAL SCRIPTS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    @Scripts.Render("~/Theme/assets/pages/scripts/dashboard.min.js")
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <!-- BEGIN THEME LAYOUT SCRIPTS -->
+    @Scripts.Render("~/Theme/assets/layouts/layout3/scripts/layout.min.js")
+    @Scripts.Render("~/Theme/assets/layouts/layout3/scripts/demo.min.js")
+    @Scripts.Render("~/Theme/assets/layouts/global/scripts/quick-sidebar.min.js")
+    @Scripts.Render("~/Theme/assets/layouts/global/scripts/quick-nav.min.js")
+    <!-- END THEME LAYOUT SCRIPTS -->
+
+
+    <!-- END THEME LAYOUT STYLES -->
+    
 </head>
+
+
+
+
+
 <body>
+    <div class="row">
     <div class="navbar navbar-inverse navbar-fixed-top col-md-12">
         <div>
             <div class="navbar-header">
@@ -25,8 +116,8 @@
             <div class="navbar-collapse collapse" style="font-weight:bold;">
                 <ul class="nav navbar-nav">
                     <li>
-                       @{ if (!Context.User.Identity.IsAuthenticated)
-                           { 
+                       @*@{ if (!Context.User.Identity.IsAuthenticated)
+                           {*@ 
                         <div class="dropdown">
                             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 15px; background-color: #AD0000; margin-left: 40px; font-size: medium; border-color: #AD0000;">
                                 Donor
@@ -37,11 +128,11 @@
                             </ul>
 
                         </div>
-                           }}
+                           @*}}*@
                 
-            @{
+            @*@{
                 if (User.IsInRole("Advisor"))
-                {          <div class="list-inline">
+                {*@          <div class="list-inline">
                     <ul class="list-inline">
                         <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; margin-left: 40px; border-color: #AD0000;"><a href="/Advisor/StudentRecords"><font color="white">Student Records</font></a></div></li>
                         <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Advisor/Reports"><font color="white">Reports</font></a></div></li>
@@ -53,14 +144,15 @@
 
 
 
-                }}
-            @{
-                if (User.IsInRole("SuperAdmin"))
-                {
+                @*}}
+            @{*@
+                @*//if (User.IsInRole("SuperAdmin"))
+                //{*@
 
                     <div class="list-inline">
                             <ul class="list-inline">
                                 <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; margin-left: 40px; border-color: #AD0000;"><a href="/Student/ClinicalCompliance"><font color="white">Clinical Compliance</font></a></div></li>
+                                <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/Default"><font color="white">Dashboard</font></a></div></li>
                                 <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/ProgramOfStudy"><font color="white">Program of Study</font></a></div></li>
                                 <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/Alerts"><font color="white">Alerts</font></a></div></li>
                                 <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/Advisor"><font color="white">Advisor</font></a></div></li>
@@ -70,7 +162,7 @@
 
 
 
-                }}
+                @*}}*@
                        
             </ul>
                 @Html.Partial("_LoginPartial")
@@ -80,18 +172,38 @@
 
                 </div>
         </div>
-    
-  
-
-    <div class="container body-content">
-        @RenderBody()
-        <footer>
-            <p>&copy; @DateTime.Now.Year - University of Louisville School of Nursing</p>
-        </footer>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+  
+    <div class="row">
+        <div class="container body-content">
+            @RenderBody()
+        </div>
+        </div>
+
+        @*<div class="row">
+            <footer style="background-color: red; height: 100px; position: absolute; bottom:0; width: 100%; color: black; height: 10%;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p style="padding-left: 1%; padding-top: 2%;">&copy; @DateTime.Now.Year - University of Louisville School of Nursing</p>
+                    </div>
+                </div>
+            </footer>
+        </div>*@
+    <div class="page-footer" style="background-color: black;">
+        <div class="container">
+            2016 &copy; Metronic Theme By
+            <a target="_blank" href="http://keenthemes.com">Keenthemes</a> &nbsp;|&nbsp;
+            <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank"></a>
+        </div>
+    </div>
+    <div class="scroll-to-top">
+        <i class="icon-arrow-up"></i>
+    </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+
+
 </body>
 </html>
 

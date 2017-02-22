@@ -119,6 +119,10 @@ namespace SoNWebApp.Controllers
         {
             return View();
         }
+        public ActionResult Calendar()
+        {
+            return View();
+        }
         public ActionResult ClinicalCompliance()
         {
             return View();
@@ -128,6 +132,11 @@ namespace SoNWebApp.Controllers
             return View();
         }
         public ActionResult Alerts()
+        {
+            return View();
+        }
+
+        public ActionResult Default()
         {
             return View();
         }
