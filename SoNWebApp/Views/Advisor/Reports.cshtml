@@ -5,65 +5,68 @@
 }
 
 <div class="row">
-    <div class="container body-content">
-        <h2 style="text-align:center;">Reports</h2>
-        <table class="table" style="margin-left: auto; margin-right: auto;">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.StudentNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FirstName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.MiddleName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.LastName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.GPA)
-                </th>
-                <th>
-                    Program
-                </th>
-                <th>
-                    Semester
-                </th>
-                <th>
-                    Petitions
-                </th>
-            </tr>
-
-            @*@foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.StudentNumber)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FirstName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MiddleName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LastName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.GPA)
-                        </td>
-                        <td>
-                            Program
-                        </td>
-                        <td>
-                            Semester
-                        </td>
-                        <td>
-                            Petitions
-                        </td>
-                    </tr>
-                }*@
-        </table>
+    <div class="panel panel-danger">
+        <div class="panel-heading calendar-panel" style="color:white;padding-top: 25px; padding-bottom:25px">
+            <h2 style="text-align:center;">Reports</h2>
+            </div>
+        </div>
     </div>
-</div>
+            <table class="table" style="margin-left: auto; margin-right: auto; color: #000000;">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.StudentNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MiddleName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GPA)
+                    </th>
+                    <th>
+                        Program
+                    </th>
+                    <th>
+                        Semester
+                    </th>
+                    <th>
+                        Petitions
+                    </th>
+                </tr>
+
+                @*@foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StudentNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MiddleName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GPA)
+                            </td>
+                            <td>
+                                Program
+                            </td>
+                            <td>
+                                Semester
+                            </td>
+                            <td>
+                                Petitions
+                            </td>
+                        </tr>
+                    }*@
+            </table>
+      
