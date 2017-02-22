@@ -8,14 +8,24 @@
         <div class="panel-heading calendar-panel" style="color:white;padding-top: 25px; padding-bottom:25px">
          <h2 class="text-center" >Upcoming Events</h2> 
 </div>
+
         <div class="panel-body">
 
             <div>
-                @Html.DayPilotCalendar("dpc", new DayPilotCalendarConfig
-       {
-           BackendUrl = Url.Content("~/Calendar/Backend"),
-           ViewType = DayPilot.Web.Mvc.Enums.Calendar.ViewType.WorkWeek
-       })
+
+
+                <div class="note">
+                    <a href="javascript:dp.commandCallBack('previous');">Previous</a> |
+                    <a href="javascript:dp.commandCallBack('next');">Next</a>
+                </div>
+
+
+                @Html.DayPilotMonth("dp", new DayPilotMonthConfig
+           {
+               BackendUrl = Url.Content("~/Calendar/Backend"),
+
+           })
+         
 
           
             </div>
