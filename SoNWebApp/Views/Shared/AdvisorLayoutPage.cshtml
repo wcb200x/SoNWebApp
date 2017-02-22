@@ -1,42 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>@ViewBag.Title University of Louisville School of Nursing</title>
-
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top col-md-12">
-        <div>
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <img src="~/Content/Images/UofLSONLogo.png" alt="Louisville" />
-            </div>
-            <div class="list-inline">
-                <div class="navbar-collapse collapse" style="font-weight:bold; color:white">
-                    <ul class="list-inline">
-                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; margin-left: 40px; border-color: #AD0000;"><a href="/Advisor/StudentRecords"><font color="white">Student Records</font></a></div></li>
-                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Advisor/Reports"><font color="white">Reports</font></a></div></li>
-                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Advisor/CRM"><font color="white">CRM</font></a></div></li>
-                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Advisor/Calendar"><font color="white">Calendar</font></a></div></li>
-                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Advisor/Search"><font color="white">Search</font></a></div></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div>
         @RenderBody()
     </div>
-</body>
-</html>

@@ -1,12 +1,12 @@
 ﻿using DayPilot.Web.Mvc;
 using DayPilot.Web.Mvc.Enums;
-using DayPilot.Web.Mvc.Events.Calendar;
 using SoNWebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DayPilot.Web.Mvc.Events.Month;
 
 namespace SoNWebApp.Controllers
 {
@@ -20,23 +20,40 @@ namespace SoNWebApp.Controllers
 
         public ActionResult Backend()
         {
-            return new Dpc().CallBack(this);
+            return new Dpm().CallBack(this);
         }
-        class Dpc : DayPilotCalendar
+        class Dpm : DayPilotMonth
         {
             protected override void OnInit(InitArgs e)
             {
                 
                 var db = new ApplicationDbContext();
-                //Events = from ev in db.events select ev;
+                Events = from ev in db.Events select ev;
 
-                //DataIdField = "id";
-                //DataTextField = "text";
-                //DataStartField = "eventstart";
-                //DataEndField = "eventend";
+                DataIdField = "id";
+                DataTextField = "text";
+                DataStartField = "eventstart";
+                DataEndField = "eventend";
 
-                //Update();
+                Update();
             }
+            protected override void OnCommand(CommandArgs e)
+            {
+                switch (e.Command)
+                {
+                    case "previous":
+                        StartDate = StartDate.AddMonths(-1);
+                        Update(CallBackUpdateType.Full);
+                        break;
+
+                    case "next":
+                        StartDate = StartDate.AddMonths(1);
+                        Update(CallBackUpdateType.Full);
+                        break;
+                }
+            }
+
+     
         }
     }
 }
