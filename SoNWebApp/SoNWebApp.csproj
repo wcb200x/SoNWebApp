@@ -227,6 +227,13 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="TestSql.aspx.cs">
+      <DependentUpon>TestSql.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestSql.aspx.designer.cs">
+      <DependentUpon>TestSql.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\DayPilot.Web.Mvc.dll" />
@@ -258,6 +265,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="TestSql.aspx" />
     <Content Include="Theme\assets\apps\css\inbox.css" />
     <Content Include="Theme\assets\apps\css\inbox.min.css" />
     <Content Include="Theme\assets\apps\css\ticket.css" />
