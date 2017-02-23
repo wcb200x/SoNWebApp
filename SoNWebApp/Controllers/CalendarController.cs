@@ -18,42 +18,42 @@ namespace SoNWebApp.Controllers
             return View();
         }
 
-        public ActionResult Backend()
-        {
-            return new Dpm().CallBack(this);
-        }
-        class Dpm : DayPilotMonth
-        {
-            protected override void OnInit(InitArgs e)
-            {
+        //public ActionResult Backend()
+        //{
+        //    return new Dpm().CallBack(this);
+        //}
+        //class Dpm : DayPilotMonth
+        //{
+        //    protected override void OnInit(InitArgs e)
+        //    {
                 
-                var db = new ApplicationDbContext();
-                Events = from ev in db.Events select ev;
+        //        var db = new ApplicationDbContext();
+        //        Events = from ev in db.Events select ev;
 
-                DataIdField = "id";
-                DataTextField = "text";
-                DataStartField = "eventstart";
-                DataEndField = "eventend";
+        //        DataIdField = "id";
+        //        DataTextField = "text";
+        //        DataStartField = "eventstart";
+        //        DataEndField = "eventend";
 
-                Update();
-            }
-            protected override void OnCommand(CommandArgs e)
-            {
-                switch (e.Command)
-                {
-                    case "previous":
-                        StartDate = StartDate.AddMonths(-1);
-                        Update(CallBackUpdateType.Full);
-                        break;
+        //        Update();
+        //    }
+        //    protected override void OnCommand(CommandArgs e)
+        //    {
+        //        switch (e.Command)
+        //        {
+        //            case "previous":
+        //                StartDate = StartDate.AddMonths(-1);
+        //                Update(CallBackUpdateType.Full);
+        //                break;
 
-                    case "next":
-                        StartDate = StartDate.AddMonths(1);
-                        Update(CallBackUpdateType.Full);
-                        break;
-                }
-            }
+        //            case "next":
+        //                StartDate = StartDate.AddMonths(1);
+        //                Update(CallBackUpdateType.Full);
+        //                break;
+        //        }
+        //    }
 
      
-        }
+        //}
     }
 }

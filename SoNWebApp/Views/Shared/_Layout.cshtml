@@ -116,8 +116,8 @@
             <div class="navbar-collapse collapse" style="font-weight:bold;">
                 <ul class="nav navbar-nav">
                     <li>
-                       @*@{ if (!Context.User.Identity.IsAuthenticated)
-                           {*@ 
+                       @{ if (!Context.User.Identity.IsAuthenticated)
+                           {
                         <div class="dropdown">
                             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 15px; background-color: #AD0000; margin-left: 40px; font-size: medium; border-color: #AD0000;">
                                 Donor
@@ -128,11 +128,11 @@
                             </ul>
 
                         </div>
-                           @*}}*@
+                           }}
                 
-            @*@{
+            @{
                 if (User.IsInRole("Advisor"))
-                {*@          <div class="list-inline">
+                {         <div class="list-inline">
                     <ul class="list-inline">
                         <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; margin-left: 40px; border-color: #AD0000;"><a href="/Advisor/StudentRecords"><font color="white">Student Records</font></a></div></li>
                         <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Advisor/Reports"><font color="white">Reports</font></a></div></li>
@@ -144,10 +144,10 @@
 
 
 
-                @*}}
-            @{*@
-                @*//if (User.IsInRole("SuperAdmin"))
-                //{*@
+                }}
+            @{
+                if (User.IsInRole("SuperAdmin"))
+                {
 
                     <div class="list-inline">
                             <ul class="list-inline">
@@ -162,7 +162,7 @@
 
 
 
-                @*}}*@
+                }}
                        
             </ul>
                 @Html.Partial("_LoginPartial")
@@ -181,7 +181,7 @@
         </div>
 
         @*<div class="row">
-            <footer style="background-color: red; height: 100px; position: absolute; bottom:0; width: 100%; color: black; height: 10%;">
+            <footer style="height: 100px; position: absolute; bottom:0; width: 100%; color: black; height: 10%;">
                 <div class="row">
                     <div class="col-md-12">
                         <p style="padding-left: 1%; padding-top: 2%;">&copy; @DateTime.Now.Year - University of Louisville School of Nursing</p>
@@ -191,9 +191,7 @@
         </div>*@
     <div class="page-footer" style="background-color: black;">
         <div class="container">
-            2016 &copy; Metronic Theme By
-            <a target="_blank" href="http://keenthemes.com">Keenthemes</a> &nbsp;|&nbsp;
-            <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank"></a>
+            &copy; @DateTime.Now.Year - University of Louisville School of Nursing</p>
         </div>
     </div>
     <div class="scroll-to-top">
