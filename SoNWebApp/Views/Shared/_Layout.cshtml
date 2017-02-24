@@ -129,6 +129,46 @@
 
                         </div>
                            }}
+                        @{
+                            if (User.IsInRole("SuperAdmin"))
+                            {
+
+                                <div class="list-inline">
+                                    <ul class="list-inline">
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; margin-left: 40px; border-color: #AD0000;"><a href="/Admin/Home"><font color="white">Home</font></a></div></li>
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Admin/Calendar"><font color="white">Calendar</font></a></div></li>
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Admin/Import"><font color="white">Import</font></a></div></li>
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Admin/Export"><font color="white">Export</font></a></div></li>
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Admin/Reports"><font color="white">Reports</font></a></div></li>
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Admin/ManageUsers"><font color="white">Manage Users</font></a></div></li>
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Admin/ManageAlerts"><font color="white">Manage Alerts</font></a></div></li>
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Admin/DatabaseAdmin"><font color="white">Db Admin</font></a></div></li>
+                                    </ul>
+                                </div>
+
+
+
+                            }}
+                        @{
+                            if (User.IsInRole("Admin"))
+                            {
+
+                                <div class="list-inline">
+                                    <ul class="list-inline">
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; margin-left: 40px; border-color: #AD0000;"><a href="/Admin/Home"><font color="white">Home</font></a></div></li>
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Admin/Calendar"><font color="white">Calendar</font></a></div></li>
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Admin/Import"><font color="white">Import</font></a></div></li>
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Admin/Export"><font color="white">Export</font></a></div></li>
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Admin/Reports"><font color="white">Reports</font></a></div></li>
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Admin/ManageUsers"><font color="white">Manage Users</font></a></div></li>
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Admin/ManageAlerts"><font color="white">Manage Alerts</font></a></div></li>
+                                        <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Admin/DatabaseAdmin"><font color="white">Db Admin</font></a></div></li>
+                                    </ul>
+                                </div>
+
+
+
+                            }}
                 
             @{
                 if (User.IsInRole("Advisor"))
@@ -146,7 +186,7 @@
 
                 }}
             @{
-                if (User.IsInRole("SuperAdmin"))
+                if (User.IsInRole("Student"))
                 {
 
                     <div class="list-inline">
@@ -180,23 +220,23 @@
         </div>
         </div>
 
-        @*<div class="row">
+        <div class="page-footer-copyright">
             <footer style="height: 100px; position: absolute; bottom:0; width: 100%; color: black; height: 10%;">
-                <div class="row">
+                <div class="container">
                     <div class="col-md-12">
                         <p style="padding-left: 1%; padding-top: 2%;">&copy; @DateTime.Now.Year - University of Louisville School of Nursing</p>
                     </div>
                 </div>
             </footer>
-        </div>*@
-    <div class="page-footer" style="background-color: black;">
+        </div>
+    @*<div class="page-footer" style="background-color: transparent; color: black; position: absolute; bottom:0; width: 100%; font-weight: 500;">
         <div class="container">
           <p>  &copy; @DateTime.Now.Year - University of Louisville School of Nursing</p>
         </div>
     </div>
     <div class="scroll-to-top">
         <i class="icon-arrow-up"></i>
-    </div>
+    </div>*@
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)

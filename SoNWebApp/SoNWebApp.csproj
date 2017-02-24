@@ -6036,12 +6036,17 @@
     <Content Include="Theme\assets\global\plugins\wysihtml\minified\wysihtml.toolbar.min.map" />
     <Content Include="Views\Student\Calendar.cshtml" />
     <Content Include="Views\Student\Default.cshtml" />
+    <Content Include="Views\Admin\Calendar.cshtml" />
+    <Content Include="Views\Admin\ManageUsers.cshtml" />
+    <Content Include="Views\Admin\Reports.cshtml" />
+    <Content Include="Views\Admin\ManageAlerts.cshtml" />
+    <Content Include="Views\Admin\DatabaseAdmin.cshtml" />
+    <Content Include="Views\Admin\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Theme\assets\apps\img\" />
     <Folder Include="Theme\assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
-    <Folder Include="Views\Admin\" />
     <Folder Include="Views\Alerts\" />
     <Folder Include="Views\Enrollment\Calendar\" />
   </ItemGroup>
