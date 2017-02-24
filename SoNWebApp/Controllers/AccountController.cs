@@ -79,7 +79,29 @@ namespace SoNWebApp.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    var user = await UserManager.FindAsync(model.Email, model.Password);
+                    var roles = await UserManager.GetRolesAsync(user.Id);
+
+                    if (roles.Contains("SuperAdmin"))
+                    {
+                        return RedirectToAction("Home", "Admin");
+                    }
+                    else if (roles.Contains("Admin"))
+                    {
+                        return RedirectToAction("Home", "Admin");
+                    }
+                    else if (roles.Contains("Advisor"))
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else if (roles.Contains("Studnet"))
+                    {
+                        return RedirectToAction("StudentDashboard", "Student");
+                    }
+                    else
+                    {
+                        return RedirectToLocal(returnUrl);
+                    }
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
