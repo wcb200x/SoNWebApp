@@ -6,8 +6,42 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div>
-        @RenderBody()
+    <div class="row">
+        <div class="navbar navbar-inverse navbar-fixed-top col-md-12">
+            <div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="@Url.Action("Home","Admin")"><img src="~/Content/Images/UofLSONLogo.png" alt="Louisville" /></a>
+                </div>
+
+                @Html.Partial("_LoginPartial")
+</div>
+            </div>
+        </div>
+                <div>
+                    @RenderBody()
+                </div>
+
+    <div class="page-footer-copyright">
+        <footer style="height: 100px; position: absolute; bottom:0; width: 100%; color: black; height: 10%;">
+            <div class="row">
+                <div class="col-md-12">
+                    <p style="padding-left: 1%; padding-top: 2%;">&copy; @DateTime.Now.Year - University of Louisville School of Nursing</p>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
+
+
+
+
 </html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
