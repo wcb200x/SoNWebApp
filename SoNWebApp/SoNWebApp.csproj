@@ -6036,6 +6036,7 @@
     <Content Include="Theme\assets\global\plugins\wysihtml\minified\wysihtml.toolbar.min.map" />
     <Content Include="Views\Student\Calendar.cshtml" />
     <Content Include="Views\Student\Default.cshtml" />
+    <Content Include="Views\Advisor\Default.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
