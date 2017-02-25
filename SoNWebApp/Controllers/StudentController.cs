@@ -15,9 +15,14 @@ namespace SoNWebApp.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Student
+        [Authorize]
         public ActionResult Index()
         {
-            return View(db.Students.ToList());
+            var name = HttpContext.User.Identity.Name;
+
+            var studentRecord = db.Students.Where(s => s.EmailAddress.ToLower().Contains(name)).FirstOrDefault();
+
+            return View(studentRecord);
         }
 
         // GET: Student/Details/5

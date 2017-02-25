@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SoNWebApp.Models.Student>
+﻿@model SoNWebApp.Models.Student
 
 <style>
     .column {
@@ -9,7 +9,7 @@
     /*/*for demo purposes only */
     /*background: #f2f2f2;
     border: 1px solid #e6e6e6;
-    box-sizing: border-box;*/*/
+    box-sizing: border-box;*/
 }
 
 .column-offset-1 {
@@ -27,9 +27,7 @@
     ViewBag.Title = "Index";
 }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <div class="panel">
     <div class="panel-body">
         <div class="column column-one column-offset-1">
@@ -43,11 +41,9 @@
                     </td>
                     <td>
 
-                        @foreach (var item in Model)
-                        {
-                            @Html.DisplayFor(modelItem => item.StudentNumber)
-                        }
+                            @Html.DisplayFor(model => model.StudentNumber)
                     </td>
+                    </tr>
                 <tr>
                     <td>
                         <b>
@@ -55,10 +51,20 @@
                         </b>
                     </td>
                     <td>
-                        @foreach (var item in Model)
-                        {
-                            @Html.DisplayFor(modelItem => item.FirstName)
-                        }
+
+                            @Html.DisplayFor(model => model.FirstName)
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>
+                            @Html.DisplayNameFor(model => model.MiddleName)
+                        </b>
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(model => model.MiddleName)
                     </td>
                 </tr>
                 <tr>
@@ -68,10 +74,18 @@
                         </b>
                     </td>
                     <td>
-                        @foreach (var item in Model)
-                        {
-                            @Html.DisplayFor(modelItem => item.LastName)
-                        }
+                            @Html.DisplayFor(model => model.LastName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>
+                            @Html.DisplayNameFor(model => model.EmailAddress)
+                        </b>
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(model => model.EmailAddress)
                     </td>
                 </tr>
                 <tr>
@@ -81,10 +95,8 @@
                         </b>
                     </td>
                     <td>
-                        @foreach (var item in Model)
-                        {
-                            @Html.DisplayFor(modelItem => item.Address)
-                        }
+                            @Html.DisplayFor(model => model.Address)
+
                     </td>
                 </tr>
                 <tr>
@@ -94,10 +106,7 @@
                         </b>
                     </td>
                     <td>
-                        @foreach (var item in Model)
-                        {
-                            @Html.DisplayFor(modelItem => item.City)
-                        }
+                            @Html.DisplayFor(model => model.City)
                     </td>
                 </tr>
                 <tr>
@@ -107,10 +116,7 @@
                         </b>
                     </td>
                     <td>
-                        @foreach (var item in Model)
-                        {
-                            @Html.DisplayFor(modelItem => item.State)
-                        }
+                            @Html.DisplayFor(model => model.State)
                     </td>
                 </tr>
                 <tr>
@@ -120,10 +126,7 @@
                         </b>
                     </td>
                     <td>
-                        @foreach (var item in Model)
-                        {
-                            @Html.DisplayFor(modelItem => item.PhoneNumber)
-                        }
+                            @Html.DisplayFor(model => model.PhoneNumber)
                     </td>
                 </tr>
                 <tr>
@@ -133,10 +136,7 @@
                         </b>
                     </td>
                     <td>
-                        @foreach (var item in Model)
-                        {
-                            @Html.DisplayFor(modelItem => item.EnrollmentDate)
-                        }
+                            @Html.DisplayFor(model => model.EnrollmentDate)
                     </td>
                 </tr>
                 <tr>
@@ -146,21 +146,25 @@
                         </b>
                     </td>
                     <td>
-                        @foreach (var item in Model)
-                        {
-                            @Html.DisplayFor(modelItem => item.Standing)
-                        }
+                            @Html.DisplayFor(model => model.Standing)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Actions</b>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit Student", "Edit")
                     </td>
                 </tr>
             </table>
-            @foreach (var item in Model)
-            {
+            @*{
                 <div class="bottom-right">
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                 </div>
-            }
+            }*@
 
         </div>
         <div class="column column-two column-offset-2">
