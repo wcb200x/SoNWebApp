@@ -46,26 +46,61 @@ namespace SoNWebApp
             //// creating Creating Manager role    
             if (!roleManager.RoleExists("Admin"))
             {
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                var role = new IdentityRole();
                 role.Name = "Admin";
                 roleManager.Create(role);
-             
+
+                var user = new ApplicationUser();
+                user.UserName = "admin1@email.com"; //Use same UserName and Email for simplicity. 
+                user.Email = "admin1@email.com";    //Else you will need to modify the login action in the AccountController
+                string userPWD = "Welcome1";
+
+                var chkUser = UserManager.Create(user, userPWD);
+
+                if (chkUser.Succeeded)
+                {
+                    var result = UserManager.AddToRole(user.Id, "Admin");
+                }
+
             }
 
             //// creating Creating Employee role    
             if (!roleManager.RoleExists("Advisor"))
             {
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                var role = new IdentityRole();
                 role.Name = "Advisor";
                 roleManager.Create(role);
-         
+
+                var user = new ApplicationUser();
+                user.UserName = "advisor@email.com"; //Use same UserName and Email for simplicity. 
+                user.Email = "advisor@email.com";    //Else you will need to modify the login action in the AccountController
+                string userPWD = "Welcome1";
+
+                var chkUser = UserManager.Create(user, userPWD);
+
+                if (chkUser.Succeeded)
+                {
+                    var result = UserManager.AddToRole(user.Id, "Advisor");
+                }
 
             }
             if (!roleManager.RoleExists("Student"))
             {
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                var role = new IdentityRole();
                 role.Name = "Student";
-                roleManager.Create(role);            
+                roleManager.Create(role);
+
+                var user = new ApplicationUser();
+                user.UserName = "student@email.com"; //Use same UserName and Email for simplicity. 
+                user.Email = "student@email.com";    //Else you will need to modify the login action in the AccountController
+                string userPWD = "Welcome1";
+
+                var chkUser = UserManager.Create(user, userPWD);
+
+                if (chkUser.Succeeded)
+                {
+                    var result = UserManager.AddToRole(user.Id, "Student");
+                }
 
             }
 

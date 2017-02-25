@@ -29,5 +29,9 @@ namespace SoNWebApp.Controllers
         {
             return View();
         }
+        public ActionResult StudentReport()
+        {
+            return View();
+        }
     }
 }

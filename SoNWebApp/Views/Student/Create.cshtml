@@ -96,12 +96,11 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Standing, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Standing)
+                    @Html.EditorFor(model => model.Standing, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Standing, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>
+        
 
         <div class="form-group">
             @Html.LabelFor(model => model.HasGraduated, htmlAttributes: new { @class = "control-label col-md-2" })

@@ -149,7 +149,10 @@ namespace SoNWebApp.Controllers
         {
             return View();
         }
-
+        public ActionResult StudentReport()
+        {
+            return View(db.Students.ToList());
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
