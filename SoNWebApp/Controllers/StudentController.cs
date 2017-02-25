@@ -143,16 +143,17 @@ namespace SoNWebApp.Controllers
 
         public ActionResult Default()
         {
-            return View();
+            var name = HttpContext.User.Identity.Name;
+
+            var studentRecord = db.Students.Where(s => s.EmailAddress.ToLower().Contains(name)).FirstOrDefault();
+
+            return View(studentRecord);
         }
         public ActionResult ProgramOfStudy()
         {
             return View();
         }
-        public ActionResult StudentReport()
-        {
-            return View(db.Students.ToList());
-        }
+   
         protected override void Dispose(bool disposing)
         {
             if (disposing)
