@@ -15,12 +15,18 @@ namespace SoNWebApp.Controllers
         {
             return View();
         }
-        public ActionResult CRM(string sortOrder)
+        public ActionResult CRM(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.GPASortParm = sortOrder == "GPA" ? "GPA_desc" : "GPA";
             var students = from s in db.Students
                            select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.LastName.Contains(searchString)
+                                              || s.FirstName.Contains(searchString)
+                                              || s.StudentNumber.ToString().Contains(searchString));
+            }
             switch (sortOrder)
             {
                 case "name_desc":

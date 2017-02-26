@@ -11,6 +11,17 @@
         </div>
     </div>
 </div>
+
+<button class="btn btn-primary col-md-2 pull-left" style="background:#AD0000; margin-bottom: 5px;" onclick="location.href='@Url.Action("Create", "Student")'">Create New</button>
+<div class="row" style="margin-left:700px;">
+@using (Html.BeginForm())
+{
+    <p>
+        Search by name or number: @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+    </div>
 <div class="row">
     <table class="table" style="color: #000000;">
         <tr>
@@ -53,9 +64,8 @@
             <th>
                 @Html.ActionLink("GPA", "CRM", new { sortOrder = ViewBag.GPASortParm })
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CampusID)
-            </th>
+            <th></th>
+           
         </tr>
         @foreach (var item in Model)
         {
@@ -99,13 +109,11 @@
                 <td>
                     @Html.DisplayFor(model => item.GPA)
                 </td>
+             
                 <td>
-                    @Html.DisplayFor(model => item.CampusID)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", "Student" ,new {ID = item.ID })
-                    @Html.ActionLink("Details", "Details", new { ID = item.ID })
-                    @Html.ActionLink("Delete", "Delete", new { ID = item.ID })
+                    @Html.ActionLink("Edit", "Edit", "Student", new {ID = item.ID }, false)
+                    @Html.ActionLink("Details", "Details", "Student", new { ID = item.ID }, false)
+                    @Html.ActionLink("Delete", "Delete", "Student", new { ID = item.ID }, false)
                 </td>
             </tr>
         }
