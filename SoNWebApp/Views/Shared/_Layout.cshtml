@@ -6,13 +6,13 @@
 
     <title>@ViewBag.Title University of Louisville School of Nursing</title>
 
-</head>
 
 
 
 
 
-<body>
+
+
     <div class="row">
     <div class="navbar navbar-inverse navbar-fixed-top col-md-12">
         <div>
@@ -125,22 +125,20 @@
                 </div>
         </div>
     </div>
-  
+  </head>
+
+<body>
     <div class="row">
         <div class="container body-content">
             @RenderBody()
         </div>
         </div>
-
-        <div class="page-footer-copyright">
-            <footer style="height: 30px; position: absolute; bottom:initial; width: 100%; color: black; height: 0%; margin-left: inherit;">
-                <div class="container">
-                    <div class="col-md-12">
-                        <p style="padding-left: 0%; padding-top: inherit;">&copy; @DateTime.Now.Year - University of Louisville School of Nursing</p>
-                    </div>
-                </div>
+    <div class="row">
+            <footer style="height: 30px; width: 100%; color: black;">
+                        <p>&copy; @DateTime.Now.Year - University of Louisville School of Nursing</p>
             </footer>
-        </div>
+    </div>
+        
 
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")

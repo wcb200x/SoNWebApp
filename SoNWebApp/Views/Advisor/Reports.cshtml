@@ -3,14 +3,25 @@
     Layout = "~/Views/Shared/AdvisorLayoutPage.cshtml";
 }
 
-<div class="row">
+<div class="col-md-8" style="margin-left: 200px;">
     <div class="panel panel-danger">
-        <div class="panel-heading calendar-panel" style="color:white;padding-top: 25px; padding-bottom:25px">
+        <div class="panel-heading reports-panel" style="color:white;padding-top: 25px; padding-bottom:25px">
             <h2 style="text-align:center;">Reports</h2>
             </div>
         </div>
-    </div>
-       
+    
 
-@Html.ActionLink("Student GPA Report", "GPAReport", new {gpaThreshold = 3.0M })
-      
+<div class="panel-body" style="border: 5px solid black;">
+<div class="col-md-4"> 
+<p>@Html.ActionLink("Students above 2.0 GPA", "GPAReport", new { gpaThreshold = 2.0M })</p>
+<p>@Html.ActionLink("Students above 2.8 GPA", "GPAReport", new { gpaThreshold = 2.8M })</p>
+<p>@Html.ActionLink("Students above 3.0 GPA", "GPAReport", new {gpaThreshold = 3.0M })</p>
+<p>@Html.ActionLink("Students above 3.5 GPA", "GPAReport", new { gpaThreshold = 3.5M })</p>
+</div>
+<div class="col-md-4" style="margin-left:50px;">
+<p>@Html.ActionLink("All Students", "StudentReport")</p>
+   
+
+</div>
+</div>
+</div>

@@ -3,7 +3,7 @@
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
+ /*Set padding to keep content from hitting the edges*/ 
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -62,3 +62,4 @@ body > div.navbar.navbar-inverse.navbar-fixed-top > div.container{
 .panel-danger>.panel-heading {
 background-color: #AD0000;
 }
+

@@ -1,5 +1,28 @@
-﻿@{
+﻿@model SoNWebApp.Models.Student
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
+<div class="col-md-8" style="margin-left: 200px;">
+    <div class="panel panel-danger">
+        <div class="panel-heading reports-panel" style="color:white;padding-top: 25px; padding-bottom:25px">
+            <h2 style="text-align:center;">Reports</h2>
+        </div>
+    </div>
+
+
+    <div class="panel-body" style="border: 5px solid black;">
+        <div class="col-md-4">
+            <p>@Html.ActionLink("Students above 2.0 GPA", "GPAReport","Advisor", new { gpaThreshold = 2.0M }, false)</p>
+            <p>@Html.ActionLink("Students above 2.8 GPA", "GPAReport", "Advisor", new { gpaThreshold = 2.8M }, false)</p>
+            <p>@Html.ActionLink("Students above 3.0 GPA", "GPAReport", "Advisor", new { gpaThreshold = 3.0M }, false)</p>
+            <p>@Html.ActionLink("Students above 3.5 GPA", "GPAReport", "Advisor", new { gpaThreshold = 3.5M }, false)</p>
+        </div>
+        <div class="col-md-4" style="margin-left:50px;">
+            <p>@Html.ActionLink("All Students", "StudentReport", "Advisor",false,false)</p>
+
+
+        </div>
+    </div>
+</div>
