@@ -85,7 +85,7 @@ namespace SoNWebApp.Controllers
             {
                 db.Entry(student).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Default");
             }
             return View(student);
         }

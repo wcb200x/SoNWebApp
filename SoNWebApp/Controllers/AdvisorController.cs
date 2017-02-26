@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace SoNWebApp.Controllers
 {
+    [Authorize (Roles = ("Advisor,Admin,SuperAdmin"))]
     public class AdvisorController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

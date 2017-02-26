@@ -1,11 +1,19 @@
-﻿@*@model IEnumerable<SoNWebApp.Models.Student>
+﻿@model IEnumerable<SoNWebApp.Models.Student>
+
 @{
-    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdvisorLayoutPage.cshtml";
 }
 
-<h2>Index</h2>
-<button class="btn btn-primary col-md-2 pull-left" style="background:#AD0000; margin-bottom: 5px;" onclick="location.href='@Url.Action("Create", "Student")'">Create New</button>
-<table class="table">
+<div class="row">
+    <div class="panel panel-danger">
+        <div class="panel-heading stureport-panel" style="color:white;padding-top: 25px; padding-bottom:25px; ">
+            <h2 style="text-align:center;">Student Report</h2>
+        </div>
+    </div>
+</div>
+<div class="panel-body">
+
+<table class="table" style="color: #000000; ">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.StudentNumber)
@@ -17,7 +25,7 @@
             @Html.DisplayNameFor(model => model.MiddleName)
         </th>
         <th>
-            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+            @Html.DisplayNameFor(model => model.LastName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Address)
@@ -49,60 +57,54 @@
         <th>
             @Html.DisplayNameFor(model => model.CampusID)
         </th>
-        <th></th>
-    </tr>
-
+        </tr>
     @foreach (var item in Model)
     {
         <tr>
             <td>
-                @Html.DisplayFor(model => item.StudentNumber)
+                    @Html.DisplayFor(modelitem => item.StudentNumber) 
             </td>
             <td>
-                @Html.DisplayFor(model => item.FirstName)
+                    @Html.DisplayFor(model => item.FirstName) 
             </td>
             <td>
-                @Html.DisplayFor(model => item.MiddleName)
+                    @Html.DisplayFor(model => item.MiddleName) 
             </td>
             <td>
-                @Html.DisplayFor(model => item.LastName)
+                    @Html.DisplayFor(model => item.LastName) 
             </td>
             <td>
-                @Html.DisplayFor(model => item.Address)
+                    @Html.DisplayFor(model => item.Address) 
             </td>
             <td>
-                @Html.DisplayFor(model => item.City)
+                    @Html.DisplayFor(model => item.City) 
             </td>
             <td>
-                @Html.DisplayFor(model => item.State)
+                    @Html.DisplayFor(model => item.State) 
             </td>
             <td>
-                @Html.DisplayFor(model => item.ZipCode)
+                    @Html.DisplayFor(model => item.ZipCode) 
             </td>
             <td>
-                @Html.DisplayFor(model => item.PhoneNumber)
+                    @Html.DisplayFor(model => item.PhoneNumber) 
             </td>
             <td>
-                @Html.DisplayFor(model => item.EmailAddress)
+                    @Html.DisplayFor(model => item.EmailAddress) 
             </td>
             <td>
-                @Html.DisplayFor(model => item.EnrollmentDate)
+                    @Html.DisplayFor(model => item.EnrollmentDate) 
             </td>
             <td>
-                @Html.DisplayFor(model => item.Standing)
+                    @Html.DisplayFor(model => item.Standing) 
             </td>
             <td>
-                @Html.DisplayFor(model => item.GPA)
+                    @Html.DisplayFor(model => item.GPA) 
             </td>
             <td>
-                @Html.DisplayFor(model => item.CampusID)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", "Advisor", new { ID = item.ID }) 
-                @Html.ActionLink("Details", "Details", new { ID = item.ID })
-                @Html.ActionLink("Delete", "Delete", new { ID = item.ID })
+
+                    @Html.DisplayFor(model => item.CampusID) 
             </td>
         </tr>
     }
-
-</table>*@
+</table>
+    </div>
