@@ -221,22 +221,15 @@
         </div>
 
         <div class="page-footer-copyright">
-            <footer style="height: 30px; position: absolute; bottom:30px; width: 100%; color: black; height: 10%; margin-left: inherit;">
+            <footer style="height: 30px; position: absolute; bottom:initial; width: 100%; color: black; height: 0%; margin-left: inherit;">
                 <div class="container">
                     <div class="col-md-12">
-                        <p style="padding-left: 0%; padding-top: 30%;">&copy; @DateTime.Now.Year - University of Louisville School of Nursing</p>
+                        <p style="padding-left: 0%; padding-top: inherit;">&copy; @DateTime.Now.Year - University of Louisville School of Nursing</p>
                     </div>
                 </div>
             </footer>
         </div>
-    @*<div class="page-footer" style="background-color: transparent; color: black; position: absolute; bottom:0; width: 100%; font-weight: 500;">
-        <div class="container">
-          <p>  &copy; @DateTime.Now.Year - University of Louisville School of Nursing</p>
-        </div>
-    </div>
-    <div class="scroll-to-top">
-        <i class="icon-arrow-up"></i>
-    </div>*@
+
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)

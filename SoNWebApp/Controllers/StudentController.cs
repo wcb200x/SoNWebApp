@@ -18,25 +18,21 @@ namespace SoNWebApp.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var name = HttpContext.User.Identity.Name;
-
-            var studentRecord = db.Students.Where(s => s.EmailAddress.ToLower().Contains(name)).FirstOrDefault();
-
-            return View(studentRecord);
+            return View(db.Students.ToList());
         }
 
         // GET: Student/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Student student = db.Students.Find(id);
-            if (student == null)
-            {
-                return HttpNotFound();
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            Student student = db.Students.FirstOrDefault(s => s.ID == id);
+            //if (student == null)
+            //{
+            //    return HttpNotFound();
+            //}
             return View(student);
         }
 
@@ -66,15 +62,15 @@ namespace SoNWebApp.Controllers
         // GET: Student/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Student student = db.Students.Find(id);
-            if (student == null)
-            {
-                return HttpNotFound();
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            Student student = db.Students.FirstOrDefault(s => s.ID == id);
+            //if (student == null)
+            //{
+            //    return HttpNotFound();
+            //}
             return View(student);
         }
 
@@ -97,15 +93,15 @@ namespace SoNWebApp.Controllers
         // GET: Student/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Student student = db.Students.Find(id);
-            if (student == null)
-            {
-                return HttpNotFound();
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            Student student = db.Students.FirstOrDefault(s => s.ID == id);
+            //if (student == null)
+            //{
+            //    return HttpNotFound();
+            //}
             return View(student);
         }
 

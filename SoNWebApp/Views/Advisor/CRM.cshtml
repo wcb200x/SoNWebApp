@@ -1,5 +1,113 @@
-﻿@{
+﻿@model IEnumerable<SoNWebApp.Models.Student>
+
+@{
     Layout = "~/Views/Shared/AdvisorLayoutPage.cshtml";
 }
 
-
+<div class="row">
+    <div class="panel panel-danger">
+        <div class="panel-heading calendar-panel" style="color:white;padding-top: 25px; padding-bottom:25px">
+            <h2 style="text-align:center;">CRM</h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <table class="table" style="color: #000000;">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentNumber)
+            </th>
+            <th>
+                @Html.ActionLink("LastName", "CRM", new { sortOrder = ViewBag.NameSortParm })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MiddleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnrollmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Standing)
+            </th>
+            <th>
+                @Html.ActionLink("GPA", "CRM", new { sortOrder = ViewBag.GPASortParm })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CampusID)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.StudentNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.MiddleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.ZipCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.EmailAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.EnrollmentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Standing)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.GPA)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.CampusID)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Student" ,new {ID = item.ID })
+                    @Html.ActionLink("Details", "Details", new { ID = item.ID })
+                    @Html.ActionLink("Delete", "Delete", new { ID = item.ID })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

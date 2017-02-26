@@ -96,7 +96,7 @@ namespace SoNWebApp.Controllers
                     }
                     else if (roles.Contains("Studnet"))
                     {
-                        return RedirectToAction("StudentDashboard", "Student");
+                        return RedirectToAction("Default", "Student");
                     }
                     else
                     {

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SoNWebApp.Models;
 
 namespace SoNWebApp.Controllers
 {
@@ -16,9 +15,29 @@ namespace SoNWebApp.Controllers
         {
             return View();
         }
-        public ActionResult CRM()
+        public ActionResult CRM(string sortOrder)
         {
-            return View();
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.GPASortParm = sortOrder == "GPA" ? "GPA_desc" : "GPA";
+            var students = from s in db.Students
+                           select s;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    students = students.OrderByDescending(s => s.LastName);
+                    break;
+                case "GPA":
+                    students = students.OrderBy(s => s.GPA);
+                    break;
+                case "GPA_desc":
+                    students = students.OrderByDescending(s => s.GPA);
+                    break;
+                default:
+                    students = students.OrderBy(s => s.LastName);
+                    break;
+            }
+
+            return View(students.ToList());
         }
         public ActionResult Reports()
         {
@@ -36,10 +55,11 @@ namespace SoNWebApp.Controllers
         {
             return View(db.Students.ToList());
         }
-        //public ActionResult GPAReport(Decimal 3.5)
-        //{
-        //    var student = db.Students.Where(s => s.GPA >= 3.5M).ToList();
-        //    return View("GPAReport", "Student", student);
-        //}
+        public ActionResult GPAReport(decimal gpaThreshold)
+        {
+            var Student = db.Students.Where(s => s.GPA >= gpaThreshold).ToList();
+            return View(Student.ToList());
+        }
+
     }
 }

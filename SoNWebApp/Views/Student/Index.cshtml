@@ -1,212 +1,108 @@
-﻿@model SoNWebApp.Models.Student
-
-<style>
-    .column {
-    float: left;
-    position: relative;
-    width: inherit;
-  
-    /*/*for demo purposes only */
-    /*background: #f2f2f2;
-    border: 1px solid #e6e6e6;
-    box-sizing: border-box;*/
-}
-
-.column-offset-1 {
-    left: 0%;
-}
-.column-offset-2 {
-    left: 8%;
-}
-
-.column-offset-3 {
-    left: 15%;
-}
-</style>
+﻿@model IEnumerable<SoNWebApp.Models.Student>
 @{
     ViewBag.Title = "Index";
 }
 
+<h2>Index</h2>
+<button class="btn btn-primary col-md-2 pull-left" style="background:#AD0000; margin-bottom: 5px;" onclick="location.href='@Url.Action("Create", "Student")'">Create New</button>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </th>
+        <th>
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Standing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GPA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CampusID)
+        </th>
+        <th></th>
+    </tr>
 
-<div class="panel">
-    <div class="panel-body">
-        <div class="column column-one column-offset-1">
-            <table class="table" border="1">
-                <tr>
-                <tr>
-                    <td>
-                        <b>
-                            @Html.DisplayNameFor(model => model.StudentNumber)
-                        </b>
-                    </td>
-                    <td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.StudentNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.EnrollmentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Standing)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.GPA)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.CampusID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Advisor", new { ID = item.ID }) 
+                @Html.ActionLink("Details", "Details", new { ID = item.ID })
+                @Html.ActionLink("Delete", "Delete", new { ID = item.ID })
+            </td>
+        </tr>
+    }
 
-                            @Html.DisplayFor(model => model.StudentNumber)
-                    </td>
-                    </tr>
-                <tr>
-                    <td>
-                        <b>
-                            @Html.DisplayNameFor(model => model.FirstName)
-                        </b>
-                    </td>
-                    <td>
-
-                            @Html.DisplayFor(model => model.FirstName)
-                        
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>
-                            @Html.DisplayNameFor(model => model.MiddleName)
-                        </b>
-                    </td>
-                    <td>
-
-                        @Html.DisplayFor(model => model.MiddleName)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>
-                            @Html.DisplayNameFor(model => model.LastName)
-                        </b>
-                    </td>
-                    <td>
-                            @Html.DisplayFor(model => model.LastName)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>
-                            @Html.DisplayNameFor(model => model.EmailAddress)
-                        </b>
-                    </td>
-                    <td>
-
-                        @Html.DisplayFor(model => model.EmailAddress)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>
-                            @Html.DisplayNameFor(model => model.Address)
-                        </b>
-                    </td>
-                    <td>
-                            @Html.DisplayFor(model => model.Address)
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>
-                            @Html.DisplayNameFor(model => model.City)
-                        </b>
-                    </td>
-                    <td>
-                            @Html.DisplayFor(model => model.City)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>
-                            @Html.DisplayNameFor(model => model.State)
-                        </b>
-                    </td>
-                    <td>
-                            @Html.DisplayFor(model => model.State)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>
-                            @Html.DisplayNameFor(model => model.PhoneNumber)
-                        </b>
-                    </td>
-                    <td>
-                            @Html.DisplayFor(model => model.PhoneNumber)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>
-                            @Html.DisplayNameFor(model => model.EnrollmentDate)
-                        </b>
-                    </td>
-                    <td>
-                            @Html.DisplayFor(model => model.EnrollmentDate)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>
-                            @Html.DisplayNameFor(model => model.Standing)
-                        </b>
-                    </td>
-                    <td>
-                            @Html.DisplayFor(model => model.Standing)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Actions</b>
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit Student", "Edit")
-                    </td>
-                </tr>
-            </table>
-            @*{
-                <div class="bottom-right">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </div>
-            }*@
-
-        </div>
-        <div class="column column-two column-offset-2">
-            
-                <table border="1">
-                    <tr>
-                        <td>
-                            <b>
-                                <strong>To Do's</strong>
-                            </b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <b>
-
-                            </b>
-                        </td>
-                    </tr>
-                </table>
-            <div>
-                <p>
-                    Link to BSN program<br />
-                    <a href="https://louisville.edu/nursing/bsn">https://louisville.edu/nursing/bsn</a>
-                </p>
-                <p>
-                    Link to current students<br />
-                    <a href="https://louisville.edu/nursing/current-students">https://louisville.edu/nursing/current-students</a>
-                </p>
-            </div>
-        </div>
-        <div class="column column-three column-offset-3">
-            <div>
-                <p>
-                    Link to BSN program<br />
-                    <a href="https://louisville.edu/nursing/bsn">https://louisville.edu/nursing/bsn</a>
-                </p>
-                <p>
-                    Link to current students<br />
-                    <a href="https://louisville.edu/nursing/current-students">https://louisville.edu/nursing/current-students</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
+</table>

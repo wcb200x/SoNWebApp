@@ -56,78 +56,54 @@
         <th>
             @Html.DisplayNameFor(model => model.CampusID)
         </th>
+        </tr>
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
-                @foreach (var item in Model)
-            {
-                    @Html.DisplayFor(modelitem => item.StudentNumber) }
+                    @Html.DisplayFor(modelitem => item.StudentNumber) 
             </td>
             <td>
-                @foreach (var item in Model)
-            {
-                    @Html.DisplayFor(model => item.FirstName) }
+                    @Html.DisplayFor(model => item.FirstName) 
             </td>
             <td>
-                @foreach (var item in Model)
-            {
-                    @Html.DisplayFor(model => item.MiddleName) }
+                    @Html.DisplayFor(model => item.MiddleName) 
             </td>
             <td>
-                @foreach (var item in Model)
-            {
-                    @Html.DisplayFor(model => item.LastName) }
+                    @Html.DisplayFor(model => item.LastName) 
             </td>
             <td>
-                @foreach (var item in Model)
-            {
-                    @Html.DisplayFor(model => item.Address) }
+                    @Html.DisplayFor(model => item.Address) 
             </td>
             <td>
-                @foreach (var item in Model)
-            {
-                    @Html.DisplayFor(model => item.City) }
+                    @Html.DisplayFor(model => item.City) 
             </td>
             <td>
-                @foreach (var item in Model)
-            {
-                    @Html.DisplayFor(model => item.State) }
+                    @Html.DisplayFor(model => item.State) 
             </td>
             <td>
-                @foreach (var item in Model)
-            {
-                    @Html.DisplayFor(model => item.ZipCode) }
+                    @Html.DisplayFor(model => item.ZipCode) 
             </td>
             <td>
-                @foreach (var item in Model)
-            {
-                    @Html.DisplayFor(model => item.PhoneNumber) }
+                    @Html.DisplayFor(model => item.PhoneNumber) 
             </td>
             <td>
-                @foreach (var item in Model)
-            {
-                    @Html.DisplayFor(model => item.EmailAddress) }
+                    @Html.DisplayFor(model => item.EmailAddress) 
             </td>
             <td>
-                @foreach (var item in Model)
-            {
-                    @Html.DisplayFor(model => item.EnrollmentDate) }
+                    @Html.DisplayFor(model => item.EnrollmentDate) 
             </td>
             <td>
-                @foreach (var item in Model)
-            {
-                    @Html.DisplayFor(model => item.Standing) }
+                    @Html.DisplayFor(model => item.Standing) 
             </td>
             <td>
-                @foreach (var item in Model)
-            {
-                    @Html.DisplayFor(model => item.GPA) }
+                    @Html.DisplayFor(model => item.GPA) 
             </td>
             <td>
-                @foreach (var item in Model)
-            {
-                    @Html.DisplayFor(model => item.CampusID) }
+
+                    @Html.DisplayFor(model => item.CampusID) 
             </td>
         </tr>
-        
+    }
 </table>
 </div>
