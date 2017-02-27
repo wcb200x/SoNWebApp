@@ -363,6 +363,7 @@
     <Content Include="Views\Todos\Details.cshtml" />
     <Content Include="Views\Todos\Edit.cshtml" />
     <Content Include="Views\Todos\Index.cshtml" />
+    <Content Include="Views\Advisor\AdDefault.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

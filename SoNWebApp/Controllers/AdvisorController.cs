@@ -68,6 +68,10 @@ namespace SoNWebApp.Controllers
             var Student = db.Students.Where(s => s.GPA >= gpaThreshold).ToList();
             return View(Student.ToList());
         }
+        public ActionResult AdDefault()
+        {
+            return View();
+        }
 
     }
 }
