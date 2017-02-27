@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<SoNWebApp.Models.Student>
 
+
+
+
 @{
     Layout = "~/Views/Shared/AdvisorLayoutPage.cshtml";
 }
@@ -13,7 +16,7 @@
 </div>
 
 <button class="btn btn-primary col-md-2 pull-left" style="background:#AD0000; margin-bottom: 5px;" onclick="location.href='@Url.Action("Create", "Student")'">Create New</button>
-<div class="row" style="margin-left:700px;">
+<div class="row" style="margin-left:685px;">
 @using (Html.BeginForm())
 {
     <p>

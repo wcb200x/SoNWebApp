@@ -22,6 +22,7 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: Student/Details/5
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Details(int? id)
         {
             //if (id == null)
@@ -35,7 +36,7 @@ namespace SoNWebApp.Controllers
             //}
             return View(student);
         }
-
+        [Authorize (Roles =("Advisor,Admin,SuperAdmin"))]
         // GET: Student/Create
         public ActionResult Create()
         {
@@ -47,13 +48,14 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,StudentNumber,FirstName,MiddleName,LastName,EmailAddress,PhoneNumber,Address,City,State,ZipCode,Standing,HasGraduated,CampusID,GPA,EnrollmentDate")] Student student)
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
+        public ActionResult Create([Bind(Include = "ID,StudentNumber,FirstName,MiddleName,LastName,EmailAddress,PhoneNumber,Address,City,State,ZipCode,Standing,HasGraduated,CampusID,ProgramID,GPA,EnrollmentDate,Petition,Notes")] Student student)
         {
             if (ModelState.IsValid)
             {
                 db.Students.Add(student);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("CRM","Advisor",false);
             }
 
             return View(student);
@@ -79,18 +81,28 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,StudentNumber,FirstName,MiddleName,LastName,EmailAddress,PhoneNumber,Address,City,State,ZipCode,Standing,HasGraduated,CampusID,GPA,EnrollmentDate")] Student student)
+        public ActionResult Edit([Bind(Include = "ID,StudentNumber,FirstName,MiddleName,LastName,EmailAddress,PhoneNumber,Address,City,State,ZipCode,Standing,HasGraduated,CampusID,ProgramID,GPA,EnrollmentDate,Petition,Notes")] Student student)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(student).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Default");
+                if (User.IsInRole("Advisor") || (User.IsInRole("Admin")) || (User.IsInRole("SuperAdmin")))
+                    {
+                    db.Entry(student).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("CRM", "Advisor", false);
+                }
+                else {
+
+                    db.Entry(student).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Default");
+                }
             }
             return View(student);
         }
 
         // GET: Student/Delete/5
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Delete(int? id)
         {
             //if (id == null)
@@ -108,12 +120,13 @@ namespace SoNWebApp.Controllers
         // POST: Student/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult DeleteConfirmed(int id)
         {
             Student student = db.Students.Find(id);
             db.Students.Remove(student);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("CRM","Advisor",false);
         }
         
         public ActionResult StudentDashboard()

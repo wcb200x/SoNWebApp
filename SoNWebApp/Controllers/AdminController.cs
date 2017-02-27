@@ -49,7 +49,41 @@ namespace SoNWebApp.Controllers
             var Student = db.Students.Where(s => s.GPA >= gpaThreshold).ToList();
             return View(Student.ToList());
         }
+        public ActionResult CRM(string sortOrder, string searchString)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.GPASortParm = sortOrder == "GPA" ? "GPA_desc" : "GPA";
 
+            var students = from s in db.Students
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.LastName.Contains(searchString)
+                                              || s.FirstName.Contains(searchString)
+                                              || s.StudentNumber.ToString().Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    students = students.OrderByDescending(s => s.LastName);
+                    break;
+                case "GPA":
+                    students = students.OrderBy(s => s.GPA);
+                    break;
+                case "GPA_desc":
+                    students = students.OrderByDescending(s => s.GPA);
+                    break;
+                default:
+                    students = students.OrderBy(s => s.LastName);
+                    break;
+            }
+
+            return View(students.ToList());
+        }
+        public ActionResult Todos()
+        {
+            return View(); 
+        }
     }
 
 }

@@ -20,6 +20,7 @@ namespace SoNWebApp.Controllers
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.GPASortParm = sortOrder == "GPA" ? "GPA_desc" : "GPA";
+
             var students = from s in db.Students
                            select s;
             if (!String.IsNullOrEmpty(searchString))

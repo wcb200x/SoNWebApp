@@ -20,7 +20,8 @@ namespace SoNWebApp.Models
         public int ZipCode { get; set; }
         public string Standing { get; set; }
         public bool HasGraduated { get; set; }
-        public string CampusID { get; set; }
+        public int CampusID { get; set; }
+        public int ProgramID { get; set; }
         public decimal GPA { get; set; }
         public DateTime EnrollmentDate { get; set; }
         public bool Petition { get; set; }

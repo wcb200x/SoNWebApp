@@ -81,6 +81,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -211,6 +219,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProgramController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\TodosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -225,15 +234,9 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Program.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Todos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="TestSql.aspx.cs">
-      <DependentUpon>TestSql.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestSql.aspx.designer.cs">
-      <DependentUpon>TestSql.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\DayPilot.Web.Mvc.dll" />
@@ -243,6 +246,7 @@
     <Content Include="Content\Images\Louisville.png" />
     <Content Include="Content\Images\SONAD.jpg" />
     <Content Include="Content\Images\UofLSONLogo.png" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -265,8 +269,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="TestSql.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -336,7 +341,6 @@
     <Content Include="Views\Shared\AdvisorLayoutPage.cshtml" />
     <Content Include="Views\Advisor\StudentRecords.cshtml" />
     <Content Include="Views\Advisor\Reports.cshtml" />
-    <Content Include="Views\Advisor\CRM.cshtml" />
     <Content Include="Views\Advisor\Search.cshtml" />
     <Content Include="Views\Student\ProgramOfStudy.cshtml" />
     <Content Include="Views\Student\Alerts.cshtml" />
@@ -353,6 +357,12 @@
     <Content Include="Views\Advisor\GPAReport.cshtml" />
     <Content Include="Views\Admin\GPAReport.cshtml" />
     <Content Include="Views\Admin\StudentReport.cshtml" />
+    <Content Include="Views\Advisor\CRM.cshtml" />
+    <Content Include="Views\Todos\Create.cshtml" />
+    <Content Include="Views\Todos\Delete.cshtml" />
+    <Content Include="Views\Todos\Details.cshtml" />
+    <Content Include="Views\Todos\Edit.cshtml" />
+    <Content Include="Views\Todos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -114,7 +114,13 @@
         <dd>
             @Html.DisplayFor(model => model.CampusID)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProgramID)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.ProgramID)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.GPA)
         </dt>
@@ -146,5 +152,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "CRM","Advisor", false,false)
 </p>
