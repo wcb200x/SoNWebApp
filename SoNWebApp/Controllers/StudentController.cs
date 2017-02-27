@@ -49,7 +49,7 @@ namespace SoNWebApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
-        public ActionResult Create([Bind(Include = "ID,StudentNumber,FirstName,MiddleName,LastName,EmailAddress,PhoneNumber,Address,City,State,ZipCode,Standing,HasGraduated,CampusID,ProgramID,GPA,EnrollmentDate,Petition,Notes")] Student student)
+        public ActionResult Create([Bind(Include = "ID,StudentNumber,FirstName,MiddleName,LastName,Race,Gender,DateOfBirth,EmailAddress,PhoneNumber,CellNumber,Address,City,State,ZipCode,Country,Standing,HasGraduated,CampusID,ProgramID,GPA,EnrollmentDate,Petition,Notes")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,StudentNumber,FirstName,MiddleName,LastName,EmailAddress,PhoneNumber,Address,City,State,ZipCode,Standing,HasGraduated,CampusID,ProgramID,GPA,EnrollmentDate,Petition,Notes")] Student student)
+        public ActionResult Edit([Bind(Include = "ID,StudentNumber,FirstName,MiddleName,LastName,Race,Gender,DateOfBirth,EmailAddress,PhoneNumber,CellNumber,Address,City,State,ZipCode,Country,Standing,HasGraduated,CampusID,ProgramID,GPA,EnrollmentDate,Petition,Notes")] Student student)
         {
             if (ModelState.IsValid)
             {

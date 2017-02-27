@@ -92,7 +92,7 @@ namespace SoNWebApp.Controllers
                     }
                     else if (roles.Contains("Advisor"))
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("AdDefault", "Advisor");
                     }
                     else if (roles.Contains("Student"))
                     {

@@ -12,12 +12,17 @@ namespace SoNWebApp.Models
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
+        public string Race { get; set; }
+        public string Gender { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public string EmailAddress { get; set; }
         public string PhoneNumber { get; set; }
+        public string CellNumber { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
         public string State { get; set; }
         public int ZipCode { get; set; }
+        public string Country { get; set; }
         public string Standing { get; set; }
         public bool HasGraduated { get; set; }
         public int CampusID { get; set; }
