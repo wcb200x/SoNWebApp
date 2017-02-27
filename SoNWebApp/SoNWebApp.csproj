@@ -220,6 +220,7 @@
     <Compile Include="Controllers\ProgramController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TodosController.cs" />
+    <Compile Include="Controllers\UDApplicationsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -235,6 +236,7 @@
     <Compile Include="Models\Program.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Todos.cs" />
+    <Compile Include="Models\UDApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -364,6 +366,11 @@
     <Content Include="Views\Todos\Edit.cshtml" />
     <Content Include="Views\Todos\Index.cshtml" />
     <Content Include="Views\Advisor\AdDefault.cshtml" />
+    <Content Include="Views\UDApplications\Create.cshtml" />
+    <Content Include="Views\UDApplications\Delete.cshtml" />
+    <Content Include="Views\UDApplications\Details.cshtml" />
+    <Content Include="Views\UDApplications\Edit.cshtml" />
+    <Content Include="Views\UDApplications\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

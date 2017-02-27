@@ -37,5 +37,7 @@ namespace SoNWebApp.Models
         public DbSet <Event> Events { get; set; }
 
         public System.Data.Entity.DbSet<SoNWebApp.Models.Todos> Todos { get; set; }
+
+        public System.Data.Entity.DbSet<SoNWebApp.Models.UDApplication> UDApplications { get; set; }
     }
 }
