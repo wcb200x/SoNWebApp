@@ -94,13 +94,13 @@ namespace SoNWebApp.Controllers
                     {
                         return RedirectToAction("Index", "Home");
                     }
-                    else if (roles.Contains("Studnet"))
+                    else if (roles.Contains("Student"))
                     {
                         return RedirectToAction("Default", "Student");
                     }
                     else
                     {
-                        return RedirectToLocal(returnUrl);
+                        return RedirectToAction("Default", "Student");
                     }
                 case SignInStatus.LockedOut:
                     return View("Lockout");
