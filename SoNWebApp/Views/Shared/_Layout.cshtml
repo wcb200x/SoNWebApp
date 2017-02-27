@@ -131,11 +131,7 @@
             @RenderBody()
         </div>
         </div>
-    <div class="row">
-            <footer style="height: 30px; width: 100%; color: black;">
-                        <p>&copy; @DateTime.Now.Year - University of Louisville School of Nursing</p>
-            </footer>
-    </div>
+
         
 
         @Scripts.Render("~/bundles/jquery")
@@ -145,7 +141,12 @@
 
 </body>
 </html>
+<footer>
+    <div class="row" style="height: 30px; width: 100%; color: black;">
+            <p>&copy; @DateTime.Now.Year - University of Louisville School of Nursing</p>
+    </div>
 
+</footer>
 
 
 <meta charset="utf-8" />

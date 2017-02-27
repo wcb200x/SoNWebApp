@@ -4,12 +4,11 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Student</h4>
+<div style="margin-left:50px;">
+    <h2>Details</h2>
+    <h4 style="margin-left: 50px;">Student</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal" style="margin-left:50px;">
         
         <dt>
             @Html.DisplayNameFor(model => model.StudentNumber)
@@ -189,6 +188,14 @@
         </dd>
     </dl>
 </div>
+<div class="col-md-4">
+    <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href=""><font color="white">Contact Student</font></a></div>
+    <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href=""><font color="white">Import </font></a></div>
+
+</div>
+<br />
+<br />
+<br />
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "CRM","Advisor", false,false)

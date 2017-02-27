@@ -57,7 +57,7 @@ namespace SoNWebApp.Controllers
         }
         public ActionResult StudentRecords()
         {
-            return View();
+            return View(db.Students.ToList());
         }
         public ActionResult StudentReport()
         {

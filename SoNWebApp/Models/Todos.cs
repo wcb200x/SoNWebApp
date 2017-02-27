@@ -1,10 +1,13 @@
-﻿using System;
+﻿using SoNWebApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace SoNWebApp.Models
 {
+    [Authorize (Roles= ("Admin,SuperAdmin"))]
     public class Todos
     {
         public int ID { get; set; }
