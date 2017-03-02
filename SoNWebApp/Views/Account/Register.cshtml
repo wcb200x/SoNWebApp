@@ -133,7 +133,7 @@
 
 <div class="row">
     <div class="col-md-10">
-        <section id="loginForm" style="background-color:white; margin: 0 auto 100px; padding: 50px; margin-top: 25px;">
+        <section id="loginForm" style="background-color:white; margin: 0 auto 100px; padding: 50px; margin-top: 25px; width:120%;">
             @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
@@ -164,7 +164,7 @@
                 </div>
                 <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" class="btn btn-default" value="Register" style="margin: 15px;"/>
+                            <input type="submit" class="btn btn-default" value="Register" style="margin: 35px;"/>
                         </div>             
                    </div>
                 <p>

@@ -148,7 +148,9 @@ namespace SoNWebApp.Controllers
         }
         public ActionResult Alerts()
         {
-            return View();
+            var todos = db.Todos.Where(t => t.EndDate >= DateTime.Today).Take(5);
+
+            return View(todos);
         }
 
         public ActionResult Default()
@@ -158,7 +160,7 @@ namespace SoNWebApp.Controllers
             var viewModel = new StudentDefaultViewModel()
             {
                 StudentsList = db.Students.Where(s => s.EmailAddress.ToLower().Contains(name)).FirstOrDefault(),
-            TodosList = db.Todos.Take(5)
+            TodosList = db.Todos.Where(t => t.EndDate >= DateTime.Today).Take(5)
             };
             return View(viewModel);
         }

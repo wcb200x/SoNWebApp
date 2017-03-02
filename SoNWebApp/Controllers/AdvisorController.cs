@@ -1,4 +1,5 @@
 ﻿using SoNWebApp.Models;
+using SoNWebApp.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,8 +71,20 @@ namespace SoNWebApp.Controllers
         }
         public ActionResult AdDefault()
         {
-            return View();
+            var viewModel = new AdvisorDefaultViewModel()
+            {
+                TodosList = db.Todos.Where(t => t.EndDate >= DateTime.Today).Take(5)
+            };
+            return View(viewModel);
         }
+
+        public PartialViewResult GetTodosList()
+        {
+            var todos = db.Todos.FirstOrDefault();
+
+            return PartialView("_TodosPartial", todos);
+        }
+
 
     }
 }

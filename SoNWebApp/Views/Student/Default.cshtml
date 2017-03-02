@@ -1,33 +1,10 @@
 ﻿@model SoNWebApp.Models.ViewModels.StudentDefaultViewModel
 @using System.Web.Mvc.Html
 
-<style>
-    .column {
-        float: left;
-        position: relative;
-        width: inherit;
-        /*/*for demo purposes only */
-        /*background: #f2f2f2;
-    border: 1px solid #e6e6e6;
-    box-sizing: border-box;*/
-    }
-
-    .column-offset-1 {
-        left: 0%;
-    }
-
-    .column-offset-2 {
-        left: 8%;
-    }
-
-    .column-offset-3 {
-        left: 15%;
-    }
-</style>
 @{
-    ViewBag.Title = "Index";
-}
+    Layout = "~/Views/Shared/StudentLayoutPage.cshtml";
 
+}
 
 <div class="panel panel-danger" style="border:1px solid #808080;">
     <div class="panel-heading">
