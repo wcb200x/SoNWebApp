@@ -221,6 +221,7 @@
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TodosController.cs" />
     <Compile Include="Controllers\UDApplicationsController.cs" />
+    <Compile Include="Controllers\UserManagementController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -238,6 +239,9 @@
     <Compile Include="Models\Todos.cs" />
     <Compile Include="Models\UDApplication.cs" />
     <Compile Include="Models\ViewModels\AdvisorDefaultViewModel.cs" />
+    <Compile Include="Models\ViewModels\EditUserViewModel.cs" />
+    <Compile Include="Models\ViewModels\SelectRoleEditorViewModel.cs" />
+    <Compile Include="Models\ViewModels\SelectUserRolesViewModel.cs" />
     <Compile Include="Models\ViewModels\StudentDefaultViewModel.cs" />
     <Compile Include="Models\ViewModels\StudentRecordsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -353,7 +357,6 @@
     <Content Include="Views\Shared\AdminLayout.cshtml" />
     <Content Include="Views\Student\Default.cshtml" />
     <Content Include="Views\Admin\Calendar.cshtml" />
-    <Content Include="Views\Admin\ManageUsers.cshtml" />
     <Content Include="Views\Admin\Reports.cshtml" />
     <Content Include="Views\Admin\ManageAlerts.cshtml" />
     <Content Include="Views\Admin\DatabaseAdmin.cshtml" />
@@ -377,6 +380,8 @@
     <Content Include="Views\Student\_StudentPartial.cshtml" />
     <Content Include="Views\Shared\_TodosPartial.cshtml" />
     <Content Include="Views\Advisor\_StudentRecordsPartial.cshtml" />
+    <Content Include="Views\UserManagement\Index.cshtml" />
+    <Content Include="Views\UserManagement\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
