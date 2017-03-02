@@ -58,7 +58,13 @@ namespace SoNWebApp.Controllers
         }
         public ActionResult StudentRecords()
         {
-            return View(db.Students.ToList());
+            var viewModel = new StudentRecordsViewModel()
+            {
+                StudentsList = db.Students,
+
+                TodosList = db.Todos.Where(t => t.EndDate >= DateTime.Today).Take(5)
+            };
+            return View(viewModel);
         }
         public ActionResult StudentReport()
         {
@@ -84,7 +90,11 @@ namespace SoNWebApp.Controllers
 
             return PartialView("_TodosPartial", todos);
         }
-
+        public PartialViewResult GetStudentsList()
+        {
+            var students = db.Students.FirstOrDefault();
+            return PartialView("_StudentsPartial", students);
+        }
 
     }
 }

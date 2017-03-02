@@ -1,86 +1,58 @@
-﻿@model IEnumerable<SoNWebApp.Models.Student>
+﻿@model SoNWebApp.Models.ViewModels.StudentRecordsViewModel
 
 @{
     Layout = "~/Views/Shared/AdvisorLayoutPage.cshtml";
 }
-<div class="row">
 
-        <div class="list-inline">
-            <ul class="list-inline">
-                <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href=""><font color="white">Post Grades </font></a></div></li>
-                <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href=""><font color="white">Import Roster </font></a></div></li>
-                <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href=""><font color="white">Graduate Appplications </font></a></div></li>
-                </ul>
-            </div>
         
 
-        <div class="panel-body">
-            <table class="table" style="color: #000000; ">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.StudentNumber)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FirstName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.MiddleName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.LastName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.GPA)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ProgramID)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Standing)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Petition)
-                    </th>
-                </tr>
-                @foreach (var item in Model)
-            {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelitem => item.StudentNumber)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => item.FirstName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => item.MiddleName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => item.LastName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => item.GPA)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => item.ProgramID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => item.Standing)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => item.Petition)
-                        </td>
-                    </tr>
-                }
-            </table>
+
+    <div class="panel panel-danger" style="border:1px solid #808080;">
+        <div class="panel-heading">
+            <h3 style="color:#FFFFFF">Student Records</h3>
         </div>
-    <div class="col-md-3">
-        <h2 style="text-align:center;">To-Do List</h2>
-        <table class="table">
-            <tr>
-            <th>
-                Message
-            </th>
-                </tr>
-        </table>
-    </div>
-</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel-danger">
+                        <div class="panel-heading">
+                            <h4 style="color:#FFFFFF">Student Information</h4>
+                        </div>
+                        <div class="panel-body">
+                            @Html.Partial("_StudentRecordsPartial", Model.StudentsList)
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <div class="panel-danger">
+                        <div class="panel-heading">
+                            <h4 style="color:#FFFFFF">To-Do List</h4>
+                        </div>
+                        <center>
+                            <div class="panel-body">
+                                @Html.Partial("_TodosPartial", Model.TodosList)
+
+                                <p>
+                                    <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href=""><font color="white">Post Grades </font></a></div>
+                                </p>
+                                <p>
+                                    <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href=""><font color="white">Import Roster </font></a></div>
+                                </p>
+                                <p>
+                                    <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href=""><font color="white">Graduate Appplications </font></a></div>
+                                </p>
+                            </div>
+                        </center>
+                    </div>
+
+                 
+                      
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+
+
