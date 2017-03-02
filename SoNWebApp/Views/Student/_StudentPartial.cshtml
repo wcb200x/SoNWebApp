@@ -1,0 +1,190 @@
+﻿@model SoNWebApp.Models.Student
+
+
+<table class="table" border="1" style="color:black;border:1px solid #808080;">
+    <tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.StudentNumber)
+            </b>
+        </td>
+        <td>
+
+            @Html.DisplayFor(model => model.StudentNumber)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </b>
+        </td>
+        <td>
+
+            @Html.DisplayFor(model => model.FirstName)
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.MiddleName)
+            </b>
+        </td>
+        <td>
+
+            @Html.DisplayFor(model => model.MiddleName)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.LastName)
+            </b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.LastName)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </b>
+        </td>
+        <td>
+
+            @Html.DisplayFor(model => model.EmailAddress)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.Address)
+            </b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Address)
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.City)
+            </b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.City)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.State)
+            </b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.State)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ZipCode)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.Country)
+            </b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Country)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.CellNumber)
+            </b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CellNumber)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.EnrollmentDate)
+            </b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.EnrollmentDate)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.Standing)
+            </b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Standing)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.GPA)
+            </b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.GPA)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>
+                @Html.DisplayNameFor(model => model.Petition)
+            </b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Petition)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Actions</b>
+        </td>
+        <td>
+            @Html.ActionLink("Edit Information", "Edit", new { ID = Model.ID })
+        </td>
+    </tr>
+</table>

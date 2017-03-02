@@ -3,3 +3,32 @@
 }
 
 
+<div class="col-md-3"></div>
+<div class="col-md-6">
+    <div class="panel-danger">
+        <div class="panel-heading">
+            <h4 style="color:#FFFFFF">Search</h4>
+        </div>
+        <center>
+            <div class="panel-body">
+
+
+                <div id="cse" style="width: 100%;"></div>
+                <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+                <script type="text/javascript">
+         google.load('search', '1', {language : 'en'});
+         google.setOnLoadCallback(function() {
+         var customSearchControl = new google.search.CustomSearchControl('014847139557921908361:jklodlzegwk');
+        customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+        var options = new google.search.DrawOptions();
+        options.setAutoComplete(true);
+        customSearchControl.draw('cse', options);
+        }, true);
+                </script>
+
+
+            </div>
+        </center>
+    </div>
+</div>
+  

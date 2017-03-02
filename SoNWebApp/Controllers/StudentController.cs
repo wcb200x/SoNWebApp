@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SoNWebApp.Models;
+using SoNWebApp.Models.ViewModels;
 
 namespace SoNWebApp.Controllers
 {
@@ -147,22 +148,42 @@ namespace SoNWebApp.Controllers
         }
         public ActionResult Alerts()
         {
-            return View();
+            var todos = db.Todos.Where(t => t.EndDate >= DateTime.Today).Take(5);
+
+            return View(todos);
         }
 
         public ActionResult Default()
         {
             var name = HttpContext.User.Identity.Name;
 
-            var studentRecord = db.Students.Where(s => s.EmailAddress.ToLower().Contains(name)).FirstOrDefault();
-
-            return View(studentRecord);
+            var viewModel = new StudentDefaultViewModel()
+            {
+                StudentsList = db.Students.Where(s => s.EmailAddress.ToLower().Contains(name)).FirstOrDefault(),
+            TodosList = db.Todos.Where(t => t.EndDate >= DateTime.Today).Take(5)
+            };
+            return View(viewModel);
         }
+    
         public ActionResult ProgramOfStudy()
         {
             return View();
         }
-   
+        public PartialViewResult GetStudentsList()
+        {
+            var name = HttpContext.User.Identity.Name;
+
+            var students = db.Students.Where(s => s.EmailAddress.ToLower().Contains(name)).FirstOrDefault();
+            return PartialView("_StudentPartial", students);
+        }
+
+        public PartialViewResult GetTodosList()
+        {
+            var todos = db.Todos.FirstOrDefault();
+
+            return PartialView("_TodosPartial", todos);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
