@@ -11,6 +11,7 @@ namespace SoNWebApp.Models
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
+        public string Email { get; set; }
         public string StreetAddress { get; set; }
         public string StreetAddress2 { get; set; }
         public string City { get; set; }
@@ -24,6 +25,9 @@ namespace SoNWebApp.Models
         public string CurrentCourses { get; set; }
         public string Essay1 { get; set; }
         public string Experience { get; set; }
+        public string Experience2 { get; set; }
+        public string Experience3 { get; set; }
+
         public string Legal1 { get; set; }
         public string Legal2 { get; set; }
 

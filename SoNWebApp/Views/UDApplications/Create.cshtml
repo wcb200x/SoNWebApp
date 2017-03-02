@@ -4,18 +4,19 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>UDApplication</h2>
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>UDApplication</h4>
         <hr />
+
+        <h4>Legal Name</h4>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+        <div class="form-group"style="margin-top: 20px;">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
@@ -39,7 +40,17 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <h4 style="margin-top: 30px;">Email</h4>
+        <div class="form-group" style="margin-top: 20px;">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <h4 style="margin-top: 30px;">Contact Information</h4>
+        <div class="form-group" style="margin-top: 20px;">
             @Html.LabelFor(model => model.StreetAddress, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.StreetAddress, new { htmlAttributes = new { @class = "form-control" } })
@@ -127,98 +138,148 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Essay1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Essay1, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Essay1, "", new { @class = "text-danger" })
+                @*<div class="form-group">
+                        @Html.LabelFor(model => model.Essay1, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Essay1, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Essay1, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+                <h4 style="margin-top: 30px;">Experience</h4>
+                <div class="form-group" style="margin-top: 20px;">
+                    <div class="col-md-10">
+                        <p>
+                            Current Courses  Note: Please format each course in the following format, one per line.
+                            Course, Credit Hours, Semester, College or University
+                            E.g. CHEM 105- Chem for Health Pros, 4, Fall 2010, University of Louisville
+                        </p>
+                        @Html.TextAreaFor(model => model.Experience, new { @class = "form-control", @rows = 10, @cols = 40 })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <p>
+                            Personal Qualities Essay  Write a story, biography, or narrative describing your personal qualities as they pertain to a successful nursing career.
+                            Address your perception of the profession of nursing and how you came to choose this career. Describe your short and long term nursing career goals.
+                            Complete in 500 words or less.
+                        </p>
+                        @Html.TextAreaFor(model => model.Experience2, new { @class = "form-control", @rows = 10, @cols = 40 })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <p>
+                            Nursing or health care related experience
+                        </p>
+                        @Html.TextAreaFor(model => model.Experience3, new { @class = "form-control", @rows = 10, @cols = 40 })
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 30px;">Legal Information</h4>
+                <div class="form-group" style="margin-top: 20px;">
+                    <div class="col-md-10">
+                        <fieldset>
+                            <legend style="font-size: medium">1. Have you ever been arrested for, charged with, or convicted of any crime other than a minor traffic violation?</legend>
+                            @Html.RadioButtonFor(model => model.Legal1, true) Yes
+                            @Html.RadioButtonFor(model => model.Legal1, false) No
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <fieldset>
+                            <legend style="font-size: medium">2. Have you ever been dismissed, suspended, or otherwise disciplined by a college, university, or a graduate/professional school for any reason?</legend>
+                            @Html.RadioButtonFor(model => model.Legal2, true) Yes
+                            @Html.RadioButtonFor(model => model.Legal2, false) No
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <fieldset>
+                            <legend style="font-size: medium">3. Have you ever been other than honorably discharged from any armed service of the U.S.?</legend>
+                            @Html.RadioButtonFor(model => model.Legal3, true) Yes
+                            @Html.RadioButtonFor(model => model.Legal3, false) No
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <fieldset>
+                            <legend style="font-size: medium">4. Have you ever been discharged from employment, disciplined, or asked to resign from employment or any service program (VISTA, Peace Corps, etc.) for reasons of dishonesty, malfeasance or any other reason reflecting on your character?</legend>
+                            @Html.RadioButtonFor(model => model.Legal4, true) Yes
+                            @Html.RadioButtonFor(model => model.Legal4, false) No
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <fieldset>
+                            <legend style="font-size: medium">5. Have you ever been charged with or found guilty of sexual harassment or racial, ethnic, or gender bias in any proceeding?</legend>
+                            @Html.RadioButtonFor(model => model.Legal5, true) Yes
+                            @Html.RadioButtonFor(model => model.Legal5, false) No
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <fieldset>
+                            <legend style="font-size: medium">6. Have you ever been subject to disciplinary or legal action related to use of drugs, including alcohol?</legend>
+                            @Html.RadioButtonFor(model => model.Legal6, true) Yes
+                            @Html.RadioButtonFor(model => model.Legal6, false) No
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <p>
+                            If you answered YES to any question(s) above, please provide an explanation below.
+                        </p>
+                        @Html.TextAreaFor(model => model.ExplainLegal, new { @class = "form-control", @rows = 10, @cols = 40 })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <fieldset>
+                            <legend>
+                                I hereby declare that the information furnished above is completed and accurate to the best of my knowledge.
+                                I also authorize the release of information from any agency or individuals, who may have additional information on me.
+                            </legend>
+                            @Html.RadioButtonFor(model => model.Legal7, true) Yes
+                            @Html.RadioButtonFor(model => model.Legal7, false) No
+                        </fieldset>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 20px;">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Submit" class="btn btn-default" />
+                    </div>
+                </div>
+            <p style="margin-top: 20px;">
+                <b>If you do not receive</b> an email within 5 working days indicating that we have received application materials, please call us at (502) 852-1196.
+            </p>
+            <p>
+                By submitting this form, I hereby confirm that the information above is complete and accurate to the best of my knowledge. I also authorize the release of 
+                information by any agency or individuals, who may have additional information pertaining to me that is relevant to this application.
+            </p>
             </div>
-        </div>
+            }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Experience, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Experience, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Experience, "", new { @class = "text-danger" })
+            <div>
+                @Html.ActionLink("Back to List", "Index")
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Legal1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Legal1, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Legal1, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Legal2, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Legal2, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Legal2, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Legal3, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Legal3, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Legal3, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Legal4, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Legal4, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Legal4, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Legal5, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Legal5, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Legal5, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Legal6, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Legal6, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Legal6, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ExplainLegal, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ExplainLegal, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ExplainLegal, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Legal7, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Legal7, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Legal7, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
