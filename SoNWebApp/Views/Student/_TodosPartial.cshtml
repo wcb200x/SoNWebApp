@@ -1,0 +1,19 @@
+﻿@model IEnumerable<SoNWebApp.Models.Todos>
+
+<table border="1" style="color:black; width: 100%;border:1px solid #808080;">
+    <tr>
+        <th>
+            <b>
+                Message
+            </b>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+                @Html.DisplayFor(modelItem => item.Message)
+        </td>
+    </tr>
+    }
+</table>
