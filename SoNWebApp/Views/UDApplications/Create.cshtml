@@ -4,9 +4,26 @@
     ViewBag.Title = "Create";
 }
 
-<h2>UDApplication</h2>
+<style>
+   
+    textarea, textarea.form-control, input.form-control, input[type=text], input[type=password], input[type=email], input[type=number], [type=text].form-control, [type=password].form-control, [type=email].form-control, [type=tel].form-control, [contenteditable].form-control {
+
+        border: 1px solid #808080 !important;
+       box-shadow: none !important;
+    }
+    input, select, textarea {
+       max-width: 100% !important;
+    }
+
+</style>
 
 
+
+<div class="panel panel-danger">
+    <div class="panel-heading">
+      <center>  <h2 style="color:white">Upper Division Application</h2> </center>
+    </div>
+    <div class="panel-body">
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -18,7 +35,7 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group"style="margin-top: 20px;">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
             </div>
@@ -26,7 +43,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.MiddleName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
             </div>
@@ -34,7 +51,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
             </div>
@@ -43,7 +60,7 @@
         <h4 style="margin-top: 30px;">Email</h4>
         <div class="form-group" style="margin-top: 20px;">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
@@ -52,7 +69,7 @@
         <h4 style="margin-top: 30px;">Contact Information</h4>
         <div class="form-group" style="margin-top: 20px;">
             @Html.LabelFor(model => model.StreetAddress, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.StreetAddress, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.StreetAddress, "", new { @class = "text-danger" })
             </div>
@@ -60,7 +77,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.StreetAddress2, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.StreetAddress2, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.StreetAddress2, "", new { @class = "text-danger" })
             </div>
@@ -68,7 +85,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
             </div>
@@ -76,7 +93,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
             </div>
@@ -84,7 +101,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
             </div>
@@ -92,7 +109,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.HomeNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.HomeNumber, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.HomeNumber, "", new { @class = "text-danger" })
             </div>
@@ -100,7 +117,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.CellNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.CellNumber, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CellNumber, "", new { @class = "text-danger" })
             </div>
@@ -108,7 +125,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.StudentNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.StudentNumber, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.StudentNumber, "", new { @class = "text-danger" })
             </div>
@@ -116,7 +133,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
             </div>
@@ -124,39 +141,24 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Semester, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.Semester, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Semester, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CurrentCourses, htmlAttributes: new { @class = "control-label col-md-2" })
+
+        <h4 style="margin-top: 30px;">Experience</h4>
+        <div class="form-group" style="margin-top: 20px;">
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CurrentCourses, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CurrentCourses, "", new { @class = "text-danger" })
+                <p>
+                    Current Courses  Note: Please format each course in the following format, one per line.
+                    Course, Credit Hours, Semester, College or University
+                    E.g. CHEM 105- Chem for Health Pros, 4, Fall 2010, University of Louisville
+                </p>
+                @Html.TextAreaFor(model => model.CurrentCourses, new { @class = "form-control", @rows = 10, @cols = 100 })
             </div>
         </div>
-
-                @*<div class="form-group">
-                        @Html.LabelFor(model => model.Essay1, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Essay1, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Essay1, "", new { @class = "text-danger" })
-                        </div>
-                    </div>*@
-
-                <h4 style="margin-top: 30px;">Experience</h4>
-                <div class="form-group" style="margin-top: 20px;">
-                    <div class="col-md-10">
-                        <p>
-                            Current Courses  Note: Please format each course in the following format, one per line.
-                            Course, Credit Hours, Semester, College or University
-                            E.g. CHEM 105- Chem for Health Pros, 4, Fall 2010, University of Louisville
-                        </p>
-                        @Html.TextAreaFor(model => model.Experience, new { @class = "form-control", @rows = 10, @cols = 40 })
-                    </div>
-                </div>
 
                 <div class="form-group">
                     <div class="col-md-10">
@@ -165,7 +167,7 @@
                             Address your perception of the profession of nursing and how you came to choose this career. Describe your short and long term nursing career goals.
                             Complete in 500 words or less.
                         </p>
-                        @Html.TextAreaFor(model => model.Experience2, new { @class = "form-control", @rows = 10, @cols = 40 })
+                        @Html.TextAreaFor(model => model.PersonalQualEssay, new { @class = "form-control", @rows = 10, @cols = 40 })
                     </div>
                 </div>
 
@@ -174,7 +176,7 @@
                         <p>
                             Nursing or health care related experience
                         </p>
-                        @Html.TextAreaFor(model => model.Experience3, new { @class = "form-control", @rows = 10, @cols = 40 })
+                        @Html.TextAreaFor(model => model.NurseExperience, new { @class = "form-control", @rows = 10, @cols = 40 })
                     </div>
                 </div>
 
@@ -261,11 +263,11 @@
                     </div>
                 </div>
 
-                <div class="form-group" style="margin-top: 20px;">
-                    <div class="col-md-offset-2 col-md-10">
+                <center><div class="form-group" style="margin-top: 20px;">
+                    <div class="col-md-10">
                         <input type="submit" value="Submit" class="btn btn-default" />
                     </div>
-                </div>
+                </div></center>
             <p style="margin-top: 20px;">
                 <b>If you do not receive</b> an email within 5 working days indicating that we have received application materials, please call us at (502) 852-1196.
             </p>
@@ -275,10 +277,10 @@
             </p>
             </div>
             }
+        </div>
+    </div>
 
-            <div>
-                @Html.ActionLink("Back to List", "Index")
-            </div>
+          
 
             @section Scripts {
                 @Scripts.Render("~/bundles/jqueryval")

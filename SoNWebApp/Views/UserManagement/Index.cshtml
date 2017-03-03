@@ -20,7 +20,7 @@
                     {
                         foreach (var role in user.Roles)
                         {
-                            for (int r = 0; r < user.Roles.Count; r++)
+                            for (int r = 1; r < user.Roles.Count; r++)
                             {
                                 @Html.DisplayFor(m => m[i].Roles[r].RoleName)
                             }

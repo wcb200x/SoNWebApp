@@ -23,10 +23,8 @@ namespace SoNWebApp.Models
         public string Location { get; set; }
         public string Semester { get; set; }
         public string CurrentCourses { get; set; }
-        public string Essay1 { get; set; }
-        public string Experience { get; set; }
-        public string Experience2 { get; set; }
-        public string Experience3 { get; set; }
+        public string PersonalQualEssay { get; set; }
+        public string NurseExperience { get; set; }
 
         public string Legal1 { get; set; }
         public string Legal2 { get; set; }
