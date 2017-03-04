@@ -124,7 +124,7 @@ body > div.container.body-content > footer {
 
 
         
-<div class="row">
+
     <div class="col-md-12">
         <section id="loginForm" style="background-color:white; margin: 0 auto 100px; padding: 50px; margin-top: 25px;">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -168,7 +168,7 @@ body > div.container.body-content > footer {
             }
         </section>
         </div>
-    </div>
+    
  
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

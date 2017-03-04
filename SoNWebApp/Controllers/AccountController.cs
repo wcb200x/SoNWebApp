@@ -12,11 +12,14 @@ using SoNWebApp.Models;
 
 namespace SoNWebApp.Controllers
 {
+    
+   
     [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -171,8 +174,24 @@ namespace SoNWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+          
             if (ModelState.IsValid)
             {
+                var student = new Student()
+                {
+                    FirstName = model.FirstName,
+                    MiddleName = model.MiddleName,
+                    LastName = model.LastName,
+                    EmailAddress = model.Email,
+                    DateOfBirth = model.DateOfBirth.Date,
+                    EnrollmentDate = model.EnrollmentDate.Date
+                   
+
+                };
+
+            db.Students.Add(student);
+                db.SaveChanges();
+
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -185,7 +204,7 @@ namespace SoNWebApp.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Default", "Student");
                 }
                 AddErrors(result);
             }

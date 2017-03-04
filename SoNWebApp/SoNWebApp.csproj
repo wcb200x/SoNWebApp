@@ -237,6 +237,18 @@
     <Compile Include="Migrations\201703040115132_AddedPosTable.Designer.cs">
       <DependentUpon>201703040115132_AddedPosTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703040350321_accountcontrollerforregister.cs" />
+    <Compile Include="Migrations\201703040350321_accountcontrollerforregister.Designer.cs">
+      <DependentUpon>201703040350321_accountcontrollerforregister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703040611121_2ndattemptataccountcontroller.cs" />
+    <Compile Include="Migrations\201703040611121_2ndattemptataccountcontroller.Designer.cs">
+      <DependentUpon>201703040611121_2ndattemptataccountcontroller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703040647109_3rdaccountcontrollertry.cs" />
+    <Compile Include="Migrations\201703040647109_3rdaccountcontrollertry.Designer.cs">
+      <DependentUpon>201703040647109_3rdaccountcontrollertry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -299,6 +311,7 @@
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -418,6 +431,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703040115132_AddedPosTable.resx">
       <DependentUpon>201703040115132_AddedPosTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703040350321_accountcontrollerforregister.resx">
+      <DependentUpon>201703040350321_accountcontrollerforregister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703040611121_2ndattemptataccountcontroller.resx">
+      <DependentUpon>201703040611121_2ndattemptataccountcontroller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703040647109_3rdaccountcontrollertry.resx">
+      <DependentUpon>201703040647109_3rdaccountcontrollertry.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

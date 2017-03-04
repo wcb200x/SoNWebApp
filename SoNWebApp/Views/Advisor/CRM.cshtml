@@ -12,8 +12,8 @@
         <div class="panel-heading calendar-panel" style="color:white;padding-top: 25px; padding-bottom:25px">
             <h2 style="text-align:center;">CRM</h2>
         </div>
-    </div>
-</div>
+
+<div class="panel-body">
 
 <button class="btn btn-primary col-md-2 pull-left" style="background:#AD0000; margin-bottom: 5px;" onclick="location.href='@Url.Action("Create", "Student")'">Create New</button>
 <div class="row" style="margin-left:685px;">
@@ -59,9 +59,6 @@
                 @Html.DisplayNameFor(model => model.EmailAddress)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EnrollmentDate)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Standing)
             </th>
             <th>
@@ -104,9 +101,6 @@
                     @Html.DisplayFor(model => item.EmailAddress)
                 </td>
                 <td>
-                    @Html.DisplayFor(model => item.EnrollmentDate)
-                </td>
-                <td>
                     @Html.DisplayFor(model => item.Standing)
                 </td>
                 <td>
@@ -121,4 +115,7 @@
             </tr>
         }
     </table>
+</div>
+</div>
+</div>
 </div>

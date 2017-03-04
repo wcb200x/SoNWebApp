@@ -4,7 +4,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Owin;
 using SoNWebApp.Models;
 
-[assembly: OwinStartupAttribute(typeof(SoNWebApp.Startup))]
+[assembly: OwinStartup(typeof(SoNWebApp.Startup))]
 namespace SoNWebApp
 {
     public partial class Startup

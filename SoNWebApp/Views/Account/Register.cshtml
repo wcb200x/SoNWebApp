@@ -141,7 +141,31 @@
                 <div class="form-group">
                     @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
                     <div class="col-md-12">
-                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", @placeholder = "Full Name" })
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "First Name" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control", @placeholder = "Middle Name" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Last Name" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control", @placeholder = "Date of Birth" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.EnrollmentDate, new { @class = "form-control", @placeholder = "Enrollment Date" })
                     </div>
                 </div>
                 <div class="form-group">
