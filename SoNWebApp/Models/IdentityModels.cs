@@ -23,6 +23,14 @@ namespace SoNWebApp.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            
+            Database.SetInitializer(new DropCreateDatabaseAlways<ApplicationDbContext>());
+            //#if DEBUG
+            //            /// This will create database if one doesn't exist.
+            //            Database.SetInitializer(new CreateDatabaseIfNotExists<ApplicationDbContext>());
+            //            ////This will drop and re-create the database if model changes.
+            //            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ApplicationDbContext>());
+            //#endif
         }
 
         public static ApplicationDbContext Create()
@@ -39,5 +47,6 @@ namespace SoNWebApp.Models
         public System.Data.Entity.DbSet<SoNWebApp.Models.Todos> Todos { get; set; }
 
         public System.Data.Entity.DbSet<SoNWebApp.Models.UDApplication> UDApplications { get; set; }
+        public DbSet<POS> POS { get; set; }
     }
 }
