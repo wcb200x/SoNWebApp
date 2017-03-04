@@ -4,214 +4,312 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<style>
+    textarea, textarea.form-control, input.form-control, input[type=text], input[type=password], input[type=email], input[type=number], [type=text].form-control, [type=password].form-control, [type=email].form-control, [type=tel].form-control, [contenteditable].form-control {
+        border: 1px solid #808080 !important;
+        box-shadow: none !important;
+    }
 
-<div>
-    <h4>UDApplication</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+    input, select, textarea {
+        max-width: 100% !important;
+    }
+</style>
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MiddleName)
-        </dt>
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <center>  <h2 style="color:white">Details Upper Division Application</h2> </center>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.MiddleName)
-        </dd>
+            <div class="form-horizontal">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
+                <h4>Legal Name</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group" style="margin-top: 20px;">
+                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DisplayFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MiddleName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DisplayFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DisplayFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+                <h4 style="margin-top: 50px;">Email</h4>
+                <hr />
+                <div class="form-group" style="margin-top: 20px;">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DisplayFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StreetAddress)
-        </dt>
+                <h4 style="margin-top: 50px;">Contact Information</h4>
+                <hr />
+                <div class="form-group" style="margin-top: 20px;">
+                    @Html.LabelFor(model => model.StreetAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DisplayFor(model => model.StreetAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.StreetAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.StreetAddress)
-        </dd>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.StreetAddress2, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DisplayFor(model => model.StreetAddress2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.StreetAddress2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StreetAddress2)
-        </dt>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DisplayFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.StreetAddress2)
-        </dd>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DisplayFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DisplayFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.HomeNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DisplayFor(model => model.HomeNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.HomeNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CellNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DisplayFor(model => model.CellNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CellNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.State)
-        </dd>
+                <h4 style="margin-top: 50px;">Identification</h4>
+                <hr />
+                <div class="form-group" style="margin-top: 20px;">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.StudentNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-3">
+                            @Html.DisplayFor(model => model.StudentNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.StudentNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </dt>
+                    <h4 style="margin-top: 50px;">Program Options</h4>
+                    <hr />
+                    <div class="form-group" style="margin-top: 20px;">
+                        <div class="col-md-10">
+                            <p>Please choose one of the program options below and complete any corresponding required information</p>
 
-        <dd>
-            @Html.DisplayFor(model => model.ZipCode)
-        </dd>
+                            <p><b>Traditional BSN Program  Applicants are admitted twice a year, Fall & Spring. This is a full time program.</b></p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HomeNumber)
-        </dt>
+                            <p>
+                                <b>
+                                    Traditional BSN Owensboro Campus Program  Identical to the Traditional BSN Program except that all classes and clinical rotation
+                                    assignments are conducted in Owensboro, Kentucky. Applicants are admitted twice per year, Fall & Spring.
+                                </b>
+                            </p>
 
-        <dd>
-            @Html.DisplayFor(model => model.HomeNumber)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CellNumber)
-        </dt>
+                            <fieldset>
+                                <legend style="font-size: medium">Select a Program</legend>
+                                @Html.RadioButtonFor(model => model.Program1, "Traditional BSN Louisville Campus Program") Traditional BSN Louisville Campus Program<br />
+                                @Html.RadioButtonFor(model => model.Program2, "Traditional BSN Owensboro Campus Program") Traditional BSN Owensboro Campus Program<br />
+                                @Html.RadioButtonFor(model => model.Program3, "Traditional BSN Louisville Campus Program, First Choice, Traditional BSN Owensboro Campus Program, Second Choice") Traditional BSN Louisville Campus Program, First Choice, Traditional BSN Owensboro Campus Program, Second Choice
+                            </fieldset>
+                        </div>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.CellNumber)
-        </dd>
+                    <div class="form-group" style="margin-top: 20px;">
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend style="font-size: medium">What Semester are you applying for?</legend>
+                                @Html.RadioButtonFor(model => model.Semester, "Fall 2017") Fall 2017
+                            </fieldset>
+                        </div>
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentNumber)
-        </dt>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-3">
+                            @Html.DisplayFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentNumber)
-        </dd>
+                    <h4 style="margin-top: 50px;">Experience</h4>
+                    <hr />
+                    <div class="form-group" style="margin-top: 20px;">
+                        <div class="col-md-10">
+                            <p>
+                                Current Courses  Note: Please format each course in the following format, one per line.
+                                Course, Credit Hours, Semester, College or University
+                                E.g. CHEM 105- Chem for Health Pros, 4, Fall 2010, University of Louisville
+                            </p>
+                            @Html.DisplayFor(model => model.CurrentCourses, new { @class = "form-control", @rows = 10, @cols = 100 })
+                        </div>
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <p>
+                                Personal Qualities Essay  Write a story, biography, or narrative describing your personal qualities as they pertain to a successful nursing career.
+                                Address your perception of the profession of nursing and how you came to choose this career. Describe your short and long term nursing career goals.
+                                Complete in 500 words or less.
+                            </p>
+                            @Html.DisplayFor(model => model.PersonalQualEssay, new { @class = "form-control", @rows = 10, @cols = 40 })
+                        </div>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <p>
+                                Nursing or health care related experience
+                            </p>
+                            @Html.DisplayFor(model => model.NurseExperience, new { @class = "form-control", @rows = 10, @cols = 40 })
+                        </div>
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Semester)
-        </dt>
+                    <h4 style="margin-top: 50px;">Legal Information</h4>
+                    <hr />
+                    <div class="form-group" style="margin-top: 20px;">
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend style="font-size: medium">1. Have you ever been arrested for, charged with, or convicted of any crime other than a minor traffic violation?</legend>
+                                @Html.RadioButtonFor(model => model.Legal1, "Yes") Yes
+                                @Html.RadioButtonFor(model => model.Legal1, "No") No
+                            </fieldset>
+                        </div>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Semester)
-        </dd>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend style="font-size: medium">2. Have you ever been dismissed, suspended, or otherwise disciplined by a college, university, or a graduate/professional school for any reason?</legend>
+                                @Html.RadioButtonFor(model => model.Legal2, "Yes") Yes
+                                @Html.RadioButtonFor(model => model.Legal2, "No") No
+                            </fieldset>
+                        </div>
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CurrentCourses)
-        </dt>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend style="font-size: medium">3. Have you ever been other than honorably discharged from any armed service of the U.S.?</legend>
+                                @Html.RadioButtonFor(model => model.Legal3, "Yes") Yes
+                                @Html.RadioButtonFor(model => model.Legal3, "No") No
+                            </fieldset>
+                        </div>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.CurrentCourses)
-        </dd>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend style="font-size: medium">4. Have you ever been discharged from employment, disciplined, or asked to resign from employment or any service program (VISTA, Peace Corps, etc.) for reasons of dishonesty, malfeasance or any other reason reflecting on your character?</legend>
+                                @Html.RadioButtonFor(model => model.Legal4, "Yes") Yes
+                                @Html.RadioButtonFor(model => model.Legal4, "No") No
+                            </fieldset>
+                        </div>
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonalQualEssay)
-        </dt>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend style="font-size: medium">5. Have you ever been charged with or found guilty of sexual harassment or racial, ethnic, or gender bias in any proceeding?</legend>
+                                @Html.RadioButtonFor(model => model.Legal5, "Yes") Yes
+                                @Html.RadioButtonFor(model => model.Legal5, "No") No
+                            </fieldset>
+                        </div>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.PersonalQualEssay)
-        </dd>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend style="font-size: medium">6. Have you ever been subject to disciplinary or legal action related to use of drugs, including alcohol?</legend>
+                                @Html.RadioButtonFor(model => model.Legal6, "Yes") Yes
+                                @Html.RadioButtonFor(model => model.Legal6, "No") No
+                            </fieldset>
+                        </div>
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NurseExperience)
-        </dt>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <p>
+                                If you answered YES to any question(s) above, please provide an explanation below.
+                            </p>
+                            @Html.DisplayFor(model => model.ExplainLegal, new { @class = "form-control", @rows = 10, @cols = 40 })
+                        </div>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.NurseExperience)
-        </dd>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend>
+                                    I hereby declare that the information furnished above is completed and accurate to the best of my knowledge.
+                                    I also authorize the release of information from any agency or individuals, who may have additional information on me.
+                                </legend>
+                                @Html.RadioButtonFor(model => model.ConfirmLegal, "Yes") Yes
+                                @Html.RadioButtonFor(model => model.ConfirmLegal, "No") No
+                            </fieldset>
+                        </div>
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Legal1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Legal1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Legal2)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Legal2)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Legal3)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Legal3)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Legal4)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Legal4)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Legal5)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Legal5)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Legal6)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Legal6)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ExplainLegal)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ExplainLegal)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Legal7)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Legal7)
-        </dd>
-
-    </dl>
+                    <p style="margin-top: 20px;">
+                        <b>If you do not receive</b> an email within 5 working days indicating that we have received application materials, please call us at (502) 852-1196.
+                    </p>
+                    <p>
+                        By submitting this form, I hereby confirm that the information above is complete and accurate to the best of my knowledge. I also authorize the release of
+                        information by any agency or individuals, who may have additional information pertaining to me that is relevant to this application.
+                    </p>
+                </div>
+            }
+    </div>
 </div>
+        
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>

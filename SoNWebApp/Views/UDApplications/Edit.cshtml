@@ -26,11 +26,10 @@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
+          
                 <h4>Legal Name</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.ID)
-
                 <div class="form-group" style="margin-top: 20px;">
                     @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-3">
@@ -55,7 +54,8 @@
                     </div>
                 </div>
 
-                <h4 style="margin-top: 30px;">Email</h4>
+                <h4 style="margin-top: 50px;">Email</h4>
+                <hr />
                 <div class="form-group" style="margin-top: 20px;">
                     @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-3">
@@ -64,7 +64,8 @@
                     </div>
                 </div>
 
-                <h4 style="margin-top: 30px;">Contact Information</h4>
+                <h4 style="margin-top: 50px;">Contact Information</h4>
+                <hr />
                 <div class="form-group" style="margin-top: 20px;">
                     @Html.LabelFor(model => model.StreetAddress, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-3">
@@ -121,175 +122,210 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.StudentNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-3">
-                        @Html.EditorFor(model => model.StudentNumber, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.StudentNumber, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-3">
-                        @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Semester, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-3">
-                        @Html.EditorFor(model => model.Semester, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Semester, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-
-                <h4 style="margin-top: 30px;">Experience</h4>
+                <h4 style="margin-top: 50px;">Identification</h4>
+                <hr />
                 <div class="form-group" style="margin-top: 20px;">
-                    <div class="col-md-10">
-                        <p>
-                            Current Courses  Note: Please format each course in the following format, one per line.
-                            Course, Credit Hours, Semester, College or University
-                            E.g. CHEM 105- Chem for Health Pros, 4, Fall 2010, University of Louisville
-                        </p>
-                        @Html.TextAreaFor(model => model.CurrentCourses, new { @class = "form-control", @rows = 10, @cols = 100 })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <p>
-                            Personal Qualities Essay  Write a story, biography, or narrative describing your personal qualities as they pertain to a successful nursing career.
-                            Address your perception of the profession of nursing and how you came to choose this career. Describe your short and long term nursing career goals.
-                            Complete in 500 words or less.
-                        </p>
-                        @Html.TextAreaFor(model => model.PersonalQualEssay, new { @class = "form-control", @rows = 10, @cols = 40 })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <p>
-                            Nursing or health care related experience
-                        </p>
-                        @Html.TextAreaFor(model => model.NurseExperience, new { @class = "form-control", @rows = 10, @cols = 40 })
-                    </div>
-                </div>
-
-                <h4 style="margin-top: 30px;">Legal Information</h4>
-                <div class="form-group" style="margin-top: 20px;">
-                    <div class="col-md-10">
-                        <fieldset>
-                            <legend style="font-size: medium">1. Have you ever been arrested for, charged with, or convicted of any crime other than a minor traffic violation?</legend>
-                            @Html.RadioButtonFor(model => model.Legal1, true) Yes
-                            @Html.RadioButtonFor(model => model.Legal1, false) No
-                        </fieldset>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <fieldset>
-                            <legend style="font-size: medium">2. Have you ever been dismissed, suspended, or otherwise disciplined by a college, university, or a graduate/professional school for any reason?</legend>
-                            @Html.RadioButtonFor(model => model.Legal2, true) Yes
-                            @Html.RadioButtonFor(model => model.Legal2, false) No
-                        </fieldset>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <fieldset>
-                            <legend style="font-size: medium">3. Have you ever been other than honorably discharged from any armed service of the U.S.?</legend>
-                            @Html.RadioButtonFor(model => model.Legal3, true) Yes
-                            @Html.RadioButtonFor(model => model.Legal3, false) No
-                        </fieldset>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <fieldset>
-                            <legend style="font-size: medium">4. Have you ever been discharged from employment, disciplined, or asked to resign from employment or any service program (VISTA, Peace Corps, etc.) for reasons of dishonesty, malfeasance or any other reason reflecting on your character?</legend>
-                            @Html.RadioButtonFor(model => model.Legal4, true) Yes
-                            @Html.RadioButtonFor(model => model.Legal4, false) No
-                        </fieldset>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <fieldset>
-                            <legend style="font-size: medium">5. Have you ever been charged with or found guilty of sexual harassment or racial, ethnic, or gender bias in any proceeding?</legend>
-                            @Html.RadioButtonFor(model => model.Legal5, true) Yes
-                            @Html.RadioButtonFor(model => model.Legal5, false) No
-                        </fieldset>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <fieldset>
-                            <legend style="font-size: medium">6. Have you ever been subject to disciplinary or legal action related to use of drugs, including alcohol?</legend>
-                            @Html.RadioButtonFor(model => model.Legal6, true) Yes
-                            @Html.RadioButtonFor(model => model.Legal6, false) No
-                        </fieldset>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <p>
-                            If you answered YES to any question(s) above, please provide an explanation below.
-                        </p>
-                        @Html.TextAreaFor(model => model.ExplainLegal, new { @class = "form-control", @rows = 10, @cols = 40 })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <fieldset>
-                            <legend>
-                                I hereby declare that the information furnished above is completed and accurate to the best of my knowledge.
-                                I also authorize the release of information from any agency or individuals, who may have additional information on me.
-                            </legend>
-                            @Html.RadioButtonFor(model => model.Legal7, true) Yes
-                            @Html.RadioButtonFor(model => model.Legal7, false) No
-                        </fieldset>
-                    </div>
-                </div>
-
-                <center>
-                    <div class="form-group" style="margin-top: 20px;">
-                        <div class="col-md-10">
-                            <input type="submit" value="Submit" class="btn btn-default" />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.StudentNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-3">
+                            @Html.EditorFor(model => model.StudentNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.StudentNumber, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                </center>
-                <p style="margin-top: 20px;">
-                    <b>If you do not receive</b> an email within 5 working days indicating that we have received application materials, please call us at (502) 852-1196.
-                </p>
-                <p>
-                    By submitting this form, I hereby confirm that the information above is complete and accurate to the best of my knowledge. I also authorize the release of
-                    information by any agency or individuals, who may have additional information pertaining to me that is relevant to this application.
-                </p>
-            </div>
-        }
+                </div>
+
+                    <h4 style="margin-top: 50px;">Program Options</h4>
+                    <hr />
+                    <div class="form-group" style="margin-top: 20px;">
+                        <div class="col-md-10">
+                            <p>Please choose one of the program options below and complete any corresponding required information</p>
+
+                            <p><b>Traditional BSN Program  Applicants are admitted twice a year, Fall & Spring. This is a full time program.</b></p>
+
+                            <p>
+                                <b>
+                                    Traditional BSN Owensboro Campus Program  Identical to the Traditional BSN Program except that all classes and clinical rotation
+                                    assignments are conducted in Owensboro, Kentucky. Applicants are admitted twice per year, Fall & Spring.
+                                </b>
+                            </p>
+
+
+                            <fieldset style="margin-top: 20px;">
+                                <legend style="font-size: medium">Select a Program</legend>
+                                @Html.RadioButtonFor(model => model.Program1, "Traditional BSN Louisville Campus Program") Traditional BSN Louisville Campus Program<br />
+                                @Html.RadioButtonFor(model => model.Program2, "Traditional BSN Owensboro Campus Program") Traditional BSN Owensboro Campus Program<br />
+                                @Html.RadioButtonFor(model => model.Program3, "Traditional BSN Louisville Campus Program, First Choice, Traditional BSN Owensboro Campus Program, Second Choice") Traditional BSN Louisville Campus Program, First Choice, Traditional BSN Owensboro Campus Program, Second Choice
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 20px;">
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend style="font-size: medium">What Semester are you applying for?</legend>
+                                @Html.RadioButtonFor(model => model.Semester, "Fall 2017") Fall 2017
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-3">
+                            @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top: 50px;">Experience</h4>
+                    <hr />
+                    <div class="form-group" style="margin-top: 20px;">
+                        <div class="col-md-10">
+                            <p>
+                                Current Courses  Note: Please format each course in the following format, one per line.
+                                Course, Credit Hours, Semester, College or University
+                                E.g. CHEM 105- Chem for Health Pros, 4, Fall 2010, University of Louisville
+                            </p>
+                            <hr />
+                            @Html.TextAreaFor(model => model.CurrentCourses, new { @class = "form-control", @rows = 10, @cols = 100 })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10" style="margin-top: 20px;">
+                            <p>
+                                Personal Qualities Essay  Write a story, biography, or narrative describing your personal qualities as they pertain to a successful nursing career.
+                                Address your perception of the profession of nursing and how you came to choose this career. Describe your short and long term nursing career goals.
+                                Complete in 500 words or less.
+                            </p>
+                            <hr />
+                            @Html.TextAreaFor(model => model.PersonalQualEssay, new { @class = "form-control", @rows = 10, @cols = 40 })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10" style="margin-top: 20px;">
+                            <p>
+                                Nursing or health care related experience
+                            </p>
+                            <hr />
+                            @Html.TextAreaFor(model => model.NurseExperience, new { @class = "form-control", @rows = 10, @cols = 40 })
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top: 50px;">Legal Information</h4>
+                    <hr />
+                    <div class="form-group" style="margin-top: 20px;">
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend style="font-size: medium">1. Have you ever been arrested for, charged with, or convicted of any crime other than a minor traffic violation?</legend>
+                                @Html.RadioButtonFor(model => model.Legal1, "Yes") Yes
+                                @Html.RadioButtonFor(model => model.Legal1, "No") No
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend style="font-size: medium">2. Have you ever been dismissed, suspended, or otherwise disciplined by a college, university, or a graduate/professional school for any reason?</legend>
+                                @Html.RadioButtonFor(model => model.Legal2, "Yes") Yes
+                                @Html.RadioButtonFor(model => model.Legal2, "No") No
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend style="font-size: medium">3. Have you ever been other than honorably discharged from any armed service of the U.S.?</legend>
+                                @Html.RadioButtonFor(model => model.Legal3, "Yes") Yes
+                                @Html.RadioButtonFor(model => model.Legal3, "No") No
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend style="font-size: medium">4. Have you ever been discharged from employment, disciplined, or asked to resign from employment or any service program (VISTA, Peace Corps, etc.) for reasons of dishonesty, malfeasance or any other reason reflecting on your character?</legend>
+                                @Html.RadioButtonFor(model => model.Legal4, "Yes") Yes
+                                @Html.RadioButtonFor(model => model.Legal4, "No") No
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend style="font-size: medium">5. Have you ever been charged with or found guilty of sexual harassment or racial, ethnic, or gender bias in any proceeding?</legend>
+                                @Html.RadioButtonFor(model => model.Legal5, "Yes") Yes
+                                @Html.RadioButtonFor(model => model.Legal5, "No") No
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <fieldset>
+                                <legend style="font-size: medium">6. Have you ever been subject to disciplinary or legal action related to use of drugs, including alcohol?</legend>
+                                @Html.RadioButtonFor(model => model.Legal6, "Yes") Yes
+                                @Html.RadioButtonFor(model => model.Legal6, "No") No
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10" style="margin-top: 20px;">
+                            <p>
+                                If you answered YES to any question(s) above, please provide an explanation below.
+                            </p>
+                            <hr />
+                            @Html.TextAreaFor(model => model.ExplainLegal, new { @class = "form-control", @rows = 10, @cols = 40 })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10" style="margin-top: 20px;">
+                            <fieldset>
+                                <legend>
+                                    I hereby declare that the information furnished above is completed and accurate to the best of my knowledge.
+                                    I also authorize the release of information from any agency or individuals, who may have additional information on me.
+                                </legend>
+                                @Html.RadioButtonFor(model => model.ConfirmLegal, "Yes") Yes
+                                @Html.RadioButtonFor(model => model.ConfirmLegal, "No") No
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <center>
+                        <div class="form-group" style="margin-top: 20px;">
+                            <div class="col-md-10">
+                                <input type="submit" value="Save" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </center>
+                    <p style="margin-top: 20px;">
+                        <b>If you do not receive</b> an email within 5 working days indicating that we have received application materials, please call us at (502) 852-1196.
+                    </p>
+                    <p>
+                        By submitting this form, I hereby confirm that the information above is complete and accurate to the best of my knowledge. I also authorize the release of
+                        information by any agency or individuals, who may have additional information pertaining to me that is relevant to this application.
+                    </p>
+                </div>
+            }
     </div>
 </div>
 
 
 
 
-  @section Scripts {
+@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
 
 
 
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

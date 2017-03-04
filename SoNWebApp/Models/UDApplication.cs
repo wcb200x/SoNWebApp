@@ -20,6 +20,9 @@ namespace SoNWebApp.Models
         public string HomeNumber { get; set; }
         public string CellNumber { get; set; }
         public int StudentNumber { get; set; }
+        public string Program1 { get; set; }
+        public string Program2 { get; set; }
+        public string Program3 { get; set; }
         public string Location { get; set; }
         public string Semester { get; set; }
         public string CurrentCourses { get; set; }
@@ -36,7 +39,7 @@ namespace SoNWebApp.Models
         public string Legal5 { get; set; }
         public string Legal6 { get; set; }
         public string ExplainLegal { get; set; }
-        public string Legal7 { get; set; }
+        public string ConfirmLegal { get; set; }
 
 
     }
