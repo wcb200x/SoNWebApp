@@ -5,35 +5,53 @@
 }
 @model List<SoNWebApp.Models.ViewModels.SelectUserRolesViewModel>
 
-<h2>User Roles</h2>
+
+<div class="row">
+    <div class="panel panel-danger">
+
+    <div class="panel-heading">
+    <h3 style="color:#FFFFFF; text-align:center;">User Roles</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row" style="margin-left:675px;">
+
+                @using (Html.BeginForm())
+            {
+                    <p>
+                        Search by email: @Html.TextBox("searchString1")
+                        <input type="submit" value="Search" />
+                    </p>
+                }
+            </div>
+            <hr />
+           
 @{ var list = Model.ToList();
     for (int i = 0; i < list.Count; i++)
     {
         <div class="col-md-12">
-            <div class="col-md-6"><b>User Name</b></div>
-            <div class="col-md-6"><b>Roles</b></div>
+            <div class="col-md-4"><b>User Name</b></div>
+            <div class="col-md-4"><b>Roles</b></div>
         </div>
             <div class="col-md-12">
                 <div class="col-md-4">@Html.DisplayFor(modelItem => list[i].UserName)</div>
                 <div class="col-md-4">
-                    @foreach (var user in Model)
+                    @foreach (var role in list[i].Roles)
                     {
-                        foreach (var role in user.Roles)
-                        {
-                            for (int r = 1; r < user.Roles.Count; r++)
-                            {
-                                @Html.DisplayFor(m => m[i].Roles[r].RoleName)
-                            }
+                        <p>@role.RoleName</p>
 
-                        }
                     }
                 </div>
+
                 <div class="col-md-4">
                     <a href="@Url.Action("Edit", "UserManagement", new {@id = list[i].Id})">Edit</a>
                 </div>
             </div>
     }
 }
+
 <br />
 <br />
 <br />
+</div>
+</div>
+</div>

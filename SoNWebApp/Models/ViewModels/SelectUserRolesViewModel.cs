@@ -21,17 +21,22 @@ namespace SoNWebApp.Models.ViewModels
 
             var Db = new ApplicationDbContext();
 
-            // Add all available roles to the list of EditorViewModels:
-            var allRoles = Db.Roles.ToList();
-            foreach (var role in allRoles.ToList())
-            {
-                // An EditorViewModel will be used by Editor Template:
-                var rvm = new SelectRoleEditorViewModel(role);
-                this.Roles.Add(rvm);
 
-                var checkUserRole =
-                    this.Roles.Find(r => r.RoleId == role.Id);
-                checkUserRole.Selected = true;
+            var allRolesForCurrentUser = Db.Users.FirstOrDefault(u => u.Id == user.Id).Roles;
+
+            var roleNames = new List<string>();
+            foreach (var role in allRolesForCurrentUser)
+            {
+                var roleName = Db.Roles.FirstOrDefault(r => r.Id == role.RoleId).Name;
+
+                var rvm = new SelectRoleEditorViewModel()
+                {
+                    RoleId = role.RoleId,
+                    RoleName = roleName,
+                    Selected = true
+                };
+
+                this.Roles.Add(rvm);
             }
         }
 

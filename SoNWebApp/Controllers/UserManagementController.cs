@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using SoNWebApp.Models;
 using SoNWebApp.Models.ViewModels;
+using System;
 
 namespace SoNWebApp.Controllers
 {
@@ -16,9 +17,15 @@ namespace SoNWebApp.Controllers
 
 
         [Authorize(Roles = "SuperAdmin")]
-        public ActionResult Index()
+        public ActionResult Index(string searchString1)
         {
-            var users = _db.Users;
+
+            var users = from x in _db.Users
+            select x;
+            if (!String.IsNullOrEmpty(searchString1))
+            {
+                users = users.Where(x => x.Email.Contains(searchString1));
+            }
             var model = new List<SelectUserRolesViewModel>();
             foreach (var user in users)
             {
@@ -26,6 +33,7 @@ namespace SoNWebApp.Controllers
                 u.Id = user.Id;
                 model.Add(u);
             }
+         
             return View(model);
         }
 
