@@ -10,17 +10,18 @@ using SoNWebApp.Models;
 
 namespace SoNWebApp.Controllers
 {
-    [Authorize (Roles =("Admin,Advisor,SuperAdmin"))]
     public class UDApplicationsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: UDApplications
+        [Authorize(Roles = ("Admin,Advisor,SuperAdmin"))]
         public ActionResult Index()
         {
             return View(db.UDApplications.ToList());
         }
 
+        [Authorize(Roles = ("Admin,Advisor,SuperAdmin"))]
         // GET: UDApplications/Details/5
         public ActionResult Details(int? id)
         {
@@ -60,6 +61,7 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: UDApplications/Edit/5
+        [Authorize(Roles = ("Admin,Advisor,SuperAdmin"))]
         public ActionResult Edit(int? id)
         {
             //if (id == null)
@@ -79,6 +81,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = ("Admin,Advisor,SuperAdmin"))]
         public ActionResult Edit([Bind(Include = "ID,FirstName,MiddleName,LastName,Email,StreetAddress,StreetAddress2,City,State,ZipCode,HomeNumber,CellNumber,StudentNumber,Program1,Program2,Program3,Location,Semester,CurrentCourses,PersonalQualEssay,NurseExperience,Legal1,Legal2,Legal3,Legal4,Legal5,Legal6,ExplainLegal,ConfirmLegal")] UDApplication uDApplication)
         {
             if (ModelState.IsValid)
@@ -91,6 +94,7 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: UDApplications/Delete/5
+        [Authorize(Roles = ("Admin,Advisor,SuperAdmin"))]
         public ActionResult Delete(int? id)
         {
             //if (id == null)
@@ -108,6 +112,7 @@ namespace SoNWebApp.Controllers
         // POST: UDApplications/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = ("Admin,Advisor,SuperAdmin"))]
         public ActionResult DeleteConfirmed(int id)
         {
             UDApplication uDApplication = db.UDApplications.Find(id);
