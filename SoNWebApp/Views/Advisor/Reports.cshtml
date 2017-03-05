@@ -20,7 +20,9 @@
 </div>
 <div class="col-md-4" style="margin-left:50px;">
 <p>@Html.ActionLink("All Students", "StudentReport")</p>
-   
+<p>@Html.ActionLink("All Courses for Traditional BSN", "ProgramCoursesReport", new { programNum = 1 })</p>
+<p>@Html.ActionLink("All Courses for RN-BSN", "ProgramCoursesReport", new { programNum = 2 })</p>
+<p>@Html.ActionLink("All Courses for MEPN", "ProgramCoursesReport", new { programNum = 3 })</p>
 
 </div>
 </div>

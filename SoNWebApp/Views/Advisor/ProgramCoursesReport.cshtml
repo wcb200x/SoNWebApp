@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SoNWebApp.Models.Courses>
+@{
+    Layout = "~/Views/Shared/AdvisorLayoutPage.cshtml";
+}
+
+
+<div class="row">
+    <div class="panel panel-danger">
+        <div class="panel-heading stureport-panel" style="color:white;padding-top: 25px; padding-bottom:25px; ">
+            <h2 style="text-align:center;">Courses in Program</h2>
+        </div>
+
+        <div class="panel-body">
+
+            <table class="table" style="color: #000000; ">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Subject)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CatalogNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Credits)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProgramID)
+                    </th>
+            
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelitem => item.Subject)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.CatalogNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.Credits)
+                        </td>
+                      
+                        <td>
+                            @Html.DisplayFor(model => item.ProgramID)
+                        </td>
+                   
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+
