@@ -12,7 +12,8 @@ namespace SoNWebApp.Models
         public string Title { get; set; }
         public int CatalogNumber { get; set; }
         public int Credits { get; set; }
-        public virtual Program ProgramID { get; set; }
+        public int ProgramID { get; set; }
+        public virtual Program Program { get; set; }
 
     }
 }
