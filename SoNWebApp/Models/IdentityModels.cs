@@ -43,6 +43,7 @@ namespace SoNWebApp.Models
         public DbSet <Enrollment> Enrollments { get; set; }
         public DbSet <Campus> Campuses { get; set; }
         public DbSet <Event> Events { get; set; }
+        public DbSet<Document> Documents { get; set; }
 
         public System.Data.Entity.DbSet<SoNWebApp.Models.Todos> Todos { get; set; }
 

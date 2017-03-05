@@ -14,40 +14,48 @@
             <div class="portlet-body">
 
 
-                <label for="single" class="control-label">Select from dropdown</label>
-                <select id="single" class="form-control select2" style="border: 2px solid black;">
-                    <optgroup label="Compliance Document">
-                        <option value="CPR">CPR</option>
-                        <option value="HIPPA">HIPPA</option>
-                        <option value="Blood">Bloodbourne Path</option>
-                        <option value="Insurance">Liability Insurance</option>
-                        <option value="Immunizations">Immunizations</option>
-                        <option value="Screening">Drug Screening</option>
-                        <option value="CNA">CNA</option>
-                    </optgroup>
-                    
-                </select>
+    <label for="single" class="control-label">Select from dropdown</label>
+    <select id="single" class="form-control select2" style="border: 2px solid black;">
+        <optgroup label="Compliance Document">
+            <option value="CPR">CPR</option>
+            <option value="HIPPA">HIPPA</option>
+            <option value="Blood">Bloodbourne Path</option>
+            <option value="Insurance">Liability Insurance</option>
+            <option value="Immunizations">Immunizations</option>
+            <option value="Screening">Drug Screening</option>
+            <option value="CNA">CNA</option>
+        </optgroup>
+
+    </select>
 
 
 
 
-
-
-                <div class="fileinput fileinput-new" data-provides="fileinput">
-                    <div class="input-group input-sm">
-                        <div class="form-control uneditable-input input-fixed input-sm" data-trigger="fileinput">
-                            @*<i class="fa fa-file fileinput-exists"></i>&nbsp;*@
-                            <span class="fileinput-filename"> </span>
-                        </div>
-                        <span class="input-group-addon btn default btn-file">
-                            <span class="fileinput-new"> Select file </span>
-                            <span class="fileinput-exists"> Change </span>
-                            <input type="file" name="...">
-                        </span>
-                        <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput" style="background-color:#AD0000;"> Remove </a>
-                    </div>
+    @using (Html.BeginForm("UploadDocument", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <label for="studentNumber">Student Number:</label>
+            <input type="text" name="studentNumber" id="studentNumber" />
+        </div>
+        <div class="fileinput fileinput-new" data-provides="fileinput">
+            <div class="input-group input-sm">
+                <div class="form-control uneditable-input input-fixed input-sm" data-trigger="fileinput">
+                    @*<i class="fa fa-file fileinput-exists"></i>&nbsp;*@
+                    <span class="fileinput-filename"> </span>
                 </div>
+                <span class="input-group-addon btn default btn-file">
+                    <span class="fileinput-new"> Select file </span>
+                    <span class="fileinput-exists"> Change </span>
+                        <input type="file" name="...">
+                        <input type="submit" />
+                </span>
+                
             </div>
+        </div>
+        
+    }
+
+                
 
 
 
@@ -63,7 +71,7 @@
         </div>
 
 
-
+</div>
 
     </div>
 
