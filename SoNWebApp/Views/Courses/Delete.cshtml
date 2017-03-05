@@ -3,63 +3,68 @@
 @{
     ViewBag.Title = "Delete";
 }
+<div class="panel panel-danger" style="border:1px solid #808080;">
+    <div class="panel-heading">
+        <h3 style="color:#FFFFFF">Delete Course</h3>
+    </div>
+    <div class="panel-body">
+        
 
-<h2>Delete</h2>
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Subject)
+                </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Courses</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Subject)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Subject)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Subject)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CatalogNumber)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CatalogNumber)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CatalogNumber)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CatalogNumber)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
 
-      
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Credits)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Credits)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Credits)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Credits)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProgramID)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProgramID)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProgramID)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.ProgramID)
+                </dd>
 
-    </dl>
+            </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
+            </div>
         </div>
-    }
-</div>
+        </div>

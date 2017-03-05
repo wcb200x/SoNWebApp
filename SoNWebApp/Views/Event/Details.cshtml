@@ -1,66 +1,65 @@
 ﻿@model SoNWebApp.Models.Event
 
-@{
-    ViewBag.Title = "Details";
-}
+<div class="panel panel-danger" style="border:1px solid #808080;">
+    <div class="panel-heading">
+        <h3 style="color:#FFFFFF">Delete Event</h3>
+    </div>
+    <div class="panel-body">
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Text)
+                </dt>
 
-<h2>Details</h2>
+                <dd>
+                    @Html.DisplayFor(model => model.Text)
+                </dd>
 
-<div>
-    <h4>Event</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Text)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Location)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Text)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Location)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsRecruitment)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.IsRecruitment)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsRecruitment)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsRecruitment)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.StartDate)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.EndDate)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.EndDate)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+        </div>
+    </div>

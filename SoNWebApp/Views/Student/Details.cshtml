@@ -3,200 +3,203 @@
 @{
     ViewBag.Title = "Details";
 }
+<div class="panel panel-danger" style="border:1px solid #808080;">
+    <div class="panel-heading">
+        <h3 style="color:#FFFFFF">Student Details</h3>
+    </div>
+    <div class="panel-body">
+        <div style="margin-left:50px;">
+            <dl class="dl-horizontal" style="margin-left:50px;">
 
-<div style="margin-left:50px;">
-    <h2>Details</h2>
-    <h4 style="margin-left: 50px;">Student</h4>
-    <hr />
-    <dl class="dl-horizontal" style="margin-left:50px;">
-        
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentNumber)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.StudentNumber)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentNumber)
-        </dd>
-        
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.StudentNumber)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MiddleName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MiddleName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.MiddleName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.MiddleName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Race)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Race)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Race)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Race)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Gender)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DateOfBirth)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateOfBirth)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EmailAddress)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DateOfBirth)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EmailAddress)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.EmailAddress)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EmailAddress)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CellNumber)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CellNumber)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CellNumber)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CellNumber)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.City)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.City)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.State)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.State)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.State)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ZipCode)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ZipCode)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ZipCode)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Country)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Standing)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Country)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Standing)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Country)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Standing)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HasGraduated)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Standing)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.HasGraduated)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.HasGraduated)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CampusID)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.HasGraduated)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CampusID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ProgramID)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CampusID)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProgramID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.GPA)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CampusID)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProgramID)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.GPA)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.ProgramID)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.GPA)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EnrollmentDate)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.GPA)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.EnrollmentDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Petition)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Petition)
-        </dd>      
-        <dt>
-            @Html.DisplayNameFor(model => model.Notes)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Notes)
-        </dd>
-    </dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.EnrollmentDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EnrollmentDate)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Petition)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Petition)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Notes)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Notes)
+                </dd>
+            </dl>
+        </div>
+        <div class="col-md-4">
+            <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href=""><font color="white">Contact Student</font></a></div>
+            <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href=""><font color="white">Import </font></a></div>
+
+        </div>
+        <br />
+        <br />
+        <br />
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+            @Html.ActionLink("Back to List", "CRM", "Advisor", false, false)
+        </p>
+        </div>
 </div>
-<div class="col-md-4">
-    <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href=""><font color="white">Contact Student</font></a></div>
-    <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href=""><font color="white">Import </font></a></div>
-
-</div>
-<br />
-<br />
-<br />
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "CRM","Advisor", false,false)
-</p>
