@@ -225,6 +225,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mapping\CourseMapping.cs" />
     <Compile Include="Migrations\201703040029279_InitialMigration.cs" />
     <Compile Include="Migrations\201703040029279_InitialMigration.Designer.cs">
       <DependentUpon>201703040029279_InitialMigration.cs</DependentUpon>
