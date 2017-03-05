@@ -25,7 +25,7 @@ namespace SoNWebApp.Controllers
                                               || c.ProgramID.ToString().Contains(searchString2));
                                          
             }
-            return View(db.Courses.ToList());
+            return View(course.ToList());
         }
 
         // GET: Courses/Details/5
