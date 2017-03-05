@@ -23,15 +23,15 @@ namespace SoNWebApp.Controllers
         // GET: Campus/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             Campus campus = db.Campuses.Find(id);
-            if (campus == null)
-            {
-                return HttpNotFound();
-            }
+            //if (campus == null)
+            //{
+            //    return HttpNotFound();
+            //}
             return View(campus);
         }
 
@@ -61,15 +61,15 @@ namespace SoNWebApp.Controllers
         // GET: Campus/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             Campus campus = db.Campuses.Find(id);
-            if (campus == null)
-            {
-                return HttpNotFound();
-            }
+            //if (campus == null)
+            //{
+            //    return HttpNotFound();
+            //}
             return View(campus);
         }
 
@@ -92,15 +92,15 @@ namespace SoNWebApp.Controllers
         // GET: Campus/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             Campus campus = db.Campuses.Find(id);
-            if (campus == null)
-            {
-                return HttpNotFound();
-            }
+            //if (campus == null)
+            //{
+            //    return HttpNotFound();
+            //}
             return View(campus);
         }
 

@@ -1,42 +1,46 @@
 ﻿@model SoNWebApp.Models.Todos
 
-@{
-    ViewBag.Title = "Details";
-}
+<div class="row">
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h2 style="color:white;">To-Do Details</h2>
+        </div>
 
-<h2>Details</h2>
+        <div class="panel-body">
 
-<div>
-    <h4>Todos</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Message)
-        </dt>
+            <div>
+               
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Message)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Message)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Message)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.StartDate)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.StartDate)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.EndDate)
+                    </dd>
 
-    </dl>
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+            </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</div>
