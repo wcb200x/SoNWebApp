@@ -96,5 +96,10 @@ namespace SoNWebApp.Controllers
             return PartialView("_StudentsPartial", students);
         }
 
+        public ActionResult ProgramCoursesReport(int programNum)
+        {
+            var classes = db.Courses.Where(p => p.ProgramID == programNum).ToList();
+            return View(classes.ToList());
+        }
     }
 }
