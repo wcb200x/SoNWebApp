@@ -1,59 +1,63 @@
 ﻿@model SoNWebApp.Models.Courses
 
-@{
-    ViewBag.Title = "Details";
-}
+<div class="row">
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h2 style="color:white;">Course Details</h2>
+        </div>
 
-<h2>Details</h2>
+        <div class="panel-body">
 
-<div>
-    <h4>Courses</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Subject)
-        </dt>
+            <div>
+              
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Subject)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Subject)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CatalogNumber)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Subject)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.CatalogNumber)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CatalogNumber)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.CatalogNumber)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Title)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Credits)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Credits)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Credits)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Credits)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProgramID)
-        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ProgramID)
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProgramID)
-        </dd>
-
+                    <dd>
+                        @Html.DisplayFor(model => model.ProgramID)
+                    </dd>
 
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+            </div>
+        </div>
+    </div>
