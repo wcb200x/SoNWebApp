@@ -266,6 +266,10 @@
     <Compile Include="Migrations\201703050124476_DeletedChanges.Designer.cs">
       <DependentUpon>201703050124476_DeletedChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703050459104_foreign.cs" />
+    <Compile Include="Migrations\201703050459104_foreign.Designer.cs">
+      <DependentUpon>201703050459104_foreign.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -470,6 +474,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703050124476_DeletedChanges.resx">
       <DependentUpon>201703050124476_DeletedChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703050459104_foreign.resx">
+      <DependentUpon>201703050459104_foreign.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
