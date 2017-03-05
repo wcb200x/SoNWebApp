@@ -78,10 +78,11 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Subject,CatalogNumber,Title,Credits,CampusID")] Courses courses)
+        public ActionResult Edit([Bind(Include = "Id,Subject,CatalogNumber,Title,Credits,ProgramID")] Courses courses)
         {
             if (ModelState.IsValid)
             {
+              
                 db.Entry(courses).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
