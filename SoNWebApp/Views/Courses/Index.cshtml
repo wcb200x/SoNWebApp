@@ -4,58 +4,76 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="row">
+    <div class="panel panel-danger">
+        <div class="panel-heading" style="color:white;padding-top: 25px; padding-bottom:25px">
+            <h2>Courses Index</h2>
+        </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Subject)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CatalogNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-      
-        <th>
-            @Html.DisplayNameFor(model => model.Credits)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProgramID)
-        </th>
-   
-        <th></th>
-    </tr>
+        <div class="panel-body">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Subject)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CatalogNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-      
-        <td>
-            @Html.DisplayFor(modelItem => item.Credits)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProgramID)
-        </td>
-     
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+            <button class="btn btn-primary col-md-2 pull-left" style="background:#AD0000; margin-bottom: 5px;" onclick="location.href='@Url.Action("Create", "Courses")'">Create New</button>
+            <div class="row" style="margin-left:590px;">
+                @using (Html.BeginForm())
+                {
+                    <p>
+                        Search by Course Title or Program ID: @Html.TextBox("searchString2")
+                        <input type="submit" value="Search" />
+                    </p>
+                }
+            </div>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Subject)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CatalogNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
 
-</table>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Credits)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProgramID)
+                    </th>
+
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Subject)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CatalogNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Credits)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProgramID)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            </div>
+        </div>
+    </div>
+
