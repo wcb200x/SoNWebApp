@@ -2,8 +2,11 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
     <link rel="shortcut icon" type="image/ico" href="~/Content/Images/favicon.png" />
 
 </head>
@@ -39,7 +42,3 @@
 
 
 </html>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-@Styles.Render("~/Content/css")
-@Scripts.Render("~/bundles/modernizr")
