@@ -261,6 +261,10 @@
     <Compile Include="Migrations\201703050007175_removecourseidfromprog.Designer.cs">
       <DependentUpon>201703050007175_removecourseidfromprog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703050124476_DeletedChanges.cs" />
+    <Compile Include="Migrations\201703050124476_DeletedChanges.Designer.cs">
+      <DependentUpon>201703050124476_DeletedChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -462,6 +466,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703050007175_removecourseidfromprog.resx">
       <DependentUpon>201703050007175_removecourseidfromprog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703050124476_DeletedChanges.resx">
+      <DependentUpon>201703050124476_DeletedChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
