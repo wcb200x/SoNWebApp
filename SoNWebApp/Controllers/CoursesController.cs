@@ -15,8 +15,16 @@ namespace SoNWebApp.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Courses
-        public ActionResult Index()
+        public ActionResult Index(string searchString2)
         {
+            var course = from c in db.Courses
+                           select c;
+            if (!String.IsNullOrEmpty(searchString2))
+            {
+                course = course.Where(c => c.Title.Contains(searchString2)
+                                              || c.ProgramID.ToString().Contains(searchString2));
+                                         
+            }
             return View(db.Courses.ToList());
         }
 
