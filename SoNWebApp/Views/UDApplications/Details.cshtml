@@ -1,8 +1,5 @@
 ﻿@model SoNWebApp.Models.UDApplication
 
-@{
-    ViewBag.Title = "Details";
-}
 
 <style>
     textarea, textarea.form-control, input.form-control, input[type=text], input[type=password], input[type=email], input[type=number], [type=text].form-control, [type=password].form-control, [type=email].form-control, [type=tel].form-control, [contenteditable].form-control {
@@ -15,10 +12,10 @@
     }
 </style>
 
-
+<div class="row">
 <div class="panel panel-danger">
     <div class="panel-heading">
-        <center>  <h2 style="color:white">Details Upper Division Application</h2> </center>
+      <h2 style="color:white">Upper Division Application Details</h2> 
     </div>
     <div class="panel-body">
         @using (Html.BeginForm())
@@ -168,13 +165,6 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-3">
-                            @Html.DisplayFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
 
                     <h4 style="margin-top: 50px;">Experience</h4>
                     <hr />
@@ -302,14 +292,16 @@
                     </p>
                 </div>
             }
+        <p>
+            @Html.ActionLink("Back to List", "Index")
+        </p>
     </div>
 </div>
-        
+    </div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
 
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

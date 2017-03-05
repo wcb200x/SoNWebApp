@@ -23,7 +23,6 @@ namespace SoNWebApp.Models
         public string Program1 { get; set; }
         public string Program2 { get; set; }
         public string Program3 { get; set; }
-        public string Location { get; set; }
         public string Semester { get; set; }
         public string CurrentCourses { get; set; }
         public string PersonalQualEssay { get; set; }
