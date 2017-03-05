@@ -253,6 +253,14 @@
     <Compile Include="Migrations\201703041845169_usermanagementupdate.Designer.cs">
       <DependentUpon>201703041845169_usermanagementupdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703042309436_allowstudenttoappply.cs" />
+    <Compile Include="Migrations\201703042309436_allowstudenttoappply.Designer.cs">
+      <DependentUpon>201703042309436_allowstudenttoappply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703050007175_removecourseidfromprog.cs" />
+    <Compile Include="Migrations\201703050007175_removecourseidfromprog.Designer.cs">
+      <DependentUpon>201703050007175_removecourseidfromprog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -448,6 +456,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703041845169_usermanagementupdate.resx">
       <DependentUpon>201703041845169_usermanagementupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703042309436_allowstudenttoappply.resx">
+      <DependentUpon>201703042309436_allowstudenttoappply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703050007175_removecourseidfromprog.resx">
+      <DependentUpon>201703050007175_removecourseidfromprog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

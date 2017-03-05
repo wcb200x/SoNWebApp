@@ -23,15 +23,15 @@ namespace SoNWebApp.Controllers
         // GET: Courses/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             Courses courses = db.Courses.Find(id);
-            if (courses == null)
-            {
-                return HttpNotFound();
-            }
+            //if (courses == null)
+            //{
+            //    return HttpNotFound();
+            //}
             return View(courses);
         }
 
@@ -46,7 +46,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Subject,Title,CatalogNumber,Credits,ProgramID,CampusID")] Courses courses)
+        public ActionResult Create([Bind(Include = "Id,Subject,CatalogNumber,Title,Credits,ProgramID")] Courses courses)
         {
             if (ModelState.IsValid)
             {
@@ -61,15 +61,15 @@ namespace SoNWebApp.Controllers
         // GET: Courses/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             Courses courses = db.Courses.Find(id);
-            if (courses == null)
-            {
-                return HttpNotFound();
-            }
+            //if (courses == null)
+            //{
+            //    return HttpNotFound();
+            //}
             return View(courses);
         }
 
@@ -78,7 +78,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Subject,Title,CatalogNumber,Credits,ProgramID,CampusID")] Courses courses)
+        public ActionResult Edit([Bind(Include = "Id,Subject,CatalogNumber,Title,Credits,CampusID")] Courses courses)
         {
             if (ModelState.IsValid)
             {
@@ -92,15 +92,15 @@ namespace SoNWebApp.Controllers
         // GET: Courses/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             Courses courses = db.Courses.Find(id);
-            if (courses == null)
-            {
-                return HttpNotFound();
-            }
+            //if (courses == null)
+            //{
+            //    return HttpNotFound();
+            //}
             return View(courses);
         }
 

@@ -13,6 +13,6 @@ namespace SoNWebApp.Models
         public int CatalogNumber { get; set; }
         public int Credits { get; set; }
         public int ProgramID { get; set; }
-        public int CampusID { get; set; }
+
     }
 }
