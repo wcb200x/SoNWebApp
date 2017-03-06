@@ -83,7 +83,7 @@ namespace SoNWebApp.Controllers
             {
                 case SignInStatus.Success:
                     var user = await UserManager.FindAsync(model.Email, model.Password);
-                    var roles = await UserManager.GetRolesAsync(user.Id);
+                    var roles = await UserManager.GetRolesAsync(user.Id);                    
 
                     if (roles.Contains("SuperAdmin"))
                     {
@@ -105,6 +105,7 @@ namespace SoNWebApp.Controllers
                     {
                         return RedirectToAction("Default", "Student");
                     }
+
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -183,10 +184,10 @@ namespace SoNWebApp.Controllers
                     MiddleName = model.MiddleName,
                     LastName = model.LastName,
                     EmailAddress = model.Email,
-                    DateOfBirth = model.DateOfBirth.Date,
-                    EnrollmentDate = model.EnrollmentDate.Date
-                   
-
+                    DateOfBirth = model.DateOfBirth,
+                    EnrollmentDate = model.EnrollmentDate,
+                    CampusID = db.Campuses.FirstOrDefault().CampusID,
+                    ProgramID = db.Programs.FirstOrDefault().ID              
                 };
 
             db.Students.Add(student);

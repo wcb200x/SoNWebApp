@@ -15,6 +15,7 @@ namespace SoNWebApp.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Courses
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Index(string searchString2)
         {
             var course = from c in db.Courses
@@ -29,6 +30,7 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: Courses/Details/5
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Details(int? id)
         {
             //if (id == null)
@@ -44,6 +46,7 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: Courses/Create
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Create()
         {
             return View();
@@ -67,6 +70,7 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: Courses/Edit/5
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Edit(int? id)
         {
             //if (id == null)
@@ -86,6 +90,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Edit([Bind(Include = "Id,Subject,CatalogNumber,Title,Credits,ProgramID")] Courses courses)
         {
             if (ModelState.IsValid)
@@ -99,6 +104,7 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: Courses/Delete/5
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Delete(int? id)
         {
             //if (id == null)
@@ -116,6 +122,7 @@ namespace SoNWebApp.Controllers
         // POST: Courses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult DeleteConfirmed(int id)
         {
             Courses courses = db.Courses.Find(id);

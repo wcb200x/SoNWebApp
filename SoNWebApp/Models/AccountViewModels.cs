@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace SoNWebApp.Models
@@ -84,10 +85,13 @@ namespace SoNWebApp.Models
         [Required]
         [Display(Name = "Enrollment Date")]
         public DateTime EnrollmentDate { get; set; }
+        public int CampusID { get; set; }
+        public int ProgramID { get; set; } 
 
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+(@louisville.edu)$", ErrorMessage = "Email must be a louisville.edu address.")]
         public string Email { get; set; }
 
         [Required]
