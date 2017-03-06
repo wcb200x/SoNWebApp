@@ -1,6 +1,6 @@
 ﻿@model SoNWebApp.Models.ViewModels.EditUserViewModel
 @{
-    ViewBag.Title = "Edit";
+   
     Layout = "~/Views/Shared/AdvisorLayoutPage.cshtml";
 }
 <h2>Edit</h2>
@@ -40,6 +40,22 @@
                 @Html.ValidationMessageFor(model => model.Email)
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Roles, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    <h5 style="font-weight: 700; text-decoration:underline;"> Possible Roles </h5>
+                    foreach (var role in Model.Roles)
+                    {
+
+                        <p>@role.RoleName</p>
+                    }
+                }
+                @Html.EditorFor(model => model.RoleName)
+                @Html.ValidationMessageFor(model => model.RoleName)
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />

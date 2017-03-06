@@ -77,9 +77,23 @@ namespace SoNWebApp.Controllers
         }
         public ActionResult AdDefault()
         {
+            //var firstFiveOnGoingAlerts = db.Alerts.Where(a => a.EndDate >= DateTime.Today).OrderBy(a => a.StartDate).Take(5);
+
+            //var alertList = new List<string>();
+            //foreach (var alert in firstFiveOnGoingAlerts)
+            //{
+            //    if(alert.Type == "Compliance")
+            //    {
+            //        var students = db.Students.Select(s => s.ID);
+            //        var incompliantStudents = db.ViewCompliances.Where(c => c.Status == "Denied").Select(c => c.ID).Distinct().Count();
+            //        alertList.Add(incompliantStudents + "students out of compliance.");
+
+            //    }
+            //}
             var viewModel = new AdvisorDefaultViewModel()
             {
                 TodosList = db.Todos.Where(t => t.EndDate >= DateTime.Today).Take(5)
+
             };
             return View(viewModel);
         }

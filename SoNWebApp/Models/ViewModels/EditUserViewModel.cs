@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace SoNWebApp.Models.ViewModels
 {
@@ -29,5 +31,11 @@ namespace SoNWebApp.Models.ViewModels
 
         [Required]
         public string Email { get; set; }
+
+        public List<SelectRoleEditorViewModel> Roles { get; set; }
+
+        public string RoleName { get; set; }
+
+   public ICollection<SelectListItem> RolesList { get; set; }
     }
 }

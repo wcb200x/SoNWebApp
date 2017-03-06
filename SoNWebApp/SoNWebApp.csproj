@@ -210,6 +210,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdvisorController.cs" />
+    <Compile Include="Controllers\AlertsController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\CampusController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
@@ -294,9 +295,14 @@
     <Compile Include="Migrations\201703060125088_studentfk.Designer.cs">
       <DependentUpon>201703060125088_studentfk.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703062313385_addalerts.cs" />
+    <Compile Include="Migrations\201703062313385_addalerts.Designer.cs">
+      <DependentUpon>201703062313385_addalerts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Alerts.cs" />
     <Compile Include="Models\Campus.cs" />
     <Compile Include="Models\Courses.cs" />
     <Compile Include="Models\Document.cs" />
@@ -457,10 +463,14 @@
     <Content Include="Views\UserManagement\Edit.cshtml" />
     <Content Include="Views\Advisor\ProgramCoursesReport.cshtml" />
     <Content Include="Views\Admin\ProgramCoursesReport.cshtml" />
+    <Content Include="Views\Alerts\Create.cshtml" />
+    <Content Include="Views\Alerts\Delete.cshtml" />
+    <Content Include="Views\Alerts\Details.cshtml" />
+    <Content Include="Views\Alerts\Edit.cshtml" />
+    <Content Include="Views\Alerts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Alerts\" />
     <Folder Include="Views\Enrollment\Calendar\" />
   </ItemGroup>
   <ItemGroup>
@@ -522,6 +532,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703060125088_studentfk.resx">
       <DependentUpon>201703060125088_studentfk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703062313385_addalerts.resx">
+      <DependentUpon>201703062313385_addalerts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -48,5 +48,7 @@ namespace SoNWebApp.Models
 
         public System.Data.Entity.DbSet<SoNWebApp.Models.UDApplication> UDApplications { get; set; }
         public DbSet<POS> POS { get; set; }
+
+        public System.Data.Entity.DbSet<SoNWebApp.Models.Alerts> Alerts { get; set; }
     }
 }

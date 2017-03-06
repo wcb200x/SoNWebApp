@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using SoNWebApp.Models;
 using SoNWebApp.Models.ViewModels;
 using System;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace SoNWebApp.Controllers
 {
@@ -43,7 +44,27 @@ namespace SoNWebApp.Controllers
         {
             var Db = new ApplicationDbContext();
             var user = Db.Users.FirstOrDefault(u => u.Id == id);
+            
+            var roleList = new List<SelectRoleEditorViewModel>();
+        
+            var allRoles = Db.Roles;
+
+            foreach (var role in allRoles)
+            {
+                //var roleName = allRoles.FirstOrDefault(r => r.Id == role.Id).Name.ToList();
+
+                var rvm = new SelectRoleEditorViewModel()
+                {
+                    RoleId = role.Id,
+                    RoleName = role.Name
+                };
+                roleList.Add(rvm);
+            }
+
+
             var model = new EditUserViewModel(user);
+            model.Roles = roleList;
+       
             return View(model);
         }
 
@@ -57,7 +78,18 @@ namespace SoNWebApp.Controllers
             {
                 var Db = new ApplicationDbContext();
                 var user = Db.Users.First(u => u.UserName == model.UserName);
+                var dbRole = Db.Roles.FirstOrDefault(r => r.Name == model.RoleName);
 
+                if (dbRole != null)
+                {
+                    var newRole = new IdentityUserRole()
+                    {
+
+
+                        RoleId = dbRole.Id,
+                        UserId = user.Id
+                    };
+                }
                 //Didn't implement ability to modify FirstName or LastName, but this is how you would do it.
                 //user.FirstName = model.FirstName;
                 //user.LastName = model.LastName;
