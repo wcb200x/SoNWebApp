@@ -26,7 +26,9 @@ namespace SoNWebApp.Models
         public string Standing { get; set; }
         public bool HasGraduated { get; set; }
         public int CampusID { get; set; }
+        public virtual Campus Campus { get; set; }
         public int ProgramID { get; set; }
+        public virtual Program Program { get; set; }
         public decimal GPA { get; set; }
         public DateTime EnrollmentDate { get; set; }
         public bool Petition { get; set; }

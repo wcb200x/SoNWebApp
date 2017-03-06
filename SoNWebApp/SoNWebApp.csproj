@@ -290,6 +290,10 @@
     <Compile Include="Migrations\201703051933155_removelocationfromapp.Designer.cs">
       <DependentUpon>201703051933155_removelocationfromapp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703060125088_studentfk.cs" />
+    <Compile Include="Migrations\201703060125088_studentfk.Designer.cs">
+      <DependentUpon>201703060125088_studentfk.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -515,6 +519,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703051933155_removelocationfromapp.resx">
       <DependentUpon>201703051933155_removelocationfromapp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703060125088_studentfk.resx">
+      <DependentUpon>201703060125088_studentfk.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
