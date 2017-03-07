@@ -3,8 +3,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<div class="col-md-8" style="margin-left: 200px;">
+<div class="col-md-2"></div>
+<div class="col-md-8">
     <div class="panel panel-danger">
         <div class="panel-heading reports-panel" style="color:white;padding-top: 25px; padding-bottom:25px">
             <h2 style="text-align:center;">Reports</h2>
@@ -18,13 +18,18 @@
             <p>@Html.ActionLink("Students above 2.8 GPA", "GPAReport", new { gpaThreshold = 2.8M })</p>
             <p>@Html.ActionLink("Students above 3.0 GPA", "GPAReport", new { gpaThreshold = 3.0M })</p>
             <p>@Html.ActionLink("Students above 3.5 GPA", "GPAReport", new { gpaThreshold = 3.5M })</p>
-        </div>
-        <div class="col-md-4" style="margin-left:50px;">
-            <p>@Html.ActionLink("All Students", "StudentReport")</p>
-            <p>@Html.ActionLink("All Courses for Traditional BSN", "ProgramCoursesReport", new { programNum = 1 })</p>
-            <p>@Html.ActionLink("All Courses for RN-BSN", "ProgramCoursesReport", new { programNum = 2 })</p>
+            <p>@Html.ActionLink("All students in MEPN", "StudentsInPrograms", new { program = 3 })</p>
             <p>@Html.ActionLink("All Courses for MEPN", "ProgramCoursesReport", new { programNum = 3 })</p>
+        </div>
+        
+        <div class="col-md-5" style="margin-left:50px;">
+            <p>@Html.ActionLink("All Students", "StudentReport")</p>
+            <p>@Html.ActionLink("All students in the Traditional BSN", "StudentsInPrograms", new { program = 1 })</p>
+            <p>@Html.ActionLink("All Courses for Traditional BSN", "ProgramCoursesReport", new { programNum = 1 })</p>
+            <p>@Html.ActionLink("All students in RN-BSN", "StudentsInPrograms", new { program = 2 })</p>
+            <p>@Html.ActionLink("All Courses for RN-BSN", "ProgramCoursesReport", new { programNum = 2 })</p>
 
         </div>
+      
     </div>
 </div>

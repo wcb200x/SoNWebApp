@@ -468,6 +468,8 @@
     <Content Include="Views\Alerts\Details.cshtml" />
     <Content Include="Views\Alerts\Edit.cshtml" />
     <Content Include="Views\Alerts\Index.cshtml" />
+    <Content Include="Views\Advisor\StudentsInPrograms.cshtml" />
+    <Content Include="Views\Admin\StudentsInPrograms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -89,6 +89,11 @@ namespace SoNWebApp.Controllers
             var classes = db.Courses.Where(p => p.ProgramID == programNum).ToList();
             return View(classes.ToList());
         }
+        public ActionResult StudentsInPrograms(int program)
+        {
+            var students = db.Students.Where(s => s.ProgramID == program && s.HasGraduated == false).ToList();
+            return View(students.ToList());
+        }
     }
 
 }
