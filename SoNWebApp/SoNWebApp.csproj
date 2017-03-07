@@ -312,6 +312,10 @@
     <Compile Include="Migrations\201703070316406_removeprogidasfktoPOS.Designer.cs">
       <DependentUpon>201703070316406_removeprogidasfktoPOS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703072354260_RedoAgain.cs" />
+    <Compile Include="Migrations\201703072354260_RedoAgain.Designer.cs">
+      <DependentUpon>201703072354260_RedoAgain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -573,6 +577,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703070316406_removeprogidasfktoPOS.resx">
       <DependentUpon>201703070316406_removeprogidasfktoPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703072354260_RedoAgain.resx">
+      <DependentUpon>201703072354260_RedoAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

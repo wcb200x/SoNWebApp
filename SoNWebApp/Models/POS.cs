@@ -20,9 +20,6 @@ namespace SoNWebApp.Models
         public string Course10 { get; set; }
         public string Course11 { get; set; }
         public string Course12 { get; set; }
-        public string Course13 { get; set; }
-        public string Course14 { get; set; }
-        public string Course15 { get; set; }
         public int StudentID { get; set; }
         public virtual Student Student { get; set; }
         
