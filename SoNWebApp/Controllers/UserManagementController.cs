@@ -78,18 +78,9 @@ namespace SoNWebApp.Controllers
             {
                 var Db = new ApplicationDbContext();
                 var user = Db.Users.First(u => u.UserName == model.UserName);
-                var dbRole = Db.Roles.FirstOrDefault(r => r.Name == model.RoleName);
+                //user.Roles = model.RoleName;
 
-                if (dbRole != null)
-                {
-                    var newRole = new IdentityUserRole()
-                    {
-
-
-                        RoleId = dbRole.Id,
-                        UserId = user.Id
-                    };
-                }
+        
                 //Didn't implement ability to modify FirstName or LastName, but this is how you would do it.
                 //user.FirstName = model.FirstName;
                 //user.LastName = model.LastName;

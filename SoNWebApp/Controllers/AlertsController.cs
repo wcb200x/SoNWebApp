@@ -15,27 +15,30 @@ namespace SoNWebApp.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Alerts
+        [Authorize(Roles = ("SuperAdmin,Admin"))]
         public ActionResult Index()
         {
             return View(db.Alerts.ToList());
         }
 
         // GET: Alerts/Details/5
+        [Authorize(Roles = ("SuperAdmin,Admin"))]
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             Alerts alerts = db.Alerts.Find(id);
-            if (alerts == null)
-            {
-                return HttpNotFound();
-            }
+            //if (alerts == null)
+            //{
+            //    return HttpNotFound();
+            //}
             return View(alerts);
         }
 
         // GET: Alerts/Create
+        [Authorize(Roles = ("SuperAdmin,Admin"))]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +49,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = ("SuperAdmin,Admin"))]
         public ActionResult Create([Bind(Include = "ID,Type,StartDate,EndDate")] Alerts alerts)
         {
             if (ModelState.IsValid)
@@ -59,17 +63,18 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: Alerts/Edit/5
+        [Authorize(Roles = ("SuperAdmin,Admin"))]
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             Alerts alerts = db.Alerts.Find(id);
-            if (alerts == null)
-            {
-                return HttpNotFound();
-            }
+            //if (alerts == null)
+            //{
+            //    return HttpNotFound();
+            //}
             return View(alerts);
         }
 
@@ -78,6 +83,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = ("SuperAdmin,Admin"))]
         public ActionResult Edit([Bind(Include = "ID,Type,StartDate,EndDate")] Alerts alerts)
         {
             if (ModelState.IsValid)
@@ -90,21 +96,23 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: Alerts/Delete/5
+        [Authorize(Roles = ("SuperAdmin,Admin"))]
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             Alerts alerts = db.Alerts.Find(id);
-            if (alerts == null)
-            {
-                return HttpNotFound();
-            }
+            //if (alerts == null)
+            //{
+            //    return HttpNotFound();
+            //}
             return View(alerts);
         }
 
         // POST: Alerts/Delete/5
+        [Authorize(Roles = ("SuperAdmin,Admin"))]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

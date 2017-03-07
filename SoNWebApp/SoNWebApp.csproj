@@ -218,6 +218,7 @@
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\POSController.cs" />
     <Compile Include="Controllers\ProgramController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TodosController.cs" />
@@ -299,6 +300,18 @@
     <Compile Include="Migrations\201703062313385_addalerts.Designer.cs">
       <DependentUpon>201703062313385_addalerts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703070259526_POScourses.cs" />
+    <Compile Include="Migrations\201703070259526_POScourses.Designer.cs">
+      <DependentUpon>201703070259526_POScourses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703070301466_fksforPOS.cs" />
+    <Compile Include="Migrations\201703070301466_fksforPOS.Designer.cs">
+      <DependentUpon>201703070301466_fksforPOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703070316406_removeprogidasfktoPOS.cs" />
+    <Compile Include="Migrations\201703070316406_removeprogidasfktoPOS.Designer.cs">
+      <DependentUpon>201703070316406_removeprogidasfktoPOS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -330,8 +343,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\calendarstyles.css" />
     <Content Include="Content\Images\Louisville.png" />
+    <Content Include="Content\Images\MEPN POS.png" />
+    <Content Include="Content\Images\RN-BSN POS.png" />
     <Content Include="Content\Images\SONAD.jpg" />
     <Content Include="Content\Images\favicon.png" />
+    <Content Include="Content\Images\Traditional BSN POS.png" />
     <Content Include="Content\Images\UofLSONLogo.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
@@ -470,6 +486,11 @@
     <Content Include="Views\Alerts\Index.cshtml" />
     <Content Include="Views\Advisor\StudentsInPrograms.cshtml" />
     <Content Include="Views\Admin\StudentsInPrograms.cshtml" />
+    <Content Include="Views\POS\Create.cshtml" />
+    <Content Include="Views\POS\Delete.cshtml" />
+    <Content Include="Views\POS\Details.cshtml" />
+    <Content Include="Views\POS\Edit.cshtml" />
+    <Content Include="Views\POS\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -537,6 +558,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703062313385_addalerts.resx">
       <DependentUpon>201703062313385_addalerts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703070259526_POScourses.resx">
+      <DependentUpon>201703070259526_POScourses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703070301466_fksforPOS.resx">
+      <DependentUpon>201703070301466_fksforPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703070316406_removeprogidasfktoPOS.resx">
+      <DependentUpon>201703070316406_removeprogidasfktoPOS.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
