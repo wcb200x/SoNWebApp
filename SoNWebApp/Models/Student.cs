@@ -27,10 +27,10 @@ namespace SoNWebApp.Models
         public string Country { get; set; }
         public string Standing { get; set; }
         public bool HasGraduated { get; set; }
-        //[Range(1, 2, ErrorMessage = "CampusID must be either 1 or 2")]
+        [Range(1, 2, ErrorMessage = "CampusID must be either 1 or 2")]
         public int CampusID { get; set; }
         public virtual Campus Campus { get; set; }
-        //[Range(1, 3, ErrorMessage = "ProgramID must be 1,2, or 3")]
+        [Range(1, 3, ErrorMessage = "ProgramID must be 1,2, or 3")]
         public int ProgramID { get; set; }
         public virtual Program Program { get; set; }
         public decimal GPA { get; set; }

@@ -1,42 +1,43 @@
 ﻿@model SoNWebApp.Models.Alerts
 
-@{
-    ViewBag.Title = "Details";
-}
+<div class="panel panel-danger" style="border:1px solid #808080;">
+    <div class="panel-heading">
+        <h3 style="color:#FFFFFF;">Alert Details</h3>
+    </div>
+    <div class="panel-body">
+        <div>
+            <h4>Alerts</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Type)
+                </dt>
 
-<h2>Details</h2>
+                <dd>
+                    @Html.DisplayFor(model => model.Type)
+                </dd>
 
-<div>
-    <h4>Alerts</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Type)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.StartDate)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.EndDate)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.EndDate)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+        </div>
+    </div>

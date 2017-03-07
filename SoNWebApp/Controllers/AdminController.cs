@@ -28,7 +28,7 @@ namespace SoNWebApp.Controllers
         {
             return View();
         }
-        public ActionResult ManageAlerts()
+        public ActionResult Alerts()
         {
             return View();
         }
@@ -46,7 +46,7 @@ namespace SoNWebApp.Controllers
         }
         public ActionResult GPAReport(decimal gpaThreshold)
         {
-            var Student = db.Students.Where(s => s.GPA >= gpaThreshold).ToList();
+            var Student = db.Students.Where(s => s.GPA >= gpaThreshold && s.HasGraduated == false).ToList();
             return View(Student.ToList());
         }
         public ActionResult CRM(string sortOrder, string searchString)
