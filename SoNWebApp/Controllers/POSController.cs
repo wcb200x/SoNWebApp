@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SoNWebApp.Models;
+using SoNWebApp.Models.ViewModels;
 
 namespace SoNWebApp.Controllers
 {
@@ -71,12 +72,18 @@ namespace SoNWebApp.Controllers
             //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             //}
             POS pOS = db.POS.Find(id);
+
+            var viewModel = new posViewModel()
+            {
+                posCourses = db.POS.FirstOrDefault(s => s.StudentID == id),
+                posDocument = db.Students.FirstOrDefault()
+                
+            };
             //if (pOS == null)
             //{
             //    return HttpNotFound();
             //}
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "FirstName", pOS.StudentID);
-            return View(pOS);
+            return View(viewModel);
         }
 
         // POST: POS/Edit/5
@@ -122,6 +129,18 @@ namespace SoNWebApp.Controllers
             db.POS.Remove(pOS);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public PartialViewResult GetProjectedCourses()
+        {
+            var courses = db.POS;
+
+            return PartialView("_ChangeProjectedSchedule", courses);
+        }
+        public PartialViewResult GetPOSDocument()
+        {
+            var document = db.Students.FirstOrDefault();
+
+            return PartialView("_ProgramOfStudyDocuments", document);
         }
 
         protected override void Dispose(bool disposing)

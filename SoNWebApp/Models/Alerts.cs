@@ -10,9 +10,9 @@ namespace SoNWebApp.Models
     {
         public int ID { get; set; }
         public string Type { get; set; }
-        [DataType(DataType.Date)]
+     
         public DateTime StartDate { get; set; }
-        [DataType(DataType.Date)]
+
         public DateTime EndDate { get; set; }
     }
 }

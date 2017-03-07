@@ -330,6 +330,7 @@
     <Compile Include="Models\UDApplication.cs" />
     <Compile Include="Models\ViewModels\AdvisorDefaultViewModel.cs" />
     <Compile Include="Models\ViewModels\EditUserViewModel.cs" />
+    <Compile Include="Models\ViewModels\posViewModel.cs" />
     <Compile Include="Models\ViewModels\SelectRoleEditorViewModel.cs" />
     <Compile Include="Models\ViewModels\SelectUserRolesViewModel.cs" />
     <Compile Include="Models\ViewModels\StudentDefaultViewModel.cs" />
@@ -344,9 +345,12 @@
     <Content Include="Content\calendarstyles.css" />
     <Content Include="Content\Images\Louisville.png" />
     <Content Include="Content\Images\MEPN POS.png" />
+    <Content Include="Content\Images\MEPN POS 02.png" />
     <Content Include="Content\Images\RN-BSN POS.png" />
+    <Content Include="Content\Images\RN-BSN POS1.png" />
     <Content Include="Content\Images\SONAD.jpg" />
     <Content Include="Content\Images\favicon.png" />
+    <Content Include="Content\Images\1Traditional BSN POS.png" />
     <Content Include="Content\Images\Traditional BSN POS.png" />
     <Content Include="Content\Images\UofLSONLogo.png" />
     <Content Include="Content\PagedList.css" />
@@ -491,6 +495,8 @@
     <Content Include="Views\POS\Details.cshtml" />
     <Content Include="Views\POS\Edit.cshtml" />
     <Content Include="Views\POS\Index.cshtml" />
+    <Content Include="Views\POS\_ProgramOfStudyDocuments.cshtml" />
+    <Content Include="Views\POS\_ChangeProjectedSchedule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
