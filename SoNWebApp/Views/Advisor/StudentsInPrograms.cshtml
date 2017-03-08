@@ -31,10 +31,10 @@
                         @Html.DisplayNameFor(model => model.GPA)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.ProgramID)
+                        @Html.DisplayNameFor(model => model.Program)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.CampusID)
+                        @Html.DisplayNameFor(model => model.Campus)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Petition)
@@ -59,10 +59,10 @@
                             @Html.DisplayFor(model => item.GPA)
                         </td>
                         <td>
-                            @Html.DisplayFor(model => item.ProgramID)
+                            @Html.DisplayFor(model => item.Program.Name)
                         </td>
                         <td>
-                            @Html.DisplayFor(model => item.CampusID)
+                            @Html.DisplayFor(model => item.Campus.Name)
                         </td>
                         <td>
                             @Html.DisplayFor(model => item.Petition)

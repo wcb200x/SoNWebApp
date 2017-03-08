@@ -45,9 +45,7 @@
         <th>
             @Html.DisplayNameFor(model => model.EmailAddress)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EnrollmentDate)
-        </th>
+     
         <th>
             @Html.DisplayNameFor(model => model.Standing)
         </th>
@@ -55,7 +53,7 @@
             @Html.DisplayNameFor(model => model.GPA)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CampusID)
+            @Html.DisplayNameFor(model => model.Campus)
         </th>
         </tr>
     @foreach (var item in Model)
@@ -91,9 +89,7 @@
             <td>
                     @Html.DisplayFor(model => item.EmailAddress) 
             </td>
-            <td>
-                    @Html.DisplayFor(model => item.EnrollmentDate) 
-            </td>
+       
             <td>
                     @Html.DisplayFor(model => item.Standing) 
             </td>
@@ -102,7 +98,7 @@
             </td>
             <td>
 
-                    @Html.DisplayFor(model => item.CampusID) 
+                    @Html.DisplayFor(model => item.Campus.Name) 
             </td>
         </tr>
     }

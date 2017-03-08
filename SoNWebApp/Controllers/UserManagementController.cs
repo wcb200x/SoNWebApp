@@ -17,7 +17,7 @@ namespace SoNWebApp.Controllers
         readonly ApplicationDbContext _db = new ApplicationDbContext();
 
 
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public ActionResult Index(string searchString1)
         {
 
@@ -39,7 +39,7 @@ namespace SoNWebApp.Controllers
         }
 
 
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public ActionResult Edit(string id)
         {
             var Db = new ApplicationDbContext();
@@ -70,7 +70,7 @@ namespace SoNWebApp.Controllers
 
 
         [HttpPost]
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(EditUserViewModel model)
         {

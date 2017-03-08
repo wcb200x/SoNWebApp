@@ -16,7 +16,7 @@ namespace SoNWebApp.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: POS
-        [Authorize (Roles = ("SuperAdmin,Admin"))]
+        [Authorize (Roles = ("SuperAdmin,Admin,Advisor"))]
         public ActionResult Index()
         {
             var pOS = db.POS.Include(p => p.Student);
@@ -24,7 +24,7 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: POS/Details/5
-        [Authorize(Roles = ("SuperAdmin,Admin"))]
+        [Authorize(Roles = ("SuperAdmin,Admin,Advisor"))]
         public ActionResult Details(int? id)
         {
             //if (id == null)
@@ -40,9 +40,10 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: POS/Create
+        [Authorize(Roles = ("SuperAdmin,Admin,Advisor"))]
         public ActionResult Create()
         {
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "FirstName");
+            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber");
             return View();
         }
 
@@ -51,6 +52,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = ("SuperAdmin,Admin,Advisor"))]
         public ActionResult Create([Bind(Include = "ID,Course1,Course2,Course3,Course4,Course5,Course6,Course7,Course8,Course9,Course10,Course11,Course12,Course13,Course14,Course15,StudentID")] POS pOS)
         {
             if (ModelState.IsValid)
@@ -60,7 +62,7 @@ namespace SoNWebApp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "FirstName", pOS.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "ID","StudentNumber",pOS.StudentID);
             return View(pOS);
         }
 
@@ -99,12 +101,12 @@ namespace SoNWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "FirstName", pOS.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", pOS.StudentID);
             return View(pOS);
         }
 
         // GET: POS/Delete/5
-        [Authorize(Roles = ("SuperAdmin,Admin"))]
+        [Authorize(Roles = ("SuperAdmin,Admin,Advisor"))]
         public ActionResult Delete(int? id)
         {
             //if (id == null)
@@ -120,7 +122,7 @@ namespace SoNWebApp.Controllers
         }
 
         // POST: POS/Delete/5
-        [Authorize(Roles = ("SuperAdmin,Admin"))]
+        [Authorize(Roles = ("SuperAdmin,Admin,Advisor"))]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -136,9 +138,11 @@ namespace SoNWebApp.Controllers
 
             return PartialView("_ChangeProjectedSchedule", courses);
         }
-        public PartialViewResult GetPOSDocument()
+        public PartialViewResult GetPOSDocument(int? id)
         {
-            var document = db.Students.FirstOrDefault();
+
+            POS pOS = db.POS.Find(id);
+            var document = db.Students.Where(s => s.ID == id);
 
             return PartialView("_ProgramOfStudyDocuments", document);
         }

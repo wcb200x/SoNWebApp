@@ -1,146 +1,147 @@
 ﻿@model SoNWebApp.Models.POS
 
-@{
-    ViewBag.Title = "Details";
-}
+<div class="panel panel-danger" style="border:1px solid #808080;">
+    <div class="panel-heading">
+        <h3 style="color:#FFFFFF">Program of Study Details</h3>
+    </div>
+    <div class="panel-body">
+        <div>
 
-<h2>Details</h2>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Student.FirstName)
+                </dt>
 
-<div>
-    <h4>POS</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Student.FirstName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Student.FirstName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Student.FirstName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course1)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Course1)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Course1)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course1)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course2)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Course2)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Course2)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course2)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course3)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Course3)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Course3)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course3)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course4)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Course4)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Course4)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course4)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course5)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Course5)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Course5)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course5)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course6)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Course6)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Course6)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course6)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course7)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Course7)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Course7)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course7)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course8)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Course8)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Course8)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course8)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course9)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Course9)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Course9)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course9)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course10)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Course10)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Course10)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course10)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course11)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Course11)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Course11)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course11)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course12)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Course12)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Course12)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course12)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course13)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Course13)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Course13)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course13)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course14)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Course14)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Course14)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course14)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course15)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Course15)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Course15)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course15)
-        </dd>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
 
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</div>

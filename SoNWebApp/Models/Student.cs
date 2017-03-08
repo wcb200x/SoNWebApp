@@ -15,7 +15,6 @@ namespace SoNWebApp.Models
         public string LastName { get; set; }
         public string Race { get; set; }
         public string Gender { get; set; }
-        [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
         public string EmailAddress { get; set; }
         public string PhoneNumber { get; set; }
@@ -34,7 +33,6 @@ namespace SoNWebApp.Models
         public int ProgramID { get; set; }
         public virtual Program Program { get; set; }
         public decimal GPA { get; set; }
-        [DataType(DataType.Date)]
         public DateTime EnrollmentDate { get; set; }
         public bool Petition { get; set; }
         public string Notes { get; set; }
