@@ -97,9 +97,19 @@ namespace SoNWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(pOS).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (User.IsInRole("Advisor") || (User.IsInRole("Admin")) || (User.IsInRole("SuperAdmin")))
+                {
+                    db.Entry(pOS).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "POS", false);
+                }
+                else
+                {
+
+                    db.Entry(pOS).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Default", "Student", false);
+                }
             }
             ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", pOS.StudentID);
             return View(pOS);
