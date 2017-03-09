@@ -53,7 +53,7 @@ namespace SoNWebApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = ("SuperAdmin,Admin,Advisor"))]
-        public ActionResult Create([Bind(Include = "ID,Course1,Course2,Course3,Course4,Course5,Course6,Course7,Course8,Course9,Course10,Course11,Course12,Course13,Course14,Course15,StudentID")] POS pOS)
+        public ActionResult Create([Bind(Include = "ID,Course1,Course2,Course3,Course4,Course5,Course6,Course7,Course8,Course9,Course10,Course11,Course12,StudentID")] POS pOS)
         {
             if (ModelState.IsValid)
             {
@@ -77,8 +77,8 @@ namespace SoNWebApp.Controllers
 
             var viewModel = new posViewModel()
             {
-                posCourses = db.POS.FirstOrDefault(s => s.StudentID == id),
-                posDocument = db.Students.FirstOrDefault()
+                posCourses = db.POS.FirstOrDefault(p => p.StudentID == id),
+                posDocument = db.Students.FirstOrDefault(s => s.ID == pOS.StudentID)
                 
             };
             //if (pOS == null)
@@ -93,7 +93,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Course1,Course2,Course3,Course4,Course5,Course6,Course7,Course8,Course9,Course10,Course11,Course12,Course13,Course14,Course15,StudentID")] POS pOS)
+        public ActionResult Edit([Bind(Include = "ID,Course1,Course2,Course3,Course4,Course5,Course6,Course7,Course8,Course9,Course10,Course11,Course12,StudentID")] POS pOS)
         {
             if (ModelState.IsValid)
             {
@@ -134,7 +134,7 @@ namespace SoNWebApp.Controllers
         }
         public PartialViewResult GetProjectedCourses()
         {
-            var courses = db.POS;
+            var courses = db.POS.ToList();
 
             return PartialView("_ChangeProjectedSchedule", courses);
         }
