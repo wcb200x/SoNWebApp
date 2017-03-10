@@ -59,8 +59,8 @@
                             @Html.ValidationMessageFor(model => model.RoleName)
                         </div>
                     </div>*@
-                <div class="form-group" style="margin-left: 9%">
-                    @Html.LabelFor(model => model.RoleName, new { @class = "col-md-1 control-label" })
+                <div class="form-group" >
+                    @Html.Label("Role Name", new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
                         @*@Html.DropDownList("Name")*@
                         @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, "Select Role", new { style = "width:125px" })
