@@ -14,14 +14,14 @@ namespace SoNWebApp.Controllers
         //Refer to this github repo for another example of how to do this.
         //https://github.com/TypecastException/AspNetRoleBasedSecurityExample/blob/master/AspNetRoleBasedSecurity/Views/Account/Edit.cshtml
 
-        readonly ApplicationDbContext _db = new ApplicationDbContext();
+        readonly ApplicationDbContext db = new ApplicationDbContext();
 
 
         [Authorize(Roles = "SuperAdmin, Admin")]
         public ActionResult Index(string searchString1)
         {
 
-            var users = from x in _db.Users
+            var users = from x in db.Users
             select x;
             if (!String.IsNullOrEmpty(searchString1))
             {
@@ -61,7 +61,7 @@ namespace SoNWebApp.Controllers
                 roleList.Add(rvm);
             }
 
-
+            ViewBag.Name = new SelectList(db.Roles.ToList(), "Name", "Name");
             var model = new EditUserViewModel(user);
             model.Roles = roleList;
        
@@ -92,7 +92,7 @@ namespace SoNWebApp.Controllers
 
                 return RedirectToAction("Index");
             }
-
+            ViewBag.Name = new SelectList(db.Roles.ToList(), "Name", "Name");
             // If we got this far, something failed, redisplay form
             return View(model);
         }

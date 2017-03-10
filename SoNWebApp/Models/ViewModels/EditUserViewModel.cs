@@ -36,6 +36,5 @@ namespace SoNWebApp.Models.ViewModels
 
         public string RoleName { get; set; }
 
-   public IEnumerable<SelectListItem> RolesList { get; set; }
     }
 }
