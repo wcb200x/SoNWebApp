@@ -149,9 +149,7 @@
 
                             <fieldset>
                                 <legend style="font-size: medium">Select a Program</legend>
-                                @Html.RadioButtonFor(model => model.Program1, "Traditional BSN Louisville Campus Program") Traditional BSN Louisville Campus Program<br />
-                                @Html.RadioButtonFor(model => model.Program2, "Traditional BSN Owensboro Campus Program") Traditional BSN Owensboro Campus Program<br />
-                                @Html.RadioButtonFor(model => model.Program3, "Traditional BSN Louisville Campus Program, First Choice, Traditional BSN Owensboro Campus Program, Second Choice") Traditional BSN Louisville Campus Program, First Choice, Traditional BSN Owensboro Campus Program, Second Choice
+                                @Html.DisplayFor(model => model.Program1, new { htmlAttributes = new { @class = "form-control" } })
                             </fieldset>
                         </div>
                     </div>
@@ -160,7 +158,7 @@
                         <div class="col-md-10">
                             <fieldset>
                                 <legend style="font-size: medium">What Semester are you applying for?</legend>
-                                @Html.RadioButtonFor(model => model.Semester, "Fall 2017") Fall 2017
+                                @Html.DisplayFor(model => model.Semester, new { htmlAttributes = new { @class = "form-control" } })
                             </fieldset>
                         </div>
                     </div>
@@ -205,8 +203,7 @@
                         <div class="col-md-10">
                             <fieldset>
                                 <legend style="font-size: medium">1. Have you ever been arrested for, charged with, or convicted of any crime other than a minor traffic violation?</legend>
-                                @Html.RadioButtonFor(model => model.Legal1, "Yes") Yes
-                                @Html.RadioButtonFor(model => model.Legal1, "No") No
+                                @Html.DisplayFor(model => model.Legal1, new { htmlAttributes = new { @class = "form-control" } })
                             </fieldset>
                         </div>
                     </div>
@@ -215,8 +212,7 @@
                         <div class="col-md-10">
                             <fieldset>
                                 <legend style="font-size: medium">2. Have you ever been dismissed, suspended, or otherwise disciplined by a college, university, or a graduate/professional school for any reason?</legend>
-                                @Html.RadioButtonFor(model => model.Legal2, "Yes") Yes
-                                @Html.RadioButtonFor(model => model.Legal2, "No") No
+                                @Html.DisplayFor(model => model.Legal2, new { htmlAttributes = new { @class = "form-control" } })
                             </fieldset>
                         </div>
                     </div>
@@ -225,8 +221,7 @@
                         <div class="col-md-10">
                             <fieldset>
                                 <legend style="font-size: medium">3. Have you ever been other than honorably discharged from any armed service of the U.S.?</legend>
-                                @Html.RadioButtonFor(model => model.Legal3, "Yes") Yes
-                                @Html.RadioButtonFor(model => model.Legal3, "No") No
+                                @Html.DisplayFor(model => model.Legal3, new { htmlAttributes = new { @class = "form-control" } })
                             </fieldset>
                         </div>
                     </div>
@@ -235,8 +230,7 @@
                         <div class="col-md-10">
                             <fieldset>
                                 <legend style="font-size: medium">4. Have you ever been discharged from employment, disciplined, or asked to resign from employment or any service program (VISTA, Peace Corps, etc.) for reasons of dishonesty, malfeasance or any other reason reflecting on your character?</legend>
-                                @Html.RadioButtonFor(model => model.Legal4, "Yes") Yes
-                                @Html.RadioButtonFor(model => model.Legal4, "No") No
+                                @Html.DisplayFor(model => model.Legal4, new { htmlAttributes = new { @class = "form-control" } })
                             </fieldset>
                         </div>
                     </div>
@@ -245,8 +239,7 @@
                         <div class="col-md-10">
                             <fieldset>
                                 <legend style="font-size: medium">5. Have you ever been charged with or found guilty of sexual harassment or racial, ethnic, or gender bias in any proceeding?</legend>
-                                @Html.RadioButtonFor(model => model.Legal5, "Yes") Yes
-                                @Html.RadioButtonFor(model => model.Legal5, "No") No
+                                @Html.DisplayFor(model => model.Legal5, new { htmlAttributes = new { @class = "form-control" } })
                             </fieldset>
                         </div>
                     </div>
@@ -255,8 +248,7 @@
                         <div class="col-md-10">
                             <fieldset>
                                 <legend style="font-size: medium">6. Have you ever been subject to disciplinary or legal action related to use of drugs, including alcohol?</legend>
-                                @Html.RadioButtonFor(model => model.Legal6, "Yes") Yes
-                                @Html.RadioButtonFor(model => model.Legal6, "No") No
+                                @Html.DisplayFor(model => model.Legal6, new { htmlAttributes = new { @class = "form-control" } })
                             </fieldset>
                         </div>
                     </div>
@@ -273,12 +265,11 @@
                     <div class="form-group">
                         <div class="col-md-10">
                             <fieldset>
-                                <legend>
+                                <legend style="font-size: medium">
                                     I hereby declare that the information furnished above is completed and accurate to the best of my knowledge.
                                     I also authorize the release of information from any agency or individuals, who may have additional information on me.
                                 </legend>
-                                @Html.RadioButtonFor(model => model.ConfirmLegal, "Yes") Yes
-                                @Html.RadioButtonFor(model => model.ConfirmLegal, "No") No
+                                @Html.DisplayFor(model => model.ConfirmLegal, new { htmlAttributes = new { @class = "form-control" } })
                             </fieldset>
                         </div>
                     </div>
