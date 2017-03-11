@@ -53,17 +53,62 @@ namespace SoNWebApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = ("SuperAdmin,Admin,Advisor"))]
-        public ActionResult Create([Bind(Include = "ID,Course1,Course2,Course3,Course4,Course5,Course6,Course7,Course8,Course9,Course10,Course11,Course12,StudentID")] POS pOS)
+        public ActionResult Create(CreateProgramOfStudyViewModel viewModel)
         {
-            if (ModelState.IsValid)
+
+            if(!ModelState.IsValid)
             {
-                db.POS.Add(pOS);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", viewModel.StudentID);
+                return View(viewModel);
             }
 
-            ViewBag.StudentID = new SelectList(db.Students, "ID","StudentNumber",pOS.StudentID);
-            return View(pOS);
+            if (db.POS.Any(p => p.StudentID == viewModel.StudentID))
+            {
+                return View(viewModel);
+            }
+
+            var programOfStudy = new POS
+            {
+                Course1 = viewModel.Course1,
+                Course2 = viewModel.Course2,
+                Course3 = viewModel.Course3,
+                Course4 = viewModel.Course4,
+                Course5 = viewModel.Course5,
+                Course6 = viewModel.Course6,
+                Course7 = viewModel.Course7,
+                Course8 = viewModel.Course8,
+                Course9 = viewModel.Course9,
+                Course10 = viewModel.Course10,
+                Course11 = viewModel.Course11,
+                Course12 = viewModel.Course12,
+                StudentID = viewModel.StudentID,
+
+            };
+            //Create Program of Study Object (Because we should be using viewmodels)
+            //pOS.StudentID = studentId;
+            //Add Program of study to the DB
+            db.POS.Add(programOfStudy);
+            //Save Changes
+            db.SaveChanges();
+            //Return to view
+            return RedirectToAction("Index");
+            //if (ModelState.IsValid)
+            //{
+            //    //Get Student/Id
+            //    var studentId = db.Students.FirstOrDefault(s => s.StudentNumber == pOS.StudentID).ID.ToString();
+
+            //    //Create Program of Study Object (Because we should be using viewmodels)
+            //    pOS.StudentID = studentId;
+            //    //Add Program of study to the DB
+            //    db.POS.Add(pOS);
+            //    //Save Changes
+            //    db.SaveChanges();
+            //    //Return to view
+            //    return RedirectToAction("Index");
+            //}
+
+            //ViewBag.StudentID = new SelectList(db.Students, "ID","StudentNumber",pOS.StudentID);
+            //return View(pOS);
         }
 
         // GET: POS/Edit/5
@@ -77,7 +122,7 @@ namespace SoNWebApp.Controllers
 
             var viewModel = new posViewModel()
             {
-                posCourses = db.POS.FirstOrDefault(p => p.StudentID == id),
+                posCourses = pOS,
                 posDocument = db.Students.FirstOrDefault(s => s.ID == pOS.StudentID)
                 
             };

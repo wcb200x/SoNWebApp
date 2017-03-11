@@ -15,6 +15,7 @@ namespace SoNWebApp.Models.ViewModels
             //this.FirstName = user.FirstName;
             //this.LastName = user.LastName;
             Email = user.Email;
+            RoleName = user.Roles.ToString();
         }
 
         [Required]

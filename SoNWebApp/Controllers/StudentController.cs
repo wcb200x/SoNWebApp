@@ -234,6 +234,18 @@ namespace SoNWebApp.Controllers
         //    return RedirectToAction("ClinicalCompliance");
         //}
 
+
+
+        public void EmailStudent(int id)
+        {
+            var studentEmail = db.Students.FirstOrDefault(s => s.ID == id).EmailAddress;
+
+            //Email Student           
+        }
+
+
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

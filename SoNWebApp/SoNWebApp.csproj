@@ -36,12 +36,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DayPilot.Web.Mvc, Version=1.5.434.0, Culture=neutral, processorArchitecture=MSIL">
@@ -333,6 +334,7 @@
     <Compile Include="Models\Todos.cs" />
     <Compile Include="Models\UDApplication.cs" />
     <Compile Include="Models\ViewModels\AdvisorDefaultViewModel.cs" />
+    <Compile Include="Models\ViewModels\CreateProgramOfStudyViewModel.cs" />
     <Compile Include="Models\ViewModels\EditUserViewModel.cs" />
     <Compile Include="Models\ViewModels\posViewModel.cs" />
     <Compile Include="Models\ViewModels\SelectRoleEditorViewModel.cs" />
