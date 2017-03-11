@@ -6,6 +6,8 @@ using SoNWebApp.Models;
 using SoNWebApp.Models.ViewModels;
 using System;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity;
+
 
 namespace SoNWebApp.Controllers
 {
@@ -15,6 +17,8 @@ namespace SoNWebApp.Controllers
         //https://github.com/TypecastException/AspNetRoleBasedSecurityExample/blob/master/AspNetRoleBasedSecurity/Views/Account/Edit.cshtml
 
         readonly ApplicationDbContext db = new ApplicationDbContext();
+        
+
 
 
         [Authorize(Roles = "SuperAdmin, Admin")]
@@ -76,11 +80,12 @@ namespace SoNWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
                 var Db = new ApplicationDbContext();
                 var user = Db.Users.First(u => u.UserName == model.UserName);
-                //user.Roles = model.RoleName;
+                // user.Roles = model.RoleName;
+                userManager.AddToRole(user.Id, model.RoleName);
 
-        
                 //Didn't implement ability to modify FirstName or LastName, but this is how you would do it.
                 //user.FirstName = model.FirstName;
                 //user.LastName = model.LastName;
@@ -115,12 +120,14 @@ namespace SoNWebApp.Controllers
         //[HttpPost, ActionName("Delete")]
         //[ValidateAntiForgeryToken]
         //[Authorize(Roles = "Admin")]
-        //public ActionResult DeleteConfirmed(string id)
+        //public ActionResult DeleteConfirmed(string id, string roleName)
         //{
-        //    var Db = new ApplicationDbContext();
-        //    var user = Db.Users.First(u => u.UserName == id);
-        //    Db.Users.Remove(user);
-        //    Db.SaveChanges();
+        //    //    var Db = new ApplicationDbContext();
+        //        var user = db.Users.First(u => u.Id == id);
+        //    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+        //    userManager.RemoveFromRolesAsync(user.Id, roleName);
+        //    //    Db.Users.Remove(user);
+        //    //    Db.SaveChanges();
         //    return RedirectToAction("Index");
         //}
 
@@ -156,5 +163,5 @@ namespace SoNWebApp.Controllers
         //        return RedirectToAction("index");
         //    }
         //    return View();
-        }
+    }
     }
