@@ -83,7 +83,6 @@ namespace SoNWebApp.Controllers
                 var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
                 var Db = new ApplicationDbContext();
                 var user = Db.Users.First(u => u.UserName == model.UserName);
-                // user.Roles = model.RoleName;
                 userManager.AddToRole(user.Id, model.RoleName);
 
                 //Didn't implement ability to modify FirstName or LastName, but this is how you would do it.
