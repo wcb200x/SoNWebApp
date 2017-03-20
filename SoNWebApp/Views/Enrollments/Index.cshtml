@@ -36,9 +36,6 @@
                    Program Name
                 </th>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.Grade)
-                </th>
                 <th></th>
             </tr>
 
@@ -46,7 +43,7 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.StudentNumber)
+                        @Html.DisplayFor(modelItem => item.StudentID)
                     </td>
                     <td>
                         @Html.DisplayFor(model => item.Student.LastName)
@@ -58,9 +55,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Program.Name)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Grade)
-                    </td>
+                    
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.EnrollmentID }) |
                         @Html.ActionLink("Details", "Details", new { id = item.EnrollmentID }) |

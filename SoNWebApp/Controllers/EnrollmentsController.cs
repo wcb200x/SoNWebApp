@@ -60,7 +60,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EnrollmentID,CourseID,StudentNumber,ProgramID,Semester")] Enrollment enrollment)
+        public ActionResult Create([Bind(Include = "EnrollmentID,CourseID,StudentID,ProgramID,Semester,Grade")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace SoNWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentNumber);
+            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentID);
             ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);
             return View(enrollment);
@@ -86,7 +86,7 @@ namespace SoNWebApp.Controllers
             //{
             //    return HttpNotFound();
             //}
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentNumber);
+            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentID);
 
             ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);
@@ -98,7 +98,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EnrollmentID,CourseID,StudentNumber,ProgramID,Semester")] Enrollment enrollment)
+        public ActionResult Edit([Bind(Include = "EnrollmentID,CourseID,StudentID,ProgramID,Semester,Grade")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +106,7 @@ namespace SoNWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentNumber);
+            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentID);
 
             ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);

@@ -187,6 +187,36 @@
                 <dd>
                     @Html.DisplayFor(model => model.Notes)
                 </dd>
+
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Enrollments)
+                </dt>
+                <dd>
+                    <table class="table">
+                        <tr>
+                            <th>Course</th>
+                            <th>Semester</th>
+                            <th>Grade</th>
+                        </tr>
+                        @foreach (var item in Model.Enrollments)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Course.Subject)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Semester)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Grade)
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </dd>
+
+
             </dl>
         </div>
         <div class="col-md-4">

@@ -15,7 +15,7 @@ namespace SoNWebApp.Models
     {
         public int EnrollmentID { get; set; }
         public int CourseID { get; set; }
-        public int StudentNumber { get; set; }
+        public int StudentID { get; set; }
         public int ProgramID { get; set; }
         public string Semester { get; set; }
         [DisplayFormat(NullDisplayText = "No grade")]

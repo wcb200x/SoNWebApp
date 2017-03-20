@@ -325,6 +325,10 @@
     <Compile Include="Migrations\201703200235425_coursechange.Designer.cs">
       <DependentUpon>201703200235425_coursechange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703200332130_changeenrollment.cs" />
+    <Compile Include="Migrations\201703200332130_changeenrollment.Designer.cs">
+      <DependentUpon>201703200332130_changeenrollment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -592,6 +596,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703200235425_coursechange.resx">
       <DependentUpon>201703200235425_coursechange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703200332130_changeenrollment.resx">
+      <DependentUpon>201703200332130_changeenrollment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
