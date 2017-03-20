@@ -13,9 +13,9 @@ namespace SoNWebApp.Models
     {
         public int ID { get; set; }
         public string Message { get; set; }
-
+        [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
-
+        [Display(Name = "End Date")]
         public DateTime EndDate { get; set; }
     }
 }

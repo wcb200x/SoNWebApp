@@ -329,6 +329,14 @@
     <Compile Include="Migrations\201703200332130_changeenrollment.Designer.cs">
       <DependentUpon>201703200332130_changeenrollment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703200407411_changestodisplaynames.cs" />
+    <Compile Include="Migrations\201703200407411_changestodisplaynames.Designer.cs">
+      <DependentUpon>201703200407411_changestodisplaynames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703200413222_removereqofstreetadd2.cs" />
+    <Compile Include="Migrations\201703200413222_removereqofstreetadd2.Designer.cs">
+      <DependentUpon>201703200413222_removereqofstreetadd2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -599,6 +607,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703200332130_changeenrollment.resx">
       <DependentUpon>201703200332130_changeenrollment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703200407411_changestodisplaynames.resx">
+      <DependentUpon>201703200407411_changestodisplaynames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703200413222_removereqofstreetadd2.resx">
+      <DependentUpon>201703200413222_removereqofstreetadd2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

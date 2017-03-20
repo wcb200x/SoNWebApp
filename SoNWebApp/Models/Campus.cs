@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -12,6 +13,7 @@ namespace SoNWebApp.Models
         public string City { get; set; }
         public string State { get; set; }
         public string Address { get; set; }
+        [Display(Name = "Zip Code")]
         public int ZipCode { get; set; }
 
     }
