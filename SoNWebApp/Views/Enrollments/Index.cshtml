@@ -1,51 +1,68 @@
 ﻿@model IEnumerable<SoNWebApp.Models.Enrollment>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Enrollment Index";
 }
 
-<h2>Index</h2>
+<div class="panel panel-danger" style="border:1px solid #808080;">
+    <div class="panel-heading">
+        <h3 style="color:#FFFFFF; text-align: center;">Enrollments Index</h3>
+    </div>
+    <div class="panel-body">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Course.Subject)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Program.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StudentNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Semester)
-        </th>
-        <th></th>
-    </tr>
+        <button class="btn btn-primary col-md-2 pull-left" style="background:#AD0000; margin-bottom: 5px;" onclick="location.href='@Url.Action("Create", "Enrollments")'">Create New</button>
+        <div class="row" style="margin-left:600px;">
+            @using (Html.BeginForm())
+            {
+                <p>
+                    Search by student name or number: @Html.TextBox("searchString")
+                    <input type="submit" value="Search" />
+                </p>
+            }
+        </div>
+        <table class="table">
+            <tr>
+                <th>
+                    Student ID
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Student.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Student.FirstName)
+                </th>
+              
+                <th>
+                   Program Name
+                </th>
+                <th></th>
+            </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Course.Subject)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Program.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Semester)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EnrollmentID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EnrollmentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EnrollmentID })
-        </td>
-    </tr>
-}
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Student.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Student.FirstName)
+                    </td>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Program.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.EnrollmentID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.EnrollmentID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.EnrollmentID })
+                    </td>
+                </tr>
+            }
 
-</table>
+        </table>
+        </div>
+    </div>
+

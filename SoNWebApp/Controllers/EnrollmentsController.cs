@@ -15,8 +15,17 @@ namespace SoNWebApp.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Enrollments
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
+
+            var students = from s in db.Students
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.LastName.Contains(searchString)
+                                              || s.FirstName.Contains(searchString)
+                                              || s.StudentNumber.ToString().Contains(searchString));
+            }
             var enrollments = db.Enrollments.Include(e => e.Course).Include(e => e.Program);
             return View(enrollments.ToList());
         }
@@ -39,7 +48,9 @@ namespace SoNWebApp.Controllers
         // GET: Enrollments/Create
         public ActionResult Create()
         {
-            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject");
+            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber");
+
+            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Title");
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name");
             return View();
         }
@@ -57,8 +68,8 @@ namespace SoNWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
+            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentNumber);
+            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Title", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);
             return View(enrollment);
         }
@@ -75,7 +86,9 @@ namespace SoNWebApp.Controllers
             //{
             //    return HttpNotFound();
             //}
-            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
+            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentNumber);
+
+            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Title", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);
             return View(enrollment);
         }
@@ -93,7 +106,9 @@ namespace SoNWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
+            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentNumber);
+
+            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Title", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);
             return View(enrollment);
         }
