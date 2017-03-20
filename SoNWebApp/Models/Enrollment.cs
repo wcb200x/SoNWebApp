@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace SoNWebApp.Models
 {
+    public enum Grade
+    {
+        A, B, C, D, F
+    }
+
     public class Enrollment
     {
         public int EnrollmentID { get; set; }
@@ -12,6 +18,8 @@ namespace SoNWebApp.Models
         public int StudentNumber { get; set; }
         public int ProgramID { get; set; }
         public string Semester { get; set; }
+        [DisplayFormat(NullDisplayText = "No grade")]
+        public Grade? Grade { get; set; }
         public virtual Courses Course { get; set; }
         public virtual Student Student { get; set; }
         public virtual Program Program { get; set; }

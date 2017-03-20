@@ -57,7 +57,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Subject,CatalogNumber,Title,Credits,ProgramID")] Courses courses)
+        public ActionResult Create([Bind(Include = "Id,Subject,Title,Credits,ProgramID")] Courses courses)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace SoNWebApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
-        public ActionResult Edit([Bind(Include = "Id,Subject,CatalogNumber,Title,Credits,ProgramID")] Courses courses)
+        public ActionResult Edit([Bind(Include = "Id,Subject,Title,Credits,ProgramID")] Courses courses)
         {
             if (ModelState.IsValid)
             {

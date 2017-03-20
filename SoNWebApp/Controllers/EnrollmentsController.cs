@@ -50,7 +50,7 @@ namespace SoNWebApp.Controllers
         {
             ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber");
 
-            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Title");
+            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject");
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name");
             return View();
         }
@@ -69,7 +69,7 @@ namespace SoNWebApp.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentNumber);
-            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Title", enrollment.CourseID);
+            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);
             return View(enrollment);
         }
@@ -88,7 +88,7 @@ namespace SoNWebApp.Controllers
             //}
             ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentNumber);
 
-            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Title", enrollment.CourseID);
+            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);
             return View(enrollment);
         }
@@ -108,7 +108,7 @@ namespace SoNWebApp.Controllers
             }
             ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentNumber);
 
-            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Title", enrollment.CourseID);
+            ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);
             return View(enrollment);
         }

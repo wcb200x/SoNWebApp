@@ -35,6 +35,10 @@
                 <th>
                    Program Name
                 </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Grade)
+                </th>
                 <th></th>
             </tr>
 
@@ -53,6 +57,9 @@
                    
                     <td>
                         @Html.DisplayFor(modelItem => item.Program.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Grade)
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.EnrollmentID }) |

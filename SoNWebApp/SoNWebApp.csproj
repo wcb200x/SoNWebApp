@@ -317,6 +317,14 @@
     <Compile Include="Migrations\201703072354260_RedoAgain.Designer.cs">
       <DependentUpon>201703072354260_RedoAgain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703200219298_updateenrollmentwithgrade.cs" />
+    <Compile Include="Migrations\201703200219298_updateenrollmentwithgrade.Designer.cs">
+      <DependentUpon>201703200219298_updateenrollmentwithgrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703200235425_coursechange.cs" />
+    <Compile Include="Migrations\201703200235425_coursechange.Designer.cs">
+      <DependentUpon>201703200235425_coursechange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -578,6 +586,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703072354260_RedoAgain.resx">
       <DependentUpon>201703072354260_RedoAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703200219298_updateenrollmentwithgrade.resx">
+      <DependentUpon>201703200219298_updateenrollmentwithgrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703200235425_coursechange.resx">
+      <DependentUpon>201703200235425_coursechange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

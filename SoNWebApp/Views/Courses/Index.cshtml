@@ -27,9 +27,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Subject)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CatalogNumber)
-                    </th>
+                   
                     <th>
                         @Html.DisplayNameFor(model => model.Title)
                     </th>
@@ -38,7 +36,7 @@
                         @Html.DisplayNameFor(model => model.Credits)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.ProgramID)
+                        @Html.DisplayNameFor(model => model.Program.Name)
                     </th>
 
                     <th></th>
@@ -50,9 +48,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Subject)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CatalogNumber)
-                        </td>
+                      
                         <td>
                             @Html.DisplayFor(modelItem => item.Title)
                         </td>
@@ -61,7 +57,7 @@
                             @Html.DisplayFor(modelItem => item.Credits)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ProgramID)
+                            @Html.DisplayFor(modelItem => item.Program.Name)
                         </td>
 
                         <td>
