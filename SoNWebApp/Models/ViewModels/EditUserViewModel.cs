@@ -15,7 +15,8 @@ namespace SoNWebApp.Models.ViewModels
             //this.FirstName = user.FirstName;
             //this.LastName = user.LastName;
             Email = user.Email;
-            RoleName = user.Roles.ToString();
+            //RoleName = user.Roles.ToString();
+            //RemoveRoleName = user.Roles.ToString();
         }
 
         [Required]
@@ -34,8 +35,8 @@ namespace SoNWebApp.Models.ViewModels
         public string Email { get; set; }
 
         public List<SelectRoleEditorViewModel> Roles { get; set; }
-
-        public string RoleName { get; set; }
+        public string AddRoleName { get; set; }
+        public string RemoveRoleName { get; set; }
 
     }
 }

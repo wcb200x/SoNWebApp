@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SoNWebApp.Models;
+using SoNWebApp.Helpers;
 
 namespace SoNWebApp.Controllers
 {
@@ -52,7 +53,6 @@ namespace SoNWebApp.Controllers
         public ActionResult Create()
         {
             ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber");
-
             ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject");
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name");
             return View();
@@ -65,6 +65,8 @@ namespace SoNWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EnrollmentID,CourseID,StudentID,ProgramID,Semester,Grade")] Enrollment enrollment)
         {
+            var actualgrade = Grades.gradedict;
+
             if (ModelState.IsValid)
             {
                 db.Enrollments.Add(enrollment);
@@ -90,7 +92,6 @@ namespace SoNWebApp.Controllers
             //    return HttpNotFound();
             //}
             ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentID);
-
             ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);
             return View(enrollment);
@@ -110,7 +111,6 @@ namespace SoNWebApp.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentID);
-
             ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);
             return View(enrollment);
@@ -150,5 +150,6 @@ namespace SoNWebApp.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }

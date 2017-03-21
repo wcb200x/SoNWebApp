@@ -228,6 +228,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Grades.cs" />
     <Compile Include="Mapping\CourseMapping.cs" />
     <Compile Include="Migrations\201703040029279_InitialMigration.cs" />
     <Compile Include="Migrations\201703040029279_InitialMigration.Designer.cs">
@@ -336,6 +337,10 @@
     <Compile Include="Migrations\201703200413222_removereqofstreetadd2.cs" />
     <Compile Include="Migrations\201703200413222_removereqofstreetadd2.Designer.cs">
       <DependentUpon>201703200413222_removereqofstreetadd2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703210019270_makegradeastring.cs" />
+    <Compile Include="Migrations\201703210019270_makegradeastring.Designer.cs">
+      <DependentUpon>201703210019270_makegradeastring.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -614,6 +619,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703200413222_removereqofstreetadd2.resx">
       <DependentUpon>201703200413222_removereqofstreetadd2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703210019270_makegradeastring.resx">
+      <DependentUpon>201703210019270_makegradeastring.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

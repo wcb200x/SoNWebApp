@@ -10,6 +10,7 @@ namespace SoNWebApp.Models.ViewModels
         {
             this.RoleId = role.Id;
             this.RoleName = role.Name;
+          
         }
 
         public bool Selected { get; set; }
