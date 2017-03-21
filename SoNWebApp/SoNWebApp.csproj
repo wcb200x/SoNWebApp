@@ -342,6 +342,10 @@
     <Compile Include="Migrations\201703210019270_makegradeastring.Designer.cs">
       <DependentUpon>201703210019270_makegradeastring.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703211950341_DocumentModelChanges.cs" />
+    <Compile Include="Migrations\201703211950341_DocumentModelChanges.Designer.cs">
+      <DependentUpon>201703211950341_DocumentModelChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -622,6 +626,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703210019270_makegradeastring.resx">
       <DependentUpon>201703210019270_makegradeastring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703211950341_DocumentModelChanges.resx">
+      <DependentUpon>201703211950341_DocumentModelChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

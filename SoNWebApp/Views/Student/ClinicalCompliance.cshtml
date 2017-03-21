@@ -27,6 +27,11 @@
                                     <label for="single" class="control-label">Select from dropdown</label>
                                     <select id="single" class="form-control select2" style="border: 2px solid black;">
                                         <optgroup label="Compliance Document">
+                                            @*@foreach (var item in Model.Document)
+                                            {
+                                                @Html.DisplayFor(modelItem =>item.DocumentType)
+                                            }*@
+                                            
                                             <option value="CPR">CPR</option>
                                             <option value="HIPPA">HIPPA</option>
                                             <option value="Blood">Bloodbourne Path</option>
@@ -58,7 +63,7 @@
                                     <center>
                                         <input type="submit" />
                                     </center>
-                                    @Html.ActionLink("Get Student #1's First Document", "GetDocument", new { controller = "Home", studentId = 2 }, new { @class = "btn btn-primary" })
+                                    @Html.ActionLink("Get Student #1's First Document", "GetDocument", new { controller = "Student", studentId = 2 }, new { @class = "btn btn-primary" })
                                 </div>
                             </div>
                         </div>
