@@ -19,19 +19,20 @@ namespace SoNWebApp.Controllers
         public ActionResult Index(string searchString)
         {
 
-            var students = from s in db.Enrollments
-                           select s;
+            var studentsenrolled = from e in db.Enrollments
+                           select e;
             if (!String.IsNullOrEmpty(searchString))
             {
-                students = students.Where(s => s.Student.LastName.Contains(searchString)
-                                              || s.Student.FirstName.Contains(searchString)
-                                              || s.Student.StudentNumber.ToString().Contains(searchString));
+                studentsenrolled = studentsenrolled.Where(e => e.Student.LastName.Contains(searchString)
+                                              || e.Student.FirstName.Contains(searchString)
+                                              || e.Student.StudentNumber.ToString().Contains(searchString));
+                                          
             }
 
-  
+            
 
             var enrollments = db.Enrollments.Include(e => e.Course).Include(e => e.Program);
-            return View(enrollments.ToList());
+            return View(studentsenrolled.ToList());
         }
 
         // GET: Enrollments/Details/5
