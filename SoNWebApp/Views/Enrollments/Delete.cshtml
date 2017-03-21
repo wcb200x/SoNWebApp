@@ -4,60 +4,78 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<div class="panel panel-danger" style="border:1px solid #808080;">
+    <div class="panel-heading">
+        <h3 style="color:#FFFFFF">Delete Enrollment</h3>
+    </div>
+    <div class="panel-body">
+        <h4>Are you sure you want to delete this?</h4>
+        
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Student.StudentNumber)
+                </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Enrollment</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Course.Subject)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Student.StudentNumber)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Student.LastName)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Course.Subject)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Student.LastName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Student.FirstName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Program.Name)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Student.FirstName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Program.Name)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentID)
-        </dt>
+                <dt>
+                   Program Name
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentID)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Program.Name)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Semester)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Semester)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Semester)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Grade)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Semester)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Grade)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Course.Subject)
+                </dt>
 
-    </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.Course.Subject)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Grade)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Grade)
+                </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+            </dl>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
         </div>
-    }
-</div>
+    </div>
+
