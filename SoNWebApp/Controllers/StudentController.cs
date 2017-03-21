@@ -184,55 +184,45 @@ namespace SoNWebApp.Controllers
 
             return PartialView("_TodosPartial", todos);
         }
-        //[HttpPost]
-        //public ActionResult UploadDocument(int studentNumber, HttpPostedFileBase file)
-        //{
-        //    if (file != null && file.ContentLength > 0)
-        //    {
-        //        var student = db.Students.FirstOrDefault(s => s.StudentNumber == studentNumber);
-        //        // extract only the filename
-        //        var fileName = Path.GetFileName(file.FileName);
-        //        // store the file inside ~/App_Data/uploads folder
-        //        var path = Path.Combine(Server.MapPath(new Document().ToString()), fileName);
-        //        file.SaveAs(path);
-        //    }
-        //    // redirect back to the index action to show the form once again
-        //    return RedirectToAction("ClinicalCompliance");
-        //    //byte[] uploadedFile = new byte[file.InputStream.Length];
-        //    //file.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
+        [HttpPost]
+        public ActionResult UploadDocument(int studentNumber, HttpPostedFileBase file)
+        {
+            byte[] uploadedFile = new byte[file.InputStream.Length];
+            file.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
 
-        //    //var student = db.Students.FirstOrDefault(s => s.StudentNumber == studentNumber);
+            var student = db.Students.FirstOrDefault(s => s.StudentNumber == studentNumber);
 
-        //    //if (student != null)
-        //    //{
-        //    //    var documentModel = new Document
-        //    //    {
-        //    //        StudentID = student.ID,
-        //    //        StudentNumber = studentNumber,
-        //    //        UploadedBy = HttpContext.User.Identity.Name,
-        //    //        ContentLength = file.ContentLength,
-        //    //        ContentType = file.ContentType,
-        //    //        FileName = file.FileName,
-        //    //        FileBytes = uploadedFile
-        //    //    };
-        //    //    db.Documents.Add(documentModel);
-        //    //    db.SaveChanges();
-        //    //}
+            if (student != null)
+            {
+                var documentModel = new Document
+                {
+                    StudentID = student.ID,
+                    StudentNumber = studentNumber,
+                    UploadedBy = HttpContext.User.Identity.Name,
+                    ContentLength = file.ContentLength,
+                    ContentType = file.ContentType,
+                    FileName = file.FileName,
+                    FileBytes = uploadedFile,
+                    
+                };
+                db.Documents.Add(documentModel);
+                db.SaveChanges();
+            }
 
-        //    //return View("ClinicalCompliance");
-        //}
-        //public ActionResult GetDocument(int studentID)
-        //{
-        //    var allDocumentsForStudent = db.Documents.Where(d => d.StudentID == studentID);
+            return View("ClinicalCompliance");
+        }
+        public ActionResult GetDocument(int studentID)
+        {
+            var allDocumentsForStudent = db.Documents.Where(d => d.StudentID == studentID);
 
-        //    var oneDocumentFromStudent = allDocumentsForStudent.FirstOrDefault();
+            var oneDocumentFromStudent = allDocumentsForStudent.FirstOrDefault();
 
-        //    if (oneDocumentFromStudent != null)
-        //    {
-        //        return File(oneDocumentFromStudent.FileBytes, "application/octet-stream", oneDocumentFromStudent.FileName);
-        //    }
-        //    return RedirectToAction("ClinicalCompliance");
-        //}
+            if (oneDocumentFromStudent != null)
+            {
+                return File(oneDocumentFromStudent.FileBytes, "application/octet-stream", oneDocumentFromStudent.FileName);
+            }
+            return RedirectToAction("ClinicalCompliance");
+        }
 
 
 
