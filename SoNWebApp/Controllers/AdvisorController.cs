@@ -52,6 +52,10 @@ namespace SoNWebApp.Controllers
         {
             return View();
         }
+        public ActionResult AdClinicalCompliance()
+        {
+            return View(db.Students.ToList());
+        }
         public ActionResult Search()
         {
             return View();
