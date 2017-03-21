@@ -83,21 +83,24 @@ namespace SoNWebApp.Controllers
                 var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
                 var Db = new ApplicationDbContext();
                 var user = Db.Users.First(u => u.UserName == model.UserName);
-                userManager.AddToRole(user.Id, model.RoleName);
-
+                userManager.RemoveFromRole(user.Id, model.RemoveRoleName);
+                userManager.AddToRole(user.Id, model.AddRoleName);
+                
+                
                 //Didn't implement ability to modify FirstName or LastName, but this is how you would do it.
                 //user.FirstName = model.FirstName;
                 //user.LastName = model.LastName;
 
                 user.Email = model.Email;
-
+                
                 Db.Entry(user).State = System.Data.Entity.EntityState.Modified;
                 await Db.SaveChangesAsync();
+                
 
                 return RedirectToAction("Index");
             }
-            ViewBag.Name = new SelectList(db.Roles.ToList(), "Name", "Name");
             // If we got this far, something failed, redisplay form
+
             return View(model);
         }
 
