@@ -90,7 +90,7 @@ namespace SoNWebApp.Controllers
                 }
                 else
                 {
-                    userManager.AddToRole(user.Id, model.AddRoleName);
+                    userManager.AddToRole(user.Id, model.AddRoleName.ToLower());
                 }
                 if (model.RemoveRoleName == null)
                 {
@@ -98,7 +98,7 @@ namespace SoNWebApp.Controllers
                 }
                 else
                 {
-                    userManager.RemoveFromRole(user.Id, model.RemoveRoleName);
+                    userManager.RemoveFromRole(user.Id, model.RemoveRoleName.ToLower());
                 }
               
                
