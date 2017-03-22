@@ -185,7 +185,7 @@ namespace SoNWebApp.Controllers
             return PartialView("_TodosPartial", todos);
         }
         [HttpPost]
-        public ActionResult UploadDocument(int studentNumber, HttpPostedFileBase file)
+        public ActionResult UploadDocument(int studentNumber, DateTime expirationDate, string DocumentType, HttpPostedFileBase file)
         {
             byte[] uploadedFile = new byte[file.InputStream.Length];
             file.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
@@ -198,6 +198,8 @@ namespace SoNWebApp.Controllers
                 {
                     StudentID = student.ID,
                     StudentNumber = studentNumber,
+                    ExpirationDate = expirationDate,
+                    DocumentType = DocumentType,
                     UploadedBy = HttpContext.User.Identity.Name,
                     ContentLength = file.ContentLength,
                     ContentType = file.ContentType,
