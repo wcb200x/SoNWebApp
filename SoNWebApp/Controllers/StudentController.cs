@@ -27,6 +27,69 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Details(int? id)
         {
+
+            var actualgrade = db.Enrollments.FirstOrDefault(e => e.StudentID == id).Grade;
+            if (actualgrade == "A+")
+            {
+                actualgrade = 4.0.ToString();
+            }
+            else if (actualgrade == "A")
+            {
+                actualgrade = 4.0.ToString();
+            }
+            else if (actualgrade == "A-")
+            {
+                actualgrade = 3.7.ToString();
+            }
+            else if (actualgrade == "B+")
+            {
+                actualgrade = 3.3.ToString();
+            }
+            else if (actualgrade == "B")
+            {
+                actualgrade = 3.0.ToString();
+            }
+            else if (actualgrade == "B-")
+            {
+                actualgrade = 2.7.ToString();
+            }
+            else if (actualgrade == "C+")
+            {
+                actualgrade = 2.3.ToString();
+            }
+            else if (actualgrade == "C")
+            {
+                actualgrade = 2.0.ToString();
+            }
+            else if (actualgrade == "C-")
+            {
+                actualgrade = 1.7.ToString();
+            }
+            else if (actualgrade == "D+")
+            {
+                actualgrade = 1.3.ToString();
+            }
+            else if (actualgrade == "D")
+            {
+                actualgrade = 1.0.ToString();
+            }
+            else if (actualgrade == "D-")
+            {
+                actualgrade = 0.7.ToString();
+            }
+            else if (actualgrade == "F")
+            {
+                actualgrade = 0.0.ToString();
+            }
+            else
+            {
+                Console.WriteLine("The entered grade is not valid.");
+            };
+
+       
+            
+
+
             //if (id == null)
             //{
             //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
