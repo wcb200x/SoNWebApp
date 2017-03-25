@@ -13,8 +13,9 @@ namespace SoNWebApp.Models
         public int CourseID { get; set; }
         public int StudentID { get; set; }
         public int ProgramID { get; set; }
+        [Required]
         public string Semester { get; set; }
-        [DisplayFormat(NullDisplayText = "No grade")]
+        [Required]
         public string Grade { get; set; }
         public virtual Courses Course { get; set; }
         public virtual Student Student { get; set; }

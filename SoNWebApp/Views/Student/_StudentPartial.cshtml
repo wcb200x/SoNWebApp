@@ -184,7 +184,8 @@
             <b>Actions</b>
         </td>
         <td>
-            @Html.ActionLink("Edit Information", "Edit", new { ID = Model.ID })
+            @Html.ActionLink("Edit Information", "Edit", new { ID = Model.ID }) |
+            @Html.ActionLink("Details", "Details", new { ID = Model.ID })
         </td>
     </tr>
 </table>

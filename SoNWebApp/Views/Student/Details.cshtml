@@ -221,16 +221,26 @@
             </dl>
         </div>
         <div class="col-md-4">
-            <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href='@Url.Action("EmailStudent", "Student", new { id = Model.ID})'><font color="white">Contact Student</font></a></div>
+            <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href='@Url.Action("EmailStudent", "Student", new { id = Model.ID })'><font color="white">Contact Student</font></a></div>
             <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href=""><font color="white">Import </font></a></div>
 
         </div>
         <br />
         <br />
         <br />
-        <p>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-            @Html.ActionLink("Back to List", "CRM", "Advisor", false, false)
-        </p>
+        
+            @if (User.IsInRole("Student") || (User.IsInRole("")))
+            {
+                 <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID })
+                </p>
+
+            }
+
+            @if (User.IsInRole("Advisor") || (User.IsInRole("Admin")) || (User.IsInRole("SuperAdmin")))
+            {
+               <p> @Html.ActionLink("Edit", "Edit", new { id = Model.ID })   | @Html.ActionLink("Back to List", "CRM", "Advisor", false, false) </p>
+            } 
+       
         </div>
 </div>

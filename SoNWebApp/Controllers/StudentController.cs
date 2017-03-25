@@ -24,71 +24,34 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: Student/Details/5
-        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
+      [Authorize]
         public ActionResult Details(int? id, string actualgrade, string GradePointAverage)
         {
-            actualgrade = db.Enrollments.FirstOrDefault(e => e.StudentID == id).Grade;
-            if (actualgrade == "A+")
+            //actualgrade = db.Enrollments.FirstOrDefault(e => e.StudentID == id).Grade;
+
+            var enrollments = db.Enrollments.Where(e => e.StudentID == id);
+            var actualGradeList = new List<decimal>();
+            foreach (var enrollment in enrollments)
             {
-                actualgrade = 4.0.ToString();
+                var actualGrade = GetCourseGrade(enrollment.Grade);
+                actualGradeList.Add(actualGrade);
             }
-            else if (actualgrade == "A")
-            {
-                actualgrade = 4.0.ToString();
-            }
-            else if (actualgrade == "A-")
-            {
-                actualgrade = 3.7.ToString();
-            }
-            else if (actualgrade == "B+")
-            {
-                actualgrade = 3.3.ToString();
-            }
-            else if (actualgrade == "B")
-            {
-                actualgrade = 3.0.ToString();
-            }
-            else if (actualgrade == "B-")
-            {
-                actualgrade = 2.7.ToString();
-            }
-            else if (actualgrade == "C+")
-            {
-                actualgrade = 2.3.ToString();
-            }
-            else if (actualgrade == "C")
-            {
-                actualgrade = 2.0.ToString();
-            }
-            else if (actualgrade == "C-")
-            {
-                actualgrade = 1.7.ToString();
-            }
-            else if (actualgrade == "D+")
-            {
-                actualgrade = 1.3.ToString();
-            }
-            else if (actualgrade == "D")
-            {
-                actualgrade = 1.0.ToString();
-            }
-            else if (actualgrade == "D-")
-            {
-                actualgrade = 0.7.ToString();
-            }
-            else if (actualgrade == "F")
-            {
-                actualgrade = 0.0.ToString();
-            }
-            else
-            {
-                actualgrade = 0.0.ToString();
-            };
-            GradePointAverage = db.Students.FirstOrDefault(s => s.ID == id).GPA.ToString();
-            GradePointAverage = actualgrade;
+
+
+            var testGpaSum = actualGradeList.Sum();
+            var testGpaGradeCount = actualGradeList.Count() * 4;
+
+            var testGpa = (testGpaSum / testGpaGradeCount) * 4.0M;
+            
+
+            //GradePointAverage = db.Students.FirstOrDefault(s => s.ID == id).GPA.ToString();
+            //GradePointAverage = actualgrade;            
 
 
             Student student = db.Students.FirstOrDefault(s => s.ID == id);
+            student.GPA = testGpa;
+
+            db.SaveChanges();
           
             return View(student);
         }
@@ -300,6 +263,66 @@ namespace SoNWebApp.Controllers
         //}
 
 
+
+        public decimal GetCourseGrade(string courseLetterGrade)
+        {
+            var actualgrade = 0.0M;
+
+            if (courseLetterGrade == "A+")
+            {
+                actualgrade = 4.0M;
+            }
+            else if (courseLetterGrade == "A")
+            {
+                actualgrade = 4.0M;
+            }
+            else if (courseLetterGrade == "A-")
+            {
+                actualgrade = 3.7M;
+            }
+            else if (courseLetterGrade == "B+")
+            {
+                actualgrade = 3.3M;
+            }
+            else if (courseLetterGrade == "B")
+            {
+                actualgrade = 3.0M;
+            }
+            else if (courseLetterGrade == "B-")
+            {
+                actualgrade = 2.7M;
+            }
+            else if (courseLetterGrade == "C+")
+            {
+                actualgrade = 2.3M;
+            }
+            else if (courseLetterGrade == "C")
+            {
+                actualgrade = 2.0M;
+            }
+            else if (courseLetterGrade == "C-")
+            {
+                actualgrade = 1.7M;
+            }
+            else if (courseLetterGrade == "D+")
+            {
+                actualgrade = 1.3M;
+            }
+            else if (courseLetterGrade == "D")
+            {
+                actualgrade = 1.0M;
+            }
+            else if (courseLetterGrade == "D-")
+            {
+                actualgrade = 0.7M;
+            }
+            else if (courseLetterGrade == "F")
+            {
+                actualgrade = 0.0M;
+            }            
+
+            return actualgrade;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
