@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SoNWebApp.Models;
-using SoNWebApp.Helpers;
+
 
 namespace SoNWebApp.Controllers
 {
@@ -66,7 +66,7 @@ namespace SoNWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EnrollmentID,CourseID,StudentID,ProgramID,Semester,Grade")] Enrollment enrollment)
         {
-            var actualgrade = Grades.gradedict;
+       
 
             if (ModelState.IsValid)
             {

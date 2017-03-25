@@ -114,10 +114,26 @@ namespace SoNWebApp.Controllers
         // GET: POS/Edit/5
         public ActionResult Edit(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                var curentUserEmail = HttpContext.User.Identity.Name;
+                var student = db.Students.FirstOrDefault(s => s.EmailAddress == curentUserEmail);
+
+                var pos = db.POS.FirstOrDefault(p => p.StudentID == student.ID);
+
+                var programOfStudy = db.POS.FirstOrDefault(p => p.ID == pos.ID);
+
+                var programOfStudyViewModel = new posViewModel()
+                {
+                    posCourses = programOfStudy,
+                    posDocument = db.Students.FirstOrDefault(s => s.ID == programOfStudy.StudentID)
+
+                };
+
+                return View(programOfStudyViewModel);
+
+            }
+            
             POS pOS = db.POS.Find(id);
 
             var viewModel = new posViewModel()
@@ -150,7 +166,7 @@ namespace SoNWebApp.Controllers
                 }
                 else
                 {
-
+                             
                     db.Entry(pOS).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Default", "Student", false);

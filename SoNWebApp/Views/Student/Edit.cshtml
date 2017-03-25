@@ -219,13 +219,14 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-}
 
-@if (User.IsInRole("Admin") || User.IsInRole("Advisor") || User.IsInRole("SuperAdmin"))
-{
-    <div>
-        @Html.ActionLink("Back to List", "CRM", "Advisor", false, false)
+            @if (User.IsInRole("Admin") || User.IsInRole("Advisor") || User.IsInRole("SuperAdmin"))
+            {
+                <div>
+                    @Html.ActionLink("Back to List", "CRM", "Advisor", false, false)
+                </div>
+            }
+
+        </div>
     </div>
 }

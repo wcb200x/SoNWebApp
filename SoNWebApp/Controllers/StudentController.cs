@@ -25,10 +25,9 @@ namespace SoNWebApp.Controllers
 
         // GET: Student/Details/5
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, string actualgrade, string GradePointAverage)
         {
-
-            var actualgrade = db.Enrollments.FirstOrDefault(e => e.StudentID == id).Grade;
+            actualgrade = db.Enrollments.FirstOrDefault(e => e.StudentID == id).Grade;
             if (actualgrade == "A+")
             {
                 actualgrade = 4.0.ToString();
@@ -83,22 +82,14 @@ namespace SoNWebApp.Controllers
             }
             else
             {
-                Console.WriteLine("The entered grade is not valid.");
+                actualgrade = 0.0.ToString();
             };
+            GradePointAverage = db.Students.FirstOrDefault(s => s.ID == id).GPA.ToString();
+            GradePointAverage = actualgrade;
 
-       
-            
 
-
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
             Student student = db.Students.FirstOrDefault(s => s.ID == id);
-            //if (student == null)
-            //{
-            //    return HttpNotFound();
-            //}
+          
             return View(student);
         }
         [Authorize (Roles =("Advisor,Admin,SuperAdmin"))]
@@ -224,7 +215,8 @@ namespace SoNWebApp.Controllers
             var viewModel = new StudentDefaultViewModel()
             {
                 StudentsList = db.Students.Where(s => s.EmailAddress.ToLower().Contains(name)).FirstOrDefault(),
-            TodosList = db.Todos.Where(t => t.EndDate >= DateTime.Today).Take(5)
+                TodosList = db.Todos.Where(t => t.EndDate >= DateTime.Today).Take(5)
+                
             };
             return View(viewModel);
         }
@@ -298,7 +290,14 @@ namespace SoNWebApp.Controllers
             //Email Student           
         }
 
+        //public ActionResult StudentPos ()
+        //{
+            
+        //   //var student = db.Students.FirstOrDefault(s => s.ID == id);
+        //    //var Pos = db.POS.Where(p => p.StudentID == id);
 
+        //    return RedirectToAction("Edit", "POS", pos.ID );
+        //}
 
 
         protected override void Dispose(bool disposing)

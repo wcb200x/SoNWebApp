@@ -7,6 +7,7 @@ namespace SoNWebApp.Models.ViewModels
 {
     public class StudentDefaultViewModel
     {
+        
         public Student StudentsList { get; set; }
         public IEnumerable<Todos> TodosList { get; set; }
     }
