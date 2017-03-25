@@ -480,14 +480,12 @@
     <Content Include="Views\Advisor\StudentRecords.cshtml" />
     <Content Include="Views\Advisor\Reports.cshtml" />
     <Content Include="Views\Advisor\Search.cshtml" />
-    <Content Include="Views\Student\ProgramOfStudy.cshtml" />
     <Content Include="Views\Student\Alerts.cshtml" />
     <Content Include="Views\Student\Advisor.cshtml" />
     <Content Include="Views\Shared\AdminLayout.cshtml" />
     <Content Include="Views\Student\Default.cshtml" />
     <Content Include="Views\Admin\Calendar.cshtml" />
     <Content Include="Views\Admin\Reports.cshtml" />
-    <Content Include="Views\Admin\ManageAlerts.cshtml" />
     <Content Include="Views\Admin\DatabaseAdmin.cshtml" />
     <Content Include="Views\Admin\Home.cshtml" />
     <Content Include="Views\Advisor\StudentReport.cshtml" />

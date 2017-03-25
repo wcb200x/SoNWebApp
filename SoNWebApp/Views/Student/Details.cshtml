@@ -1,7 +1,7 @@
 ﻿@model SoNWebApp.Models.Student
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Student Details - ";
 }
 <div class="panel panel-danger" style="border:1px solid #808080;">
     <div class="panel-heading">
@@ -220,6 +220,8 @@
 
             </dl>
         </div>
+@if (User.IsInRole("Advisor") || (User.IsInRole("Admin")) || (User.IsInRole("SuperAdmin")))
+{
         <div class="col-md-4">
             <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href='@Url.Action("EmailStudent", "Student", new { id = Model.ID })'><font color="white">Contact Student</font></a></div>
             <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href=""><font color="white">Import </font></a></div>
@@ -228,18 +230,18 @@
         <br />
         <br />
         <br />
-        
+}
             @if (User.IsInRole("Student") || (User.IsInRole("")))
             {
                  <p>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.ID })
+            @Html.ActionLink("Edit Information", "Edit", new { id = Model.ID })
                 </p>
 
             }
 
             @if (User.IsInRole("Advisor") || (User.IsInRole("Admin")) || (User.IsInRole("SuperAdmin")))
             {
-               <p> @Html.ActionLink("Edit", "Edit", new { id = Model.ID })   | @Html.ActionLink("Back to List", "CRM", "Advisor", false, false) </p>
+               <p> @Html.ActionLink("Edit Information", "Edit", new { id = Model.ID })   | @Html.ActionLink("Back to List", "CRM", "Advisor", false, false) </p>
             } 
        
         </div>

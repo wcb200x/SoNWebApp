@@ -1,6 +1,8 @@
 ﻿@model SoNWebApp.Models.Courses
 
-
+@{
+    ViewBag.Title = "Edit Course - ";
+}
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
