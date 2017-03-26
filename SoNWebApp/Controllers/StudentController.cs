@@ -59,6 +59,9 @@ namespace SoNWebApp.Controllers
         // GET: Student/Create
         public ActionResult Create()
         {
+            ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name");
+            ViewBag.CampusID = new SelectList(db.Campuses, "CampusID", "Name");
+
             return View();
         }
 
@@ -77,6 +80,9 @@ namespace SoNWebApp.Controllers
                 return RedirectToAction("CRM","Advisor",false);
             }
 
+            ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", student.ProgramID);
+            ViewBag.CampusID = new SelectList(db.Campuses, "CampusID", "Name", student.CampusID);
+
             return View(student);
         }
 
@@ -92,6 +98,8 @@ namespace SoNWebApp.Controllers
             //{
             //    return HttpNotFound();
             //}
+            ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", student.ProgramID);
+            ViewBag.CampusID = new SelectList(db.Campuses, "CampusID", "Name", student.CampusID);
             return View(student);
         }
 
@@ -117,6 +125,8 @@ namespace SoNWebApp.Controllers
                     return RedirectToAction("Default");
                 }
             }
+            ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", student.ProgramID);
+            ViewBag.CampusID = new SelectList(db.Campuses, "CampusID", "Name", student.CampusID);
             return View(student);
         }
 
