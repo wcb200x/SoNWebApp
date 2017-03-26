@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SoNWebApp.Models;
-
+using System.Collections;
 
 namespace SoNWebApp.Controllers
 {
@@ -106,9 +106,10 @@ namespace SoNWebApp.Controllers
             ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentID);
             ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);
+
             return View(enrollment);
         }
-
+ 
         // GET: Enrollments/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -230,6 +231,7 @@ namespace SoNWebApp.Controllers
 
             return actualgrade;
         }
+    
         protected override void Dispose(bool disposing)
         {
             if (disposing)

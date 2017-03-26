@@ -49,6 +49,8 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Create()
         {
+            ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name");
+
             return View();
         }
 
@@ -65,6 +67,7 @@ namespace SoNWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", courses.ProgramID);
 
             return View(courses);
         }
@@ -82,6 +85,8 @@ namespace SoNWebApp.Controllers
             //{
             //    return HttpNotFound();
             //}
+            ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", courses.ProgramID);
+
             return View(courses);
         }
 
@@ -100,6 +105,8 @@ namespace SoNWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", courses.ProgramID);
+
             return View(courses);
         }
 
