@@ -50,5 +50,7 @@ namespace SoNWebApp.Models
         public DbSet<POS> POS { get; set; }
 
         public System.Data.Entity.DbSet<SoNWebApp.Models.Alerts> Alerts { get; set; }
+
+        public System.Data.Entity.DbSet<SoNWebApp.Models.Compliance> Compliances { get; set; }
     }
 }

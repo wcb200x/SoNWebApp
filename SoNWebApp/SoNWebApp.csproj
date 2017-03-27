@@ -214,6 +214,7 @@
     <Compile Include="Controllers\AlertsController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\CampusController.cs" />
+    <Compile Include="Controllers\ComplianceController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\EnrollmentsController.cs" />
     <Compile Include="Controllers\EventController.cs" />
@@ -540,6 +541,11 @@
     <Content Include="Views\Enrollments\Edit.cshtml" />
     <Content Include="Views\Enrollments\Index.cshtml" />
     <Content Include="Views\Advisor\AdClinicalCompliance.cshtml" />
+    <Content Include="Views\Compliance\Create.cshtml" />
+    <Content Include="Views\Compliance\Delete.cshtml" />
+    <Content Include="Views\Compliance\Details.cshtml" />
+    <Content Include="Views\Compliance\Edit.cshtml" />
+    <Content Include="Views\Compliance\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
