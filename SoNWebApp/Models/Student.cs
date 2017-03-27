@@ -55,7 +55,9 @@ namespace SoNWebApp.Models
 
         public virtual ICollection<Enrollment> Enrollments { get; set; }
         public IEnumerable<SelectListItem> Genders { get; set; }
+        public IEnumerable<SelectListItem> States { get; set; }
+
     }
 
-    
+
 }

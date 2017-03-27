@@ -61,6 +61,8 @@ namespace SoNWebApp.Controllers
         {
             var gender = Genders();
             var student = new Student();
+            var state = States();
+            student.States = GetStatesListItems(state);
             student.Genders = GetGenderListItems(gender);
 
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name");
@@ -77,6 +79,8 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Create([Bind(Include = "ID,StudentNumber,FirstName,MiddleName,LastName,Race,Gender,DateOfBirth,EmailAddress,PhoneNumber,CellNumber,Address,City,State,ZipCode,Country,Standing,HasGraduated,CampusID,ProgramID,GPA,EnrollmentDate,Petition,Notes")] Student student)
         {
+            var state = States();
+            student.States = GetStatesListItems(state);
             var gender = Genders();
             student.Genders = GetGenderListItems(gender);
 
@@ -108,6 +112,8 @@ namespace SoNWebApp.Controllers
             //}
             var gender = Genders();
             student.Genders = GetGenderListItems(gender);
+            var state = States();
+            student.States = GetStatesListItems(state);
 
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", student.ProgramID);
             ViewBag.CampusID = new SelectList(db.Campuses, "CampusID", "Name", student.CampusID);
@@ -123,6 +129,9 @@ namespace SoNWebApp.Controllers
         {
             var gender = Genders();
             student.Genders = GetGenderListItems(gender);
+            var state = States();
+            student.States = GetStatesListItems(state);
+
             if (ModelState.IsValid)
             {
                 if (User.IsInRole("Advisor") || (User.IsInRole("Admin")) || (User.IsInRole("SuperAdmin")))
@@ -358,6 +367,82 @@ namespace SoNWebApp.Controllers
 
         }
         public IEnumerable<SelectListItem> GetGenderListItems(IEnumerable<string> items)
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var element in items)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = element,
+                    Text = element
+                });
+            }
+            return selectList;
+        }
+        public IEnumerable<string> States()
+        {
+            return new List<string>
+            {
+               "Alabama",
+                "Alaska",
+                "Arizona",
+                "Arkansas",
+                "California",
+                "Colorado",
+                "Connecticut",
+                "Delaware",
+                "Florida",
+                "Georgia",
+                "Hawaii",
+                "Idaho",
+                "Illinois",
+                "Indiana",
+                "Iowa",
+                "Kansas",
+                "Kentucky",
+                "Louisiana",
+                "Maine",
+                "Maryland",
+                "Massachusetts",
+                "Michigan",
+                "Minnesota",
+                "Mississippi",
+                "Missouri",
+                "Montana",
+                "Nebraska",
+                "Nevada",
+                "New Hampshire",
+                "New Jersey",
+                "New Mexico",
+                "New York",
+                "North Carolina",
+                "North Dakota",
+                "Ohio",
+                "Oklahoma",
+                "Oregon",
+                "Pennsylvania",
+                "Rhode Island",
+                "South Carolina",
+                "South Dakota",
+                "Tennessee",
+                "Texas",
+                "Utah",
+                "Vermont",
+                "Virginia",
+                "Washington",
+                "West Virginia",
+                "Wisconsin",
+                "Wyoming",
+                "District of Columbia",
+                "Puerto Rico",
+                "Guam",
+                "U.S. Virgin Islands",
+
+
+            };
+
+        }
+        public IEnumerable<SelectListItem> GetStatesListItems(IEnumerable<string> items)
         {
             var selectList = new List<SelectListItem>();
             foreach (var element in items)
