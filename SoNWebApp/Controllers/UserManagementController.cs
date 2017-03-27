@@ -127,7 +127,7 @@ namespace SoNWebApp.Controllers
                 "Admin",
                 "Advisor",
                 "Student",
-                "None",
+             
 
             };
 
