@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace SoNWebApp.Models
 {
@@ -74,6 +75,7 @@ namespace SoNWebApp.Models
         public string ConfirmLegal { get; set; }
 
         public string Status { get; set; }
+        public IEnumerable<SelectListItem> Statuses { get; set; }
 
 
     }

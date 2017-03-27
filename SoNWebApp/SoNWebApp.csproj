@@ -362,6 +362,18 @@
     <Compile Include="Migrations\201703272045164_TestingPendingChanges.Designer.cs">
       <DependentUpon>201703272045164_TestingPendingChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703272123434_test1.cs" />
+    <Compile Include="Migrations\201703272123434_test1.Designer.cs">
+      <DependentUpon>201703272123434_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703272135293_test2.cs" />
+    <Compile Include="Migrations\201703272135293_test2.Designer.cs">
+      <DependentUpon>201703272135293_test2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703272219222_identitytest.cs" />
+    <Compile Include="Migrations\201703272219222_identitytest.Designer.cs">
+      <DependentUpon>201703272219222_identitytest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -662,6 +674,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703272045164_TestingPendingChanges.resx">
       <DependentUpon>201703272045164_TestingPendingChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703272123434_test1.resx">
+      <DependentUpon>201703272123434_test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703272135293_test2.resx">
+      <DependentUpon>201703272135293_test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703272219222_identitytest.resx">
+      <DependentUpon>201703272219222_identitytest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

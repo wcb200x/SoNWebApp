@@ -25,15 +25,15 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("SuperAdmin,Admin"))]
         public ActionResult Details(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Alerts alerts = db.Alerts.Find(id);
-            //if (alerts == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (alerts == null)
+            {
+                return HttpNotFound();
+            }
             return View(alerts);
         }
 

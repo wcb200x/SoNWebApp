@@ -17,7 +17,7 @@ namespace SoNWebApp.Models
             return userIdentity;
         }
     }
-
+    
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -36,6 +36,25 @@ namespace SoNWebApp.Models
         {
             return new ApplicationDbContext();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Compliance>().HasKey(c => c.ID);
+            modelBuilder.Entity<Compliance>().Property(p => p.DocumentID).IsOptional();
+            modelBuilder.Entity<Compliance>().Property(p => p.ExpirationDate).IsOptional();
+            modelBuilder.Entity<Compliance>().Property(p => p.StudentID).IsRequired();
+            modelBuilder.Entity<Compliance>().Property(p => p.Name).IsRequired();
+
+
+            modelBuilder.Entity<Compliance>().HasOptional(c => c.Document);
+            modelBuilder.Entity<Compliance>().HasRequired(c => c.Student);
+
+            //modelBuilder.Entity<Compliance>().HasOptional(c => c.ExpirationDate);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+
         public DbSet <Student> Students { get; set; }
         public DbSet <Program> Programs { get; set; }
         public DbSet <Courses> Courses  { get; set; }

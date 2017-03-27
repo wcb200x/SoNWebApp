@@ -73,6 +73,8 @@ namespace SoNWebApp.Controllers
             //{
             //    return HttpNotFound();
             //}
+            var status = Status();
+            uDApplication.Statuses = GetStatusListItems(status);
             return View(uDApplication);
         }
 
@@ -90,6 +92,8 @@ namespace SoNWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            var status = Status();
+            uDApplication.Statuses = GetStatusListItems(status);
             return View(uDApplication);
         }
 
@@ -119,6 +123,31 @@ namespace SoNWebApp.Controllers
             db.UDApplications.Remove(uDApplication);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public IEnumerable<string> Status()
+        {
+            return new List<string>
+            {
+                "Approved",
+                "Wait Listed",
+                "Declined",
+                "Being Reviewed"
+
+            };
+
+        }
+        public IEnumerable<SelectListItem> GetStatusListItems(IEnumerable<string> items)
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var element in items)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = element,
+                    Text = element
+                });
+            }
+            return selectList;
         }
 
         protected override void Dispose(bool disposing)

@@ -39,9 +39,11 @@ namespace SoNWebApp.Controllers
         // GET: Compliance/Create
         public ActionResult Create()
         {
-            ViewBag.DocumentID = new SelectList(db.Documents, "Id", "DocumentType");
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "FirstName");
-            return View();
+            var compliance = new Compliance();
+            var name = ComplianceName();
+            compliance.Names = GetComplianceListItems(name);
+            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber");
+            return View(compliance);
         }
 
         // POST: Compliance/Create
@@ -49,7 +51,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,StudentID,DocumentID,ExpirationDate,IsExpired")] Compliance compliance)
+        public ActionResult Create([Bind(Include = "ID,Name,StudentID,ExpirationDate,IsExpired")] Compliance compliance)
         {
             if (ModelState.IsValid)
             {
@@ -57,9 +59,9 @@ namespace SoNWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.DocumentID = new SelectList(db.Documents, "Id", "DocumentType", compliance.DocumentID);
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "FirstName", compliance.StudentID);
+            var name = ComplianceName();
+            compliance.Names = GetComplianceListItems(name);
+            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", compliance.StudentID);
             return View(compliance);
         }
 
@@ -75,8 +77,9 @@ namespace SoNWebApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.DocumentID = new SelectList(db.Documents, "Id", "DocumentType", compliance.DocumentID);
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "FirstName", compliance.StudentID);
+            var name = ComplianceName();
+            compliance.Names = GetComplianceListItems(name);
+            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", compliance.StudentID);
             return View(compliance);
         }
 
@@ -93,8 +96,9 @@ namespace SoNWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.DocumentID = new SelectList(db.Documents, "Id", "DocumentType", compliance.DocumentID);
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "FirstName", compliance.StudentID);
+            var name = ComplianceName();
+            compliance.Names = GetComplianceListItems(name);
+            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", compliance.StudentID);
             return View(compliance);
         }
 
@@ -123,7 +127,34 @@ namespace SoNWebApp.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public IEnumerable<string> ComplianceName()
+        {
+            return new List<string>
+            {
+                "CPR",
+                "HIPPA",
+                "Bloodbourne Path",
+                "Liability Insurance",
+                "Immunizations",
+                "Drug Screening",
+                "CNA"
 
+            };
+
+        }
+        public IEnumerable<SelectListItem> GetComplianceListItems(IEnumerable<string> items)
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var element in items)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = element,
+                    Text = element
+                });
+            }
+            return selectList;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

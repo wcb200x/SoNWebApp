@@ -105,15 +105,15 @@ namespace SoNWebApp.Controllers
         public ActionResult Edit(int? id)
         {
         
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Student student = db.Students.FirstOrDefault(s => s.ID == id);
-            //if (student == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
             var gender = Genders();
             student.Genders = GetGenderListItems(gender);
             var state = States();
@@ -164,15 +164,15 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Delete(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Student student = db.Students.FirstOrDefault(s => s.ID == id);
-            //if (student == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
             return View(student);
         }
 
