@@ -284,26 +284,6 @@ namespace SoNWebApp.Controllers
             return RedirectToAction("ClinicalCompliance");
         }
 
-
-
-        public void EmailStudent(int id)
-        {
-            var studentEmail = db.Students.FirstOrDefault(s => s.ID == id).EmailAddress;
-
-            //Email Student           
-        }
-
-        //public ActionResult StudentPos ()
-        //{
-            
-        //   //var student = db.Students.FirstOrDefault(s => s.ID == id);
-        //    //var Pos = db.POS.Where(p => p.StudentID == id);
-
-        //    return RedirectToAction("Edit", "POS", pos.ID );
-        //}
-
-
-
         public decimal GetCourseGrade(string courseLetterGrade)
         {
             var actualgrade = 0.0M;
@@ -369,7 +349,6 @@ namespace SoNWebApp.Controllers
             {
                 "Female",
                 "Male",
-                
 
             };
 
@@ -446,7 +425,6 @@ namespace SoNWebApp.Controllers
                 "Guam",
                 "U.S. Virgin Islands",
 
-
             };
 
         }
@@ -472,7 +450,6 @@ namespace SoNWebApp.Controllers
                 "Sophomore",
                 "Junior",
                 "Senior",
-
 
             };
 
