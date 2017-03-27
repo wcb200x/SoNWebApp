@@ -76,6 +76,7 @@ namespace SoNWebApp.Models
 
         public string Status { get; set; }
         public IEnumerable<SelectListItem> Statuses { get; set; }
+        public IEnumerable<SelectListItem> States { get; set; }
 
 
     }

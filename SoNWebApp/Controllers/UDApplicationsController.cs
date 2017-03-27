@@ -25,22 +25,25 @@ namespace SoNWebApp.Controllers
         // GET: UDApplications/Details/5
         public ActionResult Details(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             UDApplication uDApplication = db.UDApplications.FirstOrDefault(s => s.ID == id);
-            //if (uDApplication == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (uDApplication == null)
+            {
+                return HttpNotFound();
+            }
             return View(uDApplication);
         }
 
         // GET: UDApplications/Create
         public ActionResult Create()
         {
-            return View();
+            var uDApplication = new UDApplication();
+            var state = States();
+            uDApplication.States = GetStatesListItems(state);
+            return View(uDApplication);
         }
 
         // POST: UDApplications/Create
@@ -56,7 +59,8 @@ namespace SoNWebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            var state = States();
+            uDApplication.States = GetStatesListItems(state);
             return View(uDApplication);
         }
 
@@ -64,17 +68,19 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Admin,Advisor,SuperAdmin"))]
         public ActionResult Edit(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             UDApplication uDApplication = db.UDApplications.FirstOrDefault(s => s.ID == id);
-            //if (uDApplication == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (uDApplication == null)
+            {
+                return HttpNotFound();
+            }
             var status = Status();
             uDApplication.Statuses = GetStatusListItems(status);
+            var state = States();
+            uDApplication.States = GetStatesListItems(state);
             return View(uDApplication);
         }
 
@@ -94,6 +100,8 @@ namespace SoNWebApp.Controllers
             }
             var status = Status();
             uDApplication.Statuses = GetStatusListItems(status);
+            var state = States();
+            uDApplication.States = GetStatesListItems(state);
             return View(uDApplication);
         }
 
@@ -101,15 +109,15 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Admin,Advisor,SuperAdmin"))]
         public ActionResult Delete(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             UDApplication uDApplication = db.UDApplications.FirstOrDefault(s => s.ID == id);
-            //if (uDApplication == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (uDApplication == null)
+            {
+                return HttpNotFound();
+            }
             return View(uDApplication);
         }
 
@@ -137,6 +145,81 @@ namespace SoNWebApp.Controllers
 
         }
         public IEnumerable<SelectListItem> GetStatusListItems(IEnumerable<string> items)
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var element in items)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = element,
+                    Text = element
+                });
+            }
+            return selectList;
+        }
+        public IEnumerable<string> States()
+        {
+            return new List<string>
+            {
+               "Alabama",
+                "Alaska",
+                "Arizona",
+                "Arkansas",
+                "California",
+                "Colorado",
+                "Connecticut",
+                "Delaware",
+                "Florida",
+                "Georgia",
+                "Hawaii",
+                "Idaho",
+                "Illinois",
+                "Indiana",
+                "Iowa",
+                "Kansas",
+                "Kentucky",
+                "Louisiana",
+                "Maine",
+                "Maryland",
+                "Massachusetts",
+                "Michigan",
+                "Minnesota",
+                "Mississippi",
+                "Missouri",
+                "Montana",
+                "Nebraska",
+                "Nevada",
+                "New Hampshire",
+                "New Jersey",
+                "New Mexico",
+                "New York",
+                "North Carolina",
+                "North Dakota",
+                "Ohio",
+                "Oklahoma",
+                "Oregon",
+                "Pennsylvania",
+                "Rhode Island",
+                "South Carolina",
+                "South Dakota",
+                "Tennessee",
+                "Texas",
+                "Utah",
+                "Vermont",
+                "Virginia",
+                "Washington",
+                "West Virginia",
+                "Wisconsin",
+                "Wyoming",
+                "District of Columbia",
+                "Puerto Rico",
+                "Guam",
+                "U.S. Virgin Islands",
+
+            };
+
+        }
+        public IEnumerable<SelectListItem> GetStatesListItems(IEnumerable<string> items)
         {
             var selectList = new List<SelectListItem>();
             foreach (var element in items)

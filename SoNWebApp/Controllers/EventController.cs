@@ -23,15 +23,15 @@ namespace SoNWebApp.Controllers
         // GET: Event/Details/5
         public ActionResult Details(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Event @event = db.Events.FirstOrDefault(s => s.ID == id);
-            //if (@event == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (@event == null)
+            {
+                return HttpNotFound();
+            }
             return View(@event);
         }
 
@@ -61,15 +61,15 @@ namespace SoNWebApp.Controllers
         // GET: Event/Edit/5
         public ActionResult Edit(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Event @event = db.Events.FirstOrDefault(s => s.ID == id);
-            //if (@event == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (@event == null)
+            {
+                return HttpNotFound();
+            }
             return View(@event);
         }
 
@@ -92,15 +92,15 @@ namespace SoNWebApp.Controllers
         // GET: Event/Delete/5
         public ActionResult Delete(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Event @event = db.Events.FirstOrDefault(s => s.ID == id);
-            //if (@event == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (@event == null)
+            {
+                return HttpNotFound();
+            }
             return View(@event);
         }
 

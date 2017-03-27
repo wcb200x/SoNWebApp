@@ -33,15 +33,15 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Details(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Courses courses = db.Courses.Find(id);
-            //if (courses == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (courses == null)
+            {
+                return HttpNotFound();
+            }
             return View(courses);
         }
 
@@ -76,15 +76,15 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Edit(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Courses courses = db.Courses.Find(id);
-            //if (courses == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (courses == null)
+            {
+                return HttpNotFound();
+            }
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", courses.ProgramID);
 
             return View(courses);
@@ -114,15 +114,15 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Delete(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Courses courses = db.Courses.Find(id);
-            //if (courses == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (courses == null)
+            {
+                return HttpNotFound();
+            }
             return View(courses);
         }
 

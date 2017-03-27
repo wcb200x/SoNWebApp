@@ -42,15 +42,15 @@ namespace SoNWebApp.Controllers
         // GET: Enrollments/Details/5
         public ActionResult Details(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Enrollment enrollment = db.Enrollments.Find(id);
-            //if (enrollment == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (enrollment == null)
+            {
+                return HttpNotFound();
+            }
             return View(enrollment);
         }
 
@@ -122,15 +122,15 @@ namespace SoNWebApp.Controllers
         // GET: Enrollments/Edit/5
         public ActionResult Edit(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Enrollment enrollment = db.Enrollments.Find(id);
-            //if (enrollment == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (enrollment == null)
+            {
+                return HttpNotFound();
+            }
             var semester = Semesters();
             var grades = LetterGrades();
             enrollment.Grades = GetSelectListItems(grades);
@@ -167,15 +167,15 @@ namespace SoNWebApp.Controllers
         // GET: Enrollments/Delete/5
         public ActionResult Delete(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Enrollment enrollment = db.Enrollments.Find(id);
-            //if (enrollment == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (enrollment == null)
+            {
+                return HttpNotFound();
+            }
             return View(enrollment);
         }
 

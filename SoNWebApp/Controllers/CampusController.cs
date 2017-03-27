@@ -25,15 +25,15 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Details(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Campus campus = db.Campuses.Find(id);
-            //if (campus == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (campus == null)
+            {
+                return HttpNotFound();
+            }
             return View(campus);
         }
 
@@ -71,15 +71,15 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Edit(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Campus campus = db.Campuses.Find(id);
-            //if (campus == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (campus == null)
+            {
+                return HttpNotFound();
+            }
             var state = States();
             campus.States = GetStatesListItems(state);
             return View(campus);
@@ -108,15 +108,15 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Delete(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Campus campus = db.Campuses.Find(id);
-            //if (campus == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (campus == null)
+            {
+                return HttpNotFound();
+            }
             return View(campus);
         }
 

@@ -23,15 +23,15 @@ namespace SoNWebApp.Controllers
         // GET: Program/Details/5
         public ActionResult Details(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Program program = db.Programs.Find(id);
-            //if (program == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (program == null)
+            {
+                return HttpNotFound();
+            }
             return View(program);
         }
 
@@ -61,15 +61,15 @@ namespace SoNWebApp.Controllers
         // GET: Program/Edit/5
         public ActionResult Edit(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Program program = db.Programs.Find(id);
-            //if (program == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (program == null)
+            {
+                return HttpNotFound();
+            }
             return View(program);
         }
 
@@ -92,15 +92,15 @@ namespace SoNWebApp.Controllers
         // GET: Program/Delete/5
         public ActionResult Delete(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Program program = db.Programs.Find(id);
-            //if (program == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (program == null)
+            {
+                return HttpNotFound();
+            }
             return View(program);
         }
 

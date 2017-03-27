@@ -27,15 +27,15 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("SuperAdmin,Admin,Advisor"))]
         public ActionResult Details(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             POS pOS = db.POS.Find(id);
-            //if (pOS == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (pOS == null)
+            {
+                return HttpNotFound();
+            }
             return View(pOS);
         }
 
@@ -180,15 +180,15 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("SuperAdmin,Admin,Advisor"))]
         public ActionResult Delete(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             POS pOS = db.POS.Find(id);
-            //if (pOS == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (pOS == null)
+            {
+                return HttpNotFound();
+            }
             return View(pOS);
         }
 

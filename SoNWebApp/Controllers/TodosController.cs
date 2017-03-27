@@ -24,15 +24,15 @@ namespace SoNWebApp.Controllers
         // GET: Todos/Details/5
         public ActionResult Details(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Todos todos = db.Todos.FirstOrDefault(s => s.ID == id);
-            //if (todos == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (todos == null)
+            {
+                return HttpNotFound();
+            }
             return View(todos);
         }
 
@@ -62,15 +62,15 @@ namespace SoNWebApp.Controllers
         // GET: Todos/Edit/5
         public ActionResult Edit(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Todos todos = db.Todos.FirstOrDefault(s => s.ID == id);
-            //if (todos == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (todos == null)
+            {
+                return HttpNotFound();
+            }
             return View(todos);
         }
 
@@ -93,15 +93,15 @@ namespace SoNWebApp.Controllers
         // GET: Todos/Delete/5
         public ActionResult Delete(int? id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Todos todos = db.Todos.FirstOrDefault(s => s.ID == id);
-            //if (todos == null)
-            //{
-            //    return HttpNotFound();
-            //}
+            if (todos == null)
+            {
+                return HttpNotFound();
+            }
             return View(todos);
         }
 
