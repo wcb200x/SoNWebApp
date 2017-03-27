@@ -62,8 +62,10 @@ namespace SoNWebApp.Controllers
             var gender = Genders();
             var student = new Student();
             var state = States();
+            var standing = Standing();
             student.States = GetStatesListItems(state);
             student.Genders = GetGenderListItems(gender);
+            student.Standings = GetStandingListItems(standing);
 
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name");
             ViewBag.CampusID = new SelectList(db.Campuses, "CampusID", "Name");
@@ -79,6 +81,8 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Create([Bind(Include = "ID,StudentNumber,FirstName,MiddleName,LastName,Race,Gender,DateOfBirth,EmailAddress,PhoneNumber,CellNumber,Address,City,State,ZipCode,Country,Standing,HasGraduated,CampusID,ProgramID,GPA,EnrollmentDate,Petition,Notes")] Student student)
         {
+            var standing = Standing();
+            student.Standings = GetStandingListItems(standing);
             var state = States();
             student.States = GetStatesListItems(state);
             var gender = Genders();
@@ -114,6 +118,8 @@ namespace SoNWebApp.Controllers
             student.Genders = GetGenderListItems(gender);
             var state = States();
             student.States = GetStatesListItems(state);
+            var standing = Standing();
+            student.Standings = GetStandingListItems(standing);
 
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", student.ProgramID);
             ViewBag.CampusID = new SelectList(db.Campuses, "CampusID", "Name", student.CampusID);
@@ -131,6 +137,8 @@ namespace SoNWebApp.Controllers
             student.Genders = GetGenderListItems(gender);
             var state = States();
             student.States = GetStatesListItems(state);
+            var standing = Standing();
+            student.Standings = GetStandingListItems(standing);
 
             if (ModelState.IsValid)
             {
@@ -455,6 +463,34 @@ namespace SoNWebApp.Controllers
             }
             return selectList;
         }
+
+        public IEnumerable<string> Standing()
+        {
+            return new List<string>
+            {
+                "Freshman",
+                "Sophomore",
+                "Junior",
+                "Senior",
+
+
+            };
+
+        }
+        public IEnumerable<SelectListItem> GetStandingListItems(IEnumerable<string> items)
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var element in items)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = element,
+                    Text = element
+                });
+            }
+            return selectList;
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -2,7 +2,7 @@
 
 
 @{
-    ViewBag.Title = "Create Compliance - ";
+    ViewBag.Title = "Create Student - ";
 }
 @using (Html.BeginForm())
 {
@@ -135,7 +135,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Standing, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Standing, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.DropDownListFor(model => model.Standing, Model.Standings, "Select Standing...", new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Standing, "", new { @class = "text-danger" })
                     </div>
                 </div>

@@ -39,10 +39,8 @@ namespace SoNWebApp.Models
         public string Standing { get; set; }
         [Display(Name = "Has Graduated")]
         public bool HasGraduated { get; set; }
-        [Range(1, 2, ErrorMessage = "CampusID must be either 1 or 2")]
         public int CampusID { get; set; }
         public virtual Campus Campus { get; set; }
-        [Range(1, 3, ErrorMessage = "ProgramID must be 1,2, or 3")]
         public int ProgramID { get; set; }
         public virtual Program Program { get; set; }
         public decimal GPA { get; set; }
@@ -56,6 +54,7 @@ namespace SoNWebApp.Models
         public virtual ICollection<Enrollment> Enrollments { get; set; }
         public IEnumerable<SelectListItem> Genders { get; set; }
         public IEnumerable<SelectListItem> States { get; set; }
+        public IEnumerable<SelectListItem> Standings { get; set; }
 
     }
 

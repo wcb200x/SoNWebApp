@@ -41,7 +41,10 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Create()
         {
-            return View();
+            var campus = new Campus();
+            var state = States();
+            campus.States = GetStatesListItems(state);
+            return View(campus);
         }
 
         // POST: Campus/Create
@@ -52,6 +55,8 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Create([Bind(Include = "CampusID,Name,City,State,Address,ZipCode")] Campus campus)
         {
+            var state = States();
+            campus.States = GetStatesListItems(state);
             if (ModelState.IsValid)
             {
                 db.Campuses.Add(campus);
@@ -75,6 +80,8 @@ namespace SoNWebApp.Controllers
             //{
             //    return HttpNotFound();
             //}
+            var state = States();
+            campus.States = GetStatesListItems(state);
             return View(campus);
         }
 
@@ -86,6 +93,8 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Edit([Bind(Include = "CampusID,Name,City,State,Address,ZipCode")] Campus campus)
         {
+            var state = States();
+            campus.States = GetStatesListItems(state);
             if (ModelState.IsValid)
             {
                 db.Entry(campus).State = EntityState.Modified;
@@ -121,6 +130,29 @@ namespace SoNWebApp.Controllers
             db.Campuses.Remove(campus);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public IEnumerable<string> States()
+        {
+            return new List<string>
+            {
+               "Kentucky",
+               
+
+            };
+
+        }
+        public IEnumerable<SelectListItem> GetStatesListItems(IEnumerable<string> items)
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var element in items)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = element,
+                    Text = element
+                });
+            }
+            return selectList;
         }
 
         protected override void Dispose(bool disposing)
