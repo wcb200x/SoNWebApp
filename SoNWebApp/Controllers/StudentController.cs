@@ -59,10 +59,14 @@ namespace SoNWebApp.Controllers
         // GET: Student/Create
         public ActionResult Create()
         {
+            var gender = Genders();
+            var student = new Student();
+            student.Genders = GetGenderListItems(gender);
+
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name");
             ViewBag.CampusID = new SelectList(db.Campuses, "CampusID", "Name");
 
-            return View();
+            return View(student);
         }
 
         // POST: Student/Create
@@ -73,6 +77,9 @@ namespace SoNWebApp.Controllers
         [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Create([Bind(Include = "ID,StudentNumber,FirstName,MiddleName,LastName,Race,Gender,DateOfBirth,EmailAddress,PhoneNumber,CellNumber,Address,City,State,ZipCode,Country,Standing,HasGraduated,CampusID,ProgramID,GPA,EnrollmentDate,Petition,Notes")] Student student)
         {
+            var gender = Genders();
+            student.Genders = GetGenderListItems(gender);
+
             if (ModelState.IsValid)
             {
                 db.Students.Add(student);
@@ -89,6 +96,7 @@ namespace SoNWebApp.Controllers
         // GET: Student/Edit/5
         public ActionResult Edit(int? id)
         {
+        
             //if (id == null)
             //{
             //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -98,6 +106,9 @@ namespace SoNWebApp.Controllers
             //{
             //    return HttpNotFound();
             //}
+            var gender = Genders();
+            student.Genders = GetGenderListItems(gender);
+
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", student.ProgramID);
             ViewBag.CampusID = new SelectList(db.Campuses, "CampusID", "Name", student.CampusID);
             return View(student);
@@ -110,6 +121,8 @@ namespace SoNWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,StudentNumber,FirstName,MiddleName,LastName,Race,Gender,DateOfBirth,EmailAddress,PhoneNumber,CellNumber,Address,City,State,ZipCode,Country,Standing,HasGraduated,CampusID,ProgramID,GPA,EnrollmentDate,Petition,Notes")] Student student)
         {
+            var gender = Genders();
+            student.Genders = GetGenderListItems(gender);
             if (ModelState.IsValid)
             {
                 if (User.IsInRole("Advisor") || (User.IsInRole("Admin")) || (User.IsInRole("SuperAdmin")))
@@ -332,6 +345,30 @@ namespace SoNWebApp.Controllers
             }            
 
             return actualgrade;
+        }
+        public IEnumerable<string> Genders()
+        {
+            return new List<string>
+            {
+                "Female",
+                "Male",
+                
+
+            };
+
+        }
+        public IEnumerable<SelectListItem> GetGenderListItems(IEnumerable<string> items)
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var element in items)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = element,
+                    Text = element
+                });
+            }
+            return selectList;
         }
         protected override void Dispose(bool disposing)
         {
