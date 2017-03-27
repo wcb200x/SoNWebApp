@@ -349,11 +349,20 @@
     <Compile Include="Migrations\201703250109157_requiredgradeinenrollment.Designer.cs">
       <DependentUpon>201703250109157_requiredgradeinenrollment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703272028147_addappstatus.cs" />
+    <Compile Include="Migrations\201703272028147_addappstatus.Designer.cs">
+      <DependentUpon>201703272028147_addappstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703272034596_compliance.cs" />
+    <Compile Include="Migrations\201703272034596_compliance.Designer.cs">
+      <DependentUpon>201703272034596_compliance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Alerts.cs" />
     <Compile Include="Models\Campus.cs" />
+    <Compile Include="Models\Compliance.cs" />
     <Compile Include="Models\Courses.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\Enrollment.cs" />
@@ -634,6 +643,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703250109157_requiredgradeinenrollment.resx">
       <DependentUpon>201703250109157_requiredgradeinenrollment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703272028147_addappstatus.resx">
+      <DependentUpon>201703272028147_addappstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703272034596_compliance.resx">
+      <DependentUpon>201703272034596_compliance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

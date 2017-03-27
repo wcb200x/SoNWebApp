@@ -12,7 +12,6 @@ namespace SoNWebApp.Models
         public int StudentID { get; set; }
         public DateTime ExpirationDate { get; set; }
         public string DocumentType { get; set; }
-        public string Notes { get; set; }
         public bool ComplianceStatus { get; set; }
         public int StudentNumber { get; set; }
         public virtual Student Student { get; set; }

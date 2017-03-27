@@ -224,10 +224,7 @@ namespace SoNWebApp.Controllers
             return View(viewModel);
         }
     
-        public ActionResult ProgramOfStudy()
-        {
-            return View();
-        }
+       
         public PartialViewResult GetStudentsList()
         {
             var name = HttpContext.User.Identity.Name;

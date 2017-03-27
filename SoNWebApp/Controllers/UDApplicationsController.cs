@@ -48,7 +48,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FirstName,MiddleName,LastName,Email,StreetAddress,StreetAddress2,City,State,ZipCode,HomeNumber,CellNumber,StudentNumber,Program1,Semester,CurrentCourses,PersonalQualEssay,NurseExperience,Legal1,Legal2,Legal3,Legal4,Legal5,Legal6,ExplainLegal,ConfirmLegal")] UDApplication uDApplication)
+        public ActionResult Create([Bind(Include = "ID,FirstName,MiddleName,LastName,Email,StreetAddress,StreetAddress2,City,State,ZipCode,HomeNumber,CellNumber,StudentNumber,Program1,Semester,CurrentCourses,PersonalQualEssay,NurseExperience,Legal1,Legal2,Legal3,Legal4,Legal5,Legal6,ExplainLegal,ConfirmLegal,Status")] UDApplication uDApplication)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace SoNWebApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = ("Admin,Advisor,SuperAdmin"))]
-        public ActionResult Edit([Bind(Include = "ID,FirstName,MiddleName,LastName,Email,StreetAddress,StreetAddress2,City,State,ZipCode,HomeNumber,CellNumber,StudentNumber,Program1,Semester,CurrentCourses,PersonalQualEssay,NurseExperience,Legal1,Legal2,Legal3,Legal4,Legal5,Legal6,ExplainLegal,ConfirmLegal")] UDApplication uDApplication)
+        public ActionResult Edit([Bind(Include = "ID,FirstName,MiddleName,LastName,Email,StreetAddress,StreetAddress2,City,State,ZipCode,HomeNumber,CellNumber,StudentNumber,Program1,Semester,CurrentCourses,PersonalQualEssay,NurseExperience,Legal1,Legal2,Legal3,Legal4,Legal5,Legal6,ExplainLegal,ConfirmLegal,Status")] UDApplication uDApplication)
         {
             if (ModelState.IsValid)
             {

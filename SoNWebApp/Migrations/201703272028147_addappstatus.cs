@@ -1,0 +1,18 @@
+namespace SoNWebApp.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class addappstatus : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.UDApplications", "Status", c => c.String());
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.UDApplications", "Status");
+        }
+    }
+}

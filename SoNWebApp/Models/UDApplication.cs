@@ -73,6 +73,8 @@ namespace SoNWebApp.Models
         [RegularExpression(@"Yes")]
         public string ConfirmLegal { get; set; }
 
+        public string Status { get; set; }
+
 
     }
 
