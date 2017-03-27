@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace SoNWebApp.Models
 {
@@ -20,5 +22,8 @@ namespace SoNWebApp.Models
         public virtual Courses Course { get; set; }
         public virtual Student Student { get; set; }
         public virtual Program Program { get; set; }
+        public IEnumerable<SelectListItem> Grades { get; set; }
+        public IEnumerable<SelectListItem> Semesters { get; set; }
+
     }
 }

@@ -62,4 +62,8 @@ body > div.navbar.navbar-inverse.navbar-fixed-top > div.container{
 .panel-danger>.panel-heading {
 background-color: #AD0000;
 }
+select, select.form-control {
+
+    width:100%;
+}
 

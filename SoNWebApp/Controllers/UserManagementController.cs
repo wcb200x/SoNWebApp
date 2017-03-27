@@ -68,7 +68,8 @@ namespace SoNWebApp.Controllers
             ViewBag.Name = new SelectList(db.Roles.ToList(), "Name", "Name");
             var model = new EditUserViewModel(user);
             model.Roles = roleList;
-       
+            var roles = Roles();
+            model.RoleNames = GetRolesListItems(roles);
             return View(model);
         }
 
@@ -78,6 +79,9 @@ namespace SoNWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(EditUserViewModel model)
         {
+            var roles = Roles();
+            model.RoleNames = GetRolesListItems(roles);
+
             if (ModelState.IsValid)
             {
                 var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
@@ -115,7 +119,32 @@ namespace SoNWebApp.Controllers
 
             return View(model);
         }
+        public IEnumerable<string> Roles()
+        {
+            return new List<string>
+            {
+                "SuperAdmin",
+                "Admin",
+                "Advisor",
+                "Student",
+                "None",
 
+            };
+
+        }
+        public IEnumerable<SelectListItem> GetRolesListItems(IEnumerable<string> items)
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var element in items)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = element,
+                    Text = element
+                });
+            }
+            return selectList;
+        }
 
         //[Authorize(Roles = "Admin")]
         //public ActionResult Delete(string id = null)

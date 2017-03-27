@@ -37,6 +37,7 @@ namespace SoNWebApp.Models.ViewModels
         public List<SelectRoleEditorViewModel> Roles { get; set; }
         public string AddRoleName { get; set; }
         public string RemoveRoleName { get; set; }
+        public IEnumerable<SelectListItem> RoleNames { get; set; }
 
     }
 }

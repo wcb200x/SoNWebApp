@@ -57,10 +57,16 @@ namespace SoNWebApp.Controllers
         // GET: Enrollments/Create
         public ActionResult Create()
         {
+            var semester = Semesters();
+            var grades = LetterGrades();
+            var enrollment = new Enrollment();
+            enrollment.Grades = GetSelectListItems(grades);
+            enrollment.Semesters = GetSemesterListItems(semester);
+
             ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber");
             ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject");
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name");
-            return View();
+            return View(enrollment);
         }
 
         // POST: Enrollments/Create
@@ -70,7 +76,10 @@ namespace SoNWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EnrollmentID,CourseID,StudentID,ProgramID,Semester,Grade")] Enrollment enrollment)
         {
-       
+            var semester = Semesters();
+            var grades = LetterGrades();
+            enrollment.Grades = GetSelectListItems(grades);
+            enrollment.Semesters = GetSemesterListItems(semester);
 
             if (ModelState.IsValid)
             {
@@ -122,6 +131,10 @@ namespace SoNWebApp.Controllers
             //{
             //    return HttpNotFound();
             //}
+            var semester = Semesters();
+            var grades = LetterGrades();
+            enrollment.Grades = GetSelectListItems(grades);
+            enrollment.Semesters = GetSemesterListItems(semester);
             ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", enrollment.StudentID);
             ViewBag.CourseID = new SelectList(db.Courses, "Id", "Subject", enrollment.CourseID);
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", enrollment.ProgramID);
@@ -135,6 +148,10 @@ namespace SoNWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "EnrollmentID,CourseID,StudentID,ProgramID,Semester,Grade")] Enrollment enrollment)
         {
+            var semester = Semesters();
+            var grades = LetterGrades();
+            enrollment.Grades = GetSelectListItems(grades);
+            enrollment.Semesters = GetSemesterListItems(semester);
             if (ModelState.IsValid)
             {
                 db.Entry(enrollment).State = EntityState.Modified;
@@ -231,7 +248,67 @@ namespace SoNWebApp.Controllers
 
             return actualgrade;
         }
-    
+    public IEnumerable<string> LetterGrades()
+        {
+            return new List<string>
+            {
+                "A+",
+                "A",
+                "A-",
+                "B+",
+                "B",
+                "B-",
+                "C+",
+                "C",
+                "C-",
+                "D+",
+                "D",
+                "D-",
+                "F",
+            };
+
+        }
+        public IEnumerable<SelectListItem> GetSelectListItems (IEnumerable<string> elements)
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var element in elements)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = element,
+                    Text = element
+                });
+            }
+                return selectList;
+        }
+
+        public IEnumerable<string> Semesters()
+        {
+            return new List<string>
+            {
+                "Summer 2017",
+                "Fall 2017",
+                "Spring 2018",
+                "Summer 2018",
+                "Fall 2018",
+                "Spring 2019",
+              
+            };
+
+        }
+        public IEnumerable<SelectListItem> GetSemesterListItems(IEnumerable<string> items)
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var element in items)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = element,
+                    Text = element
+                });
+            }
+            return selectList;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
