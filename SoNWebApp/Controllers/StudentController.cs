@@ -102,6 +102,7 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: Student/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
 
@@ -131,6 +132,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "ID,StudentNumber,FirstName,MiddleName,LastName,Race,Gender,DateOfBirth,EmailAddress,PhoneNumber,CellNumber,Address,City,State,ZipCode,Country,Standing,HasGraduated,CampusID,ProgramID,GPA,EnrollmentDate,Petition,Notes")] Student student)
         {
             var gender = Genders();
@@ -211,7 +213,7 @@ namespace SoNWebApp.Controllers
 
             return View(todos);
         }
-
+        [Authorize]
         public ActionResult Default()
         {
             var name = HttpContext.User.Identity.Name;

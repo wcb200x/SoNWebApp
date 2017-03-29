@@ -41,7 +41,7 @@
                     {
                         <a href="@Url.Action("Default", "Student")"><img src="~/Content/Images/UofLSONLogo.png" alt="Louisville" /></a>
                     }
-                    @if (User.IsInRole(""))
+                    @if (!User.IsInRole("Admin") && !User.IsInRole("Advisor") && !User.IsInRole("SuperAdmin") && !User.IsInRole("Student") && User.Identity.IsAuthenticated)
                     {
                         <a href="@Url.Action("Default", "Student")"><img src="~/Content/Images/UofLSONLogo.png" alt="Louisville" /></a>
                     }
@@ -138,6 +138,23 @@
                                             <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/Advisor"><font color="white">Advisor</font></a></div></li>
                                             <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/Calendar"><font color="white">Calendar</font></a></div></li>
                                         </ul>
+                                    </div>
+
+
+
+                                }}
+                            @{
+                               if (!User.IsInRole("Admin") && !User.IsInRole("Advisor") && !User.IsInRole("SuperAdmin") && !User.IsInRole("Student") && User.Identity.IsAuthenticated) 
+
+                                {
+
+                                    <div class="list-inline">
+                                        <ul class="list-inline">
+                                            <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; margin-left: 40px; border-color: #AD0000;"><a href="/Student/Default"><font color="white">Home</font></a></div></li>
+                                            <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/Advisor"><font color="white">Advisor</font></a></div></li>
+                                            <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/Calendar"><font color="white">Calendar</font></a></div></li>
+                                            <li><div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/UDApplications/Create"><font color="white">Apply</font></a></div></li>
+                                         </ul>
                                     </div>
 
 
