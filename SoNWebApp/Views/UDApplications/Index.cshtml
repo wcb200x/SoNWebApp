@@ -34,8 +34,10 @@
                     <th>
                         @Html.DisplayNameFor(model => model.State)
                     </th>
+                   
                     <th>
-                        @Html.DisplayNameFor(model => model.ZipCode)
+                        @Html.DisplayNameFor(model => model.Status)
+
                     </th>
                     <th></th>
                 </tr>
@@ -65,9 +67,8 @@
                             @Html.DisplayFor(modelItem => item.State)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ZipCode)
+                            @Html.DisplayFor(modelItem => item.Status)
                         </td>
-
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                             @Html.ActionLink("Details", "Details", new { id = item.ID }) |
