@@ -28,7 +28,27 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="@Url.Action("Index", "Home")"><img src="~/Content/Images/UofLSONLogo.png" alt="Louisville" /></a>
+
+                    @if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
+                    {
+                        <a href="@Url.Action("Home", "Admin")"><img src="~/Content/Images/UofLSONLogo.png" alt="Louisville" /></a>
+                    }
+                    @if (User.IsInRole("Advisor"))
+                    {
+                        <a href="@Url.Action("AdDefault", "Advisor")"><img src="~/Content/Images/UofLSONLogo.png" alt="Louisville" /></a>
+                    }
+                    @if (User.IsInRole("Student"))
+                    {
+                        <a href="@Url.Action("Default", "Student")"><img src="~/Content/Images/UofLSONLogo.png" alt="Louisville" /></a>
+                    }
+                    @if (User.IsInRole(""))
+                    {
+                        <a href="@Url.Action("Default", "Student")"><img src="~/Content/Images/UofLSONLogo.png" alt="Louisville" /></a>
+                    }
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <a href="@Url.Action("Login", "Account")"><img src="~/Content/Images/UofLSONLogo.png" alt="Louisville" /></a>
+                    }
                 </div>
 
                 <div class="navbar-collapse collapse" style="font-weight:bold;">
