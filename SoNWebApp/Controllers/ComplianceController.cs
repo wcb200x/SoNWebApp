@@ -15,10 +15,40 @@ namespace SoNWebApp.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Compliance
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder,string searchString)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.IsExpiredSortParm = sortOrder == "IsExpired" ? "IsExpired_desc" : "IsExpired";
+
+
+            var students = from c in db.Compliances
+                           select c;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(c => c.Student.LastName.Contains(searchString)
+                                              || c.Student.FirstName.Contains(searchString)
+                                              || c.Name.Contains(searchString)
+                                              || c.Student.StudentNumber.ToString().Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    students = students.OrderByDescending(c => c.Student.LastName);
+                    break;
+                case "IsExpired":
+                    students = students.OrderBy(c => c.IsExpired);
+                    break;
+                case "IsExpired_desc":
+                    students = students.OrderByDescending(c => c.IsExpired);
+                    break;
+                default:
+                    students = students.OrderBy(c => c.Student.LastName);
+                    break;
+            }
+
+
             var compliances = db.Compliances.Include(c => c.Document).Include(c => c.Student);
-            return View(compliances.ToList());
+            return View(students.ToList());
         }
 
         // GET: Compliance/Details/5
@@ -79,7 +109,6 @@ namespace SoNWebApp.Controllers
             }
             var name = ComplianceName();
             compliance.Names = GetComplianceListItems(name);
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", compliance.StudentID);
             return View(compliance);
         }
 
@@ -90,15 +119,25 @@ namespace SoNWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Name,StudentID,DocumentID,ExpirationDate,IsExpired")] Compliance compliance)
         {
+
             if (ModelState.IsValid)
             {
-                db.Entry(compliance).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (User.IsInRole("Advisor") || (User.IsInRole("Admin")) || (User.IsInRole("SuperAdmin")))
+                {
+                    db.Entry(compliance).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+
+                    db.Entry(compliance).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("ClinicalCompliance","Student",false);
+                }
             }
             var name = ComplianceName();
             compliance.Names = GetComplianceListItems(name);
-            ViewBag.StudentID = new SelectList(db.Students, "ID", "StudentNumber", compliance.StudentID);
             return View(compliance);
         }
 

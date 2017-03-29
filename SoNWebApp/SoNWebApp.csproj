@@ -499,7 +499,6 @@
     <Content Include="Views\Program\Details.cshtml" />
     <Content Include="Views\Program\Edit.cshtml" />
     <Content Include="Views\Program\Index.cshtml" />
-    <Content Include="Views\Student\StudentDashboard.cshtml" />
     <Content Include="Views\Shared\StudentLayoutPage.cshtml" />
     <Content Include="Views\Student\ClinicalCompliance.cshtml" />
     <Content Include="Views\Shared\AdvisorLayoutPage.cshtml" />

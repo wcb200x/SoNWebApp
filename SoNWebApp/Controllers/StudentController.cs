@@ -187,18 +187,18 @@ namespace SoNWebApp.Controllers
             db.SaveChanges();
             return RedirectToAction("CRM","Advisor",false);
         }
-        
-        public ActionResult StudentDashboard()
-        {
-            return View();
-        }
         public ActionResult Calendar()
         {
             return View();
         }
-        public ActionResult ClinicalCompliance()
+        public ActionResult ClinicalCompliance(int? id)
         {
-            return View();
+                var curentUserEmail = HttpContext.User.Identity.Name;
+                var student = db.Students.FirstOrDefault(s => s.EmailAddress == curentUserEmail).ID;
+
+            var compliances = db.Compliances.Where(c => c.StudentID == student);
+                
+                return View(compliances.ToList());
         }
         public ActionResult Advisor()
         {

@@ -1,58 +1,62 @@
 ﻿@model SoNWebApp.Models.Compliance
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Compliance Details - ";
 }
 
-<h2>Details</h2>
+<div class="panel panel-danger" style="border:1px solid #808080;">
+    <div class="panel-heading">
+        <h3 style="color:#FFFFFF;">Compliance Details</h3>
+    </div>
+    <div class="panel-body">
+        <div>
 
-<div>
-    <h4>Compliance</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Document.DocumentType)
-        </dt>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Document.DocumentType)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Document.DocumentType)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Document.DocumentType)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Student.FirstName)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Student.FirstName)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Student.FirstName)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Student.FirstName)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ExpirationDate)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ExpirationDate)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ExpirationDate)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.ExpirationDate)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsExpired)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsExpired)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsExpired)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.IsExpired)
+                </dd>
 
-    </dl>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+        </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
