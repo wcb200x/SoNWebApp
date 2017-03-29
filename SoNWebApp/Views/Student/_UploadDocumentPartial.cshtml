@@ -1,0 +1,50 @@
+﻿@using (Html.BeginForm("UploadDocument", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <label for="single" class="control-label">Select from dropdown</label>
+                    <select id="single" class="form-control select2" style="border: 2px solid black;">
+                        <optgroup label="Compliance Document">
+                            @*@foreach (var item in Model.Document)
+                                {
+                                    @Html.DisplayFor(modelItem =>item.DocumentType)
+                                }*@
+
+                            <option value="CPR">CPR</option>
+                            <option value="HIPPA">HIPPA</option>
+                            <option value="Blood">Bloodbourne Path</option>
+                            <option value="Insurance">Liability Insurance</option>
+                            <option value="Immunizations">Immunizations</option>
+                            <option value="Screening">Drug Screening</option>
+                            <option value="CNA">CNA</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div>
+                        <label for="single" class="control-label">Student Number:</label>
+                        <input type="text" name="studentNumber" id="studentNumber" />
+                    </div>
+                    <div>
+                        <label for="expirationDate">Expiration Date:</label><br />
+                        <input type="date" name="expirationDate" id="expirationDate" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div>
+                        <label for="file">Upload Form</label>
+                        <input type="file" name="file" id="file" />
+                    </div>
+
+                    <center>
+                        <input type="submit" />
+                    </center>
+                    @Html.ActionLink("Get Student #1's First Document", "GetDocument", new { controller = "Student", studentId = 2 }, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+       
+
+}

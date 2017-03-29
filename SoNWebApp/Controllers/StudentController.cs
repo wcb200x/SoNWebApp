@@ -24,7 +24,7 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: Student/Details/5
-      [Authorize]
+        [Authorize]
         public ActionResult Details(int? id, string actualgrade, string GradePointAverage)
         {
             //actualgrade = db.Enrollments.FirstOrDefault(e => e.StudentID == id).Grade;
@@ -42,7 +42,7 @@ namespace SoNWebApp.Controllers
             var testGpaGradeCount = actualGradeList.Count() * 4;
 
             var testGpa = (testGpaSum / testGpaGradeCount) * 4.0M;
-            
+
 
             //GradePointAverage = db.Students.FirstOrDefault(s => s.ID == id).GPA.ToString();
             //GradePointAverage = actualgrade;            
@@ -52,10 +52,10 @@ namespace SoNWebApp.Controllers
             student.GPA = testGpa;
 
             db.SaveChanges();
-          
+
             return View(student);
         }
-        [Authorize (Roles =("Advisor,Admin,SuperAdmin"))]
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         // GET: Student/Create
         public ActionResult Create()
         {
@@ -92,7 +92,7 @@ namespace SoNWebApp.Controllers
             {
                 db.Students.Add(student);
                 db.SaveChanges();
-                return RedirectToAction("CRM","Advisor",false);
+                return RedirectToAction("CRM", "Advisor", false);
             }
 
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", student.ProgramID);
@@ -104,7 +104,7 @@ namespace SoNWebApp.Controllers
         // GET: Student/Edit/5
         public ActionResult Edit(int? id)
         {
-        
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -143,7 +143,7 @@ namespace SoNWebApp.Controllers
             if (ModelState.IsValid)
             {
                 if (User.IsInRole("Advisor") || (User.IsInRole("Admin")) || (User.IsInRole("SuperAdmin")))
-                    {
+                {
                     db.Entry(student).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("CRM", "Advisor", false);
@@ -185,18 +185,19 @@ namespace SoNWebApp.Controllers
             Student student = db.Students.Find(id);
             db.Students.Remove(student);
             db.SaveChanges();
-            return RedirectToAction("CRM","Advisor",false);
+            return RedirectToAction("CRM", "Advisor", false);
         }
         public ActionResult Calendar()
         {
             return View();
         }
-        public ActionResult ClinicalCompliance(int? id)
+        public ActionResult ClinicalCompliance()
         {
-                var curentUserEmail = HttpContext.User.Identity.Name;
-                var student = db.Students.FirstOrDefault(s => s.EmailAddress == curentUserEmail).ID;
+            var curentUserEmail = HttpContext.User.Identity.Name;
+            var student = db.Students.FirstOrDefault(s => s.EmailAddress == curentUserEmail);
 
-            var compliances = db.Compliances.Where(c => c.StudentID == student);
+            var compliances = db.Compliances.Where(c => c.StudentID == student.ID);
+           
                 
                 return View(compliances.ToList());
         }
@@ -266,7 +267,7 @@ namespace SoNWebApp.Controllers
                 db.SaveChanges();
             }
 
-            return View("ClinicalCompliance");
+            return View("UploadDocuments");
         }
         public ActionResult GetDocument(int studentID)
         {
@@ -464,7 +465,10 @@ namespace SoNWebApp.Controllers
             }
             return selectList;
         }
-
+        public ActionResult UploadDocuments()
+        {
+            return View();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

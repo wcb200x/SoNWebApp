@@ -1,154 +1,83 @@
-﻿ @model IEnumerable<SoNWebApp.Models.Compliance>
+﻿@model IEnumerable<SoNWebApp.Models.Compliance>
+@using System.Web.Mvc.Html
+
     @{
-     ViewBag.Title = "Clinical Compliance - ";
+        ViewBag.Title = "Clinical Compliance - ";
 }
 @{
     Layout = "~/Views/Shared/StudentLayoutPage.cshtml";
 }
 
-
-<div class="row">
-    <div class="col-md-12">
         <div class="panel-danger" style="border:1px solid #808080;">
             <div class="panel-heading">
-                <h4 style="color:#FFFFFF">Clinical Compliance Dashboard</h4>
+                <h3 style="color:#FFFFFF; text-align: center;">Clinical Compliance Dashboard</h3>
             </div>
             <div class="panel-body">
+                <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/UploadDocuments"><font color="white">Upload Compliance Document</font></a></div>
+                <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/UploadDocuments"><font color="white">View Compliance Documents</font></a></div>
+                    <div class="col-md-12">
+                                    <table class="table">
+                                        <tr>
 
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Student.StudentNumber)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Student.LastName)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Student.FirstName)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Name)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.ExpirationDate)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.IsExpired)
+                                            </th>
+                                            <th>
+                                                Document
+                                            </th>
+                                            <th></th>
+                                        </tr>
 
+                                        @foreach (var item in Model)
+                                        { 
+                                            <tr>
 
-                @using (Html.BeginForm("UploadDocument", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Student.StudentNumber)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Student.LastName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Student.FirstName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Name)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.ExpirationDate)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.IsExpired)
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    @Html.ActionLink("Edit", "Edit", "Compliance", new { id = item.ID }, false) |
+                                                    @Html.ActionLink("Details", "Details", "Compliance", new { id = item.ID }, false)
+                                                </td>
+                                            </tr>
+                                        }
 
-                    <div class="panel-danger" style="border:1px solid #808080;">
-                        <div class="panel-heading">
-                            <h4 style="color:#FFFFFF">Upload Document</h4>
+                                    </table>
+                                </div>
                         </div>
-                        <div class="panel-body" border="1">
-
-                            <div class="col-md-12">
-                                <div class="col-md-4">
-                                    <label for="single" class="control-label">Select from dropdown</label>
-                                    <select id="single" class="form-control select2" style="border: 2px solid black;">
-                                        <optgroup label="Compliance Document">
-                                            @*@foreach (var item in Model.Document)
-                                                {
-                                                    @Html.DisplayFor(modelItem =>item.DocumentType)
-                                                }*@
-
-                                            <option value="CPR">CPR</option>
-                                            <option value="HIPPA">HIPPA</option>
-                                            <option value="Blood">Bloodbourne Path</option>
-                                            <option value="Insurance">Liability Insurance</option>
-                                            <option value="Immunizations">Immunizations</option>
-                                            <option value="Screening">Drug Screening</option>
-                                            <option value="CNA">CNA</option>
-                                        </optgroup>
-                                    </select>
-                                </div>
-
-
-                                <div class="col-md-4">
-                                    <div>
-                                        <label for="single" class="control-label">Student Number:</label>
-                                        <input type="text" name="studentNumber" id="studentNumber" />
-                                    </div>
-                                    <div>
-                                        <label for="expirationDate">Expiration Date:</label><br />
-                                        <input type="date" name="expirationDate" id="expirationDate" />
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div>
-                                        <label for="file">Upload Form</label>
-                                        <input type="file" name="file" id="file" />
-                                    </div>
-
-                                    <center>
-                                        <input type="submit" />
-                                    </center>
-                                    @Html.ActionLink("Get Student #1's First Document", "GetDocument", new { controller = "Student", studentId = 2 }, new { @class = "btn btn-primary" })
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                }
-
-                <br />
-
-                <div class="panel-danger">
-                    <div class="panel-heading">
-                        <h4 style="color:#FFFFFF">Compliance Tracker</h4>
-                    </div>
-                    <div class="panel-body">
-                        <table class="table">
-                            <tr>
-                                <th>
-                                    Document ID
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Student.StudentNumber)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Student.LastName)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Student.FirstName)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Name)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.ExpirationDate)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.IsExpired)
-                                </th>
-                                <th>
-                                    Document
-                                </th>
-                                <th></th>
-                            </tr>
-
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Document.Id)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Student.StudentNumber)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Student.LastName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Student.FirstName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Name)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ExpirationDate)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.IsExpired)
-                                    </td>
-                                    <td></td>
-                                    <td>
-                                    @Html.ActionLink("Edit", "Edit", "Compliance",new { id = item.ID }, false) |
-                                    @Html.ActionLink("Details", "Details", "Compliance", new { id = item.ID }, false) </td>
-                                </tr>
-                            }
-
-                        </table>
-
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<!-- END EXAMPLE TABLE PORTLET-->
+         </div>
+       

@@ -54,9 +54,19 @@
 
             </dl>
         </div>
-        <p>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-            @Html.ActionLink("Back to List", "Index")
-        </p>
+        @if (User.IsInRole("Admin") || User.IsInRole("Advisor") || User.IsInRole("SuperAdmin"))
+        {
+            <div>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+        @if (User.IsInRole("Student"))
+        {
+            <div>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+                @Html.ActionLink("Back to Compliance", "ClinicalCompliance", "Student", false, false)
+            </div>
+        }
         </div>
 </div>

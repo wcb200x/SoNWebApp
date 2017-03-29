@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SoNWebApp.Models.Compliance>
+
+
+        <table class="table">
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Student.StudentNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Student.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Student.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ExpirationDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsExpired)
+                </th>
+                <th>
+                    Document
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student.StudentNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExpirationDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsExpired)
+                    </td>
+                    <td></td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", "Compliance", new { id = item.ID }, false) |
+                        @Html.ActionLink("Details", "Details", "Compliance", new { id = item.ID }, false)
+                    </td>
+                </tr>
+            }
+
+        </table>
