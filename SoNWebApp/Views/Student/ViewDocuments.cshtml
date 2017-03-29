@@ -1,0 +1,68 @@
+﻿@model IEnumerable<SoNWebApp.Models.Document>
+
+@{
+    ViewBag.Title = "View Documents - ";
+}
+@{
+    Layout = "~/Views/Shared/StudentLayoutPage.cshtml";
+}
+
+
+
+<div class="panel-danger" style="border:1px solid #808080;">
+    <div class="panel-heading">
+        <h3 style="color:#FFFFFF; text-align: center;">View Documents</h3>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-12">
+            <table class="table">
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Student.StudentNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DocumentType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ExpirationDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FileName)
+                    </th>
+                    <th>
+                        Document
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Student.StudentNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DocumentType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ExpirationDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FileName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Download Document", "GetDocument","Student",new { documentId = item.Id }, new { @class = "btn btn-primary" })
+                        </td>
+                        
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/ClinicalCompliance"><font color="white">Return To Compliance</font></a></div>
+        <div class="btn btn-default" style="margin-top: 15px; background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/UploadDocuments"><font color="white">Upload Document</font></a></div>
+    </div>
+</div>
+         

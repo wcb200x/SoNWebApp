@@ -269,17 +269,21 @@ namespace SoNWebApp.Controllers
 
             return View("UploadDocuments");
         }
-        public ActionResult GetDocument(int studentID)
+        public ActionResult GetDocument(int documentID)
         {
-            var allDocumentsForStudent = db.Documents.Where(d => d.StudentID == studentID);
+            var curentUserEmail = HttpContext.User.Identity.Name;
+            var student = db.Students.FirstOrDefault(s => s.EmailAddress == curentUserEmail);
 
-            var oneDocumentFromStudent = allDocumentsForStudent.FirstOrDefault();
+
+            var allDocumentsForStudent = db.Documents.Where(d => d.StudentID == student.ID);
+
+            var oneDocumentFromStudent = allDocumentsForStudent.Where(d => d.Id == documentID).FirstOrDefault();
 
             if (oneDocumentFromStudent != null)
             {
                 return File(oneDocumentFromStudent.FileBytes, "application/octet-stream", oneDocumentFromStudent.FileName);
             }
-            return RedirectToAction("ClinicalCompliance");
+            return RedirectToAction("ViewDocuments");
         }
 
         public decimal GetCourseGrade(string courseLetterGrade)
@@ -468,6 +472,15 @@ namespace SoNWebApp.Controllers
         public ActionResult UploadDocuments()
         {
             return View();
+        }
+        public ActionResult ViewDocuments()
+        {
+            var curentUserEmail = HttpContext.User.Identity.Name;
+            var student = db.Students.FirstOrDefault(s => s.EmailAddress == curentUserEmail);
+
+            var documents = db.Documents.Where(c => c.StudentID == student.ID);
+
+            return View(documents.ToList());
         }
         protected override void Dispose(bool disposing)
         {
