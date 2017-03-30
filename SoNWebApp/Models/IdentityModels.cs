@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using SoNWebApp.Mapping;
 
 namespace SoNWebApp.Models
 {
@@ -39,17 +40,7 @@ namespace SoNWebApp.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Compliance>().HasKey(c => c.ID);
-            modelBuilder.Entity<Compliance>().Property(p => p.DocumentID).IsOptional();
-            modelBuilder.Entity<Compliance>().Property(p => p.ExpirationDate).IsOptional();
-            modelBuilder.Entity<Compliance>().Property(p => p.StudentID).IsRequired();
-            modelBuilder.Entity<Compliance>().Property(p => p.Name).IsRequired();
-
-
-            modelBuilder.Entity<Compliance>().HasOptional(c => c.Document);
-            modelBuilder.Entity<Compliance>().HasRequired(c => c.Student);
-
-            //modelBuilder.Entity<Compliance>().HasOptional(c => c.ExpirationDate);
+            modelBuilder.Configurations.Add(new ClinicalComplianceMapping());
 
             base.OnModelCreating(modelBuilder);
         }

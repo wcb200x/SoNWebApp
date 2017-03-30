@@ -47,7 +47,7 @@ namespace SoNWebApp.Controllers
             }
 
 
-            var compliances = db.Compliances.Include(c => c.Document).Include(c => c.Student);
+            var compliances = db.Compliances.Include(c => c.DocumentID).Include(c => c.Student);
             return View(students.ToList());
         }
 
@@ -81,10 +81,11 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,StudentID,ExpirationDate,IsExpired")] Compliance compliance)
+        public ActionResult Create([Bind(Include = "ID,Name,DocumentID,StudentID,ExpirationDate,IsExpired")] Compliance compliance)
         {
             if (ModelState.IsValid)
             {
+             
                 db.Compliances.Add(compliance);
                 db.SaveChanges();
                 return RedirectToAction("Index");

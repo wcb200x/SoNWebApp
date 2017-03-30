@@ -198,10 +198,32 @@ namespace SoNWebApp.Controllers
             var curentUserEmail = HttpContext.User.Identity.Name;
             var student = db.Students.FirstOrDefault(s => s.EmailAddress == curentUserEmail);
 
-            var compliances = db.Compliances.Where(c => c.StudentID == student.ID);
-           
-                
-                return View(compliances.ToList());
+            var compliances = db.Compliances.Where(c => c.StudentID == student.ID).ToList();
+
+            var clinicalCompliances = db.Compliances.ToList();
+            var ccdocidList = clinicalCompliances.Select(d => d.DocumentID);
+            var documents = db.Documents.Where(d => ccdocidList.Contains(d.Id));
+
+            var viewModel = compliances.Select(c => new StudentCCIndexViewModel
+            {
+                ExpirationDate = c.ExpirationDate,
+                DocumentID = c.DocumentID,
+                IsExpired = c.IsExpired,
+                ID = c.ID,
+                Name = c.Name,
+                StudentNumber = student.StudentNumber
+
+            });
+
+            foreach (var doc in documents)
+            {
+                viewModel.FirstOrDefault(v => v.DocumentID == doc.Id).Document = doc;
+            }
+
+
+
+            return View(viewModel)
+      ;
         }
         public ActionResult Advisor()
         {
@@ -267,10 +289,32 @@ namespace SoNWebApp.Controllers
                 };
                 db.Documents.Add(documentModel);
                 db.SaveChanges();
+
+
+                var documentRecord = db.Documents.FirstOrDefault(d => d.StudentID == student.ID && d.DocumentType == DocumentType);
+                var ccRecord = db.Compliances.FirstOrDefault(d => d.StudentID == student.ID && d.Name == DocumentType);
+
+                ccRecord.DocumentID = documentRecord.Id;
+                ccRecord.Name = documentRecord.DocumentType;
+                ccRecord.ExpirationDate = documentRecord.ExpirationDate;
+
+                db.SaveChanges();
+
+
+
             }
+            
 
             return View("UploadDocuments");
         }
+        public ActionResult DeleteDocument(int? id)
+        {
+            Document document = db.Documents.FirstOrDefault(d => d.Id == id);
+            db.Documents.Remove(document);
+            db.SaveChanges();
+            return RedirectToAction("ViewDocuments");
+        }
+
         public ActionResult GetDocument(int documentID)
         {
             var curentUserEmail = HttpContext.User.Identity.Name;
@@ -285,7 +329,7 @@ namespace SoNWebApp.Controllers
             {
                 return File(oneDocumentFromStudent.FileBytes, "application/octet-stream", oneDocumentFromStudent.FileName);
             }
-            return RedirectToAction("ViewDocuments");
+            return RedirectToAction("ClinicalCompliance", "Student",false);
         }
 
         public decimal GetCourseGrade(string courseLetterGrade)

@@ -229,6 +229,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mapping\ClinicalComplianceMapping.cs" />
     <Compile Include="Mapping\CourseMapping.cs" />
     <Compile Include="Migrations\201703040029279_InitialMigration.cs" />
     <Compile Include="Migrations\201703040029279_InitialMigration.Designer.cs">
@@ -374,6 +375,22 @@
     <Compile Include="Migrations\201703272219222_identitytest.Designer.cs">
       <DependentUpon>201703272219222_identitytest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703300348216_mappingclass.cs" />
+    <Compile Include="Migrations\201703300348216_mappingclass.Designer.cs">
+      <DependentUpon>201703300348216_mappingclass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703300402032_removedocfk.cs" />
+    <Compile Include="Migrations\201703300402032_removedocfk.Designer.cs">
+      <DependentUpon>201703300402032_removedocfk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703300406359_removedocid.cs" />
+    <Compile Include="Migrations\201703300406359_removedocid.Designer.cs">
+      <DependentUpon>201703300406359_removedocid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703300407202_adddocid.cs" />
+    <Compile Include="Migrations\201703300407202_adddocid.Designer.cs">
+      <DependentUpon>201703300407202_adddocid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -397,6 +414,7 @@
     <Compile Include="Models\ViewModels\posViewModel.cs" />
     <Compile Include="Models\ViewModels\SelectRoleEditorViewModel.cs" />
     <Compile Include="Models\ViewModels\SelectUserRolesViewModel.cs" />
+    <Compile Include="Models\ViewModels\StudentCCIndexViewModel.cs" />
     <Compile Include="Models\ViewModels\StudentComplianceViewModel.cs" />
     <Compile Include="Models\ViewModels\StudentDefaultViewModel.cs" />
     <Compile Include="Models\ViewModels\StudentRecordsViewModel.cs" />
@@ -687,6 +705,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703272219222_identitytest.resx">
       <DependentUpon>201703272219222_identitytest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703300348216_mappingclass.resx">
+      <DependentUpon>201703300348216_mappingclass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703300402032_removedocfk.resx">
+      <DependentUpon>201703300402032_removedocfk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703300406359_removedocid.resx">
+      <DependentUpon>201703300406359_removedocid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703300407202_adddocid.resx">
+      <DependentUpon>201703300407202_adddocid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
