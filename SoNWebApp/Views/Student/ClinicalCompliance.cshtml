@@ -37,6 +37,9 @@
                                                 @Html.DisplayNameFor(model => model.IsExpired)
                                             </th>
                                             <th>
+                                                @Html.DisplayNameFor(model => model.IsCompliant)
+                                            </th>
+                                            <th>
                                                 Document
                                             </th>
                                             <th></th>
@@ -60,10 +63,12 @@
                                                     @Html.DisplayFor(modelItem => item.IsExpired)
                                                 </td>
                                                 <td>
+                                                    @Html.DisplayFor(modelItem => item.IsCompliant)
+                                                </td>
+                                                <td>
                                                    @Html.ActionLink("Download Document", "GetDocument", "Student", new { documentId = item.DocumentID }, new { @class = "btn btn-primary", @style = "background-color: #AD0000; border-color: #AD0000;" })
                                                 </td>
                                                 <td>
-                                                    @Html.ActionLink("Edit", "Edit", "Compliance", new { id = item.ID }, false) |
                                                     @Html.ActionLink("Details", "Details", "Compliance", new { id = item.ID }, false)
                                                 </td>
                                             </tr>

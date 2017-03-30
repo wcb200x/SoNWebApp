@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SoNWebApp.Models.ViewModels
 {
-    public class StudentCCIndexViewModel
+    public class AdvisorCCIndexViewModel
     {
         public int ID { get; set; }
         public int DocumentID { get; set; }
@@ -18,5 +18,4 @@ namespace SoNWebApp.Models.ViewModels
         public string LastName { get; set; }
         public string FirstName { get; set; }
     }
-    
 }

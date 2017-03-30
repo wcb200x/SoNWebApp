@@ -21,6 +21,7 @@ namespace SoNWebApp.Models
         public DateTime ExpirationDate { get; set; }
         public bool IsExpired { get; set; }
         public IEnumerable<SelectListItem> Names { get; set; }
+        public bool IsCompliant { get; set; }
 
     }
 }

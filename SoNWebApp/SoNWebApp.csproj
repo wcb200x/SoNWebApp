@@ -391,6 +391,10 @@
     <Compile Include="Migrations\201703300407202_adddocid.Designer.cs">
       <DependentUpon>201703300407202_adddocid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703301454360_iscompliant.cs" />
+    <Compile Include="Migrations\201703301454360_iscompliant.Designer.cs">
+      <DependentUpon>201703301454360_iscompliant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -408,6 +412,7 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Todos.cs" />
     <Compile Include="Models\UDApplication.cs" />
+    <Compile Include="Models\ViewModels\AdvisorCCIndexViewModel.cs" />
     <Compile Include="Models\ViewModels\AdvisorDefaultViewModel.cs" />
     <Compile Include="Models\ViewModels\CreateProgramOfStudyViewModel.cs" />
     <Compile Include="Models\ViewModels\EditUserViewModel.cs" />
@@ -717,6 +722,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703300407202_adddocid.resx">
       <DependentUpon>201703300407202_adddocid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703301454360_iscompliant.resx">
+      <DependentUpon>201703301454360_iscompliant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

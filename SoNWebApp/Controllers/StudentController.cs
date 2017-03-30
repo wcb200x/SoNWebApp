@@ -211,7 +211,10 @@ namespace SoNWebApp.Controllers
                 IsExpired = c.IsExpired,
                 ID = c.ID,
                 Name = c.Name,
-                StudentNumber = student.StudentNumber
+                StudentNumber = student.StudentNumber,
+                IsCompliant = c.IsCompliant,
+                FirstName = c.Student.FirstName,
+                LastName = c.Student.LastName
 
             });
 
@@ -222,8 +225,7 @@ namespace SoNWebApp.Controllers
 
 
 
-            return View(viewModel)
-      ;
+            return View(viewModel);
         }
         public ActionResult Advisor()
         {
@@ -297,13 +299,20 @@ namespace SoNWebApp.Controllers
                 ccRecord.DocumentID = documentRecord.Id;
                 ccRecord.Name = documentRecord.DocumentType;
                 ccRecord.ExpirationDate = documentRecord.ExpirationDate;
-
+          
+                db.SaveChanges();
+                if (ccRecord.ExpirationDate < DateTime.Today)
+                {
+                    ccRecord.IsExpired = true;
+                }
+                else
+                {
+                    ccRecord.IsExpired = false;
+                }
                 db.SaveChanges();
 
-
-
             }
-            
+
 
             return View("UploadDocuments");
         }
@@ -329,9 +338,19 @@ namespace SoNWebApp.Controllers
             {
                 return File(oneDocumentFromStudent.FileBytes, "application/octet-stream", oneDocumentFromStudent.FileName);
             }
-            return RedirectToAction("ClinicalCompliance", "Student",false);
+            return RedirectToAction("ClinicalCompliance", "Student", false);
         }
+        public ActionResult AdvisorGetDocument(int documentID)
+        {
+         
+            var oneDocumentFromStudent = db.Documents.Where(d => d.Id == documentID).FirstOrDefault();
 
+            if (oneDocumentFromStudent != null)
+            {
+                return File(oneDocumentFromStudent.FileBytes, "application/octet-stream", oneDocumentFromStudent.FileName);
+            }
+            return RedirectToAction("Index", "Compliance", false);
+        }
         public decimal GetCourseGrade(string courseLetterGrade)
         {
             var actualgrade = 0.0M;
@@ -525,6 +544,7 @@ namespace SoNWebApp.Controllers
             var student = db.Students.FirstOrDefault(s => s.EmailAddress == curentUserEmail);
 
             var documents = db.Documents.Where(c => c.StudentID == student.ID);
+
 
             return View(documents.ToList());
         }

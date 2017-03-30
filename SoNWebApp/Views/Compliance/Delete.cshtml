@@ -15,11 +15,11 @@
             
             <dl class="dl-horizontal">
                 <dt>
-                    @Html.DisplayNameFor(model => model.Document.DocumentType)
+                    @Html.DisplayNameFor(model => model.Student.StudentNumber)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Document.DocumentType)
+                    @Html.DisplayFor(model => model.Student.StudentNumber)
                 </dd>
 
                 <dt>
@@ -52,6 +52,13 @@
 
                 <dd>
                     @Html.DisplayFor(model => model.IsExpired)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsCompliant)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsCompliant)
                 </dd>
 
             </dl>
