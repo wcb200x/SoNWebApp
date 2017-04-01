@@ -18,37 +18,6 @@ namespace SoNWebApp.Controllers
         // GET: Compliance
         public ActionResult Index()
         {
-            
-            var clinicalCompliances = db.Compliances.ToList();
-            var ccdocidList = clinicalCompliances.Select(d => d.DocumentID).ToList();
-            var documents = db.Documents.Where(d => ccdocidList.Contains(d.Id)).ToList();
-
-            var viewModel = clinicalCompliances.Select(c => new AdvisorCCIndexViewModel
-            {
-                ExpirationDate = c.ExpirationDate,
-                DocumentID = c.DocumentID,
-                IsExpired = c.IsExpired,
-                ID = c.ID,
-                Name = c.Name,
-                StudentNumber = c.Student.StudentNumber,
-                IsCompliant = c.IsCompliant,
-                FirstName = c.Student.FirstName,
-                LastName = c.Student.LastName
-
-            });
-
-            foreach (var doc in documents)
-            {
-                viewModel.FirstOrDefault(v => v.DocumentID == doc.Id).Document = doc;
-            }
-
-
-
-            return View(viewModel.ToList());
-
-
-
-
             //ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             //ViewBag.IsExpiredSortParm = sortOrder == "IsExpired" ? "IsExpired_desc" : "IsExpired";
             //ViewBag.IsCompliantSortParm = sortOrder == "IsCompliant" ? "IsCompliant_desc" : "IsCompliant";
@@ -84,11 +53,40 @@ namespace SoNWebApp.Controllers
             //        students = students.OrderBy(c => c.Student.LastName);
             //        break;
             //}
-      
+
 
 
             //var compliances = db.Compliances.Include(c => c.DocumentID).Include(c => c.Student);
-            //return View(viewModel);
+
+
+            var clinicalCompliances = db.Compliances.ToList();
+            var ccdocidList = clinicalCompliances.Select(d => d.DocumentID).ToList();
+            var documents = db.Documents.Where(d => ccdocidList.Contains(d.Id)).ToList();
+
+            var viewModel = clinicalCompliances.Select(c => new AdvisorCCIndexViewModel
+            {
+                ExpirationDate = c.ExpirationDate,
+                DocumentID = c.DocumentID,
+                IsExpired = c.IsExpired,
+                ID = c.ID,
+                Name = c.Name,
+                StudentNumber = c.Student.StudentNumber,
+                IsCompliant = c.IsCompliant,
+                FirstName = c.Student.FirstName,
+                LastName = c.Student.LastName
+
+            });
+
+            foreach (var doc in documents)
+            {
+                viewModel.FirstOrDefault(v => v.DocumentID == doc.Id).Document = doc;
+                
+            }
+     
+
+            return View(viewModel.ToList());
+
+         
         }
 
         // GET: Compliance/Details/5

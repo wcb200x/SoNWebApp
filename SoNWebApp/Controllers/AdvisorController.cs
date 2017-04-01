@@ -81,25 +81,34 @@ namespace SoNWebApp.Controllers
         }
         public ActionResult AdDefault()
         {
-            //var firstFiveOnGoingAlerts = db.Alerts.Where(a => a.EndDate >= DateTime.Today).OrderBy(a => a.StartDate).Take(5);
+            var firstFiveOnGoingAlerts = db.Alerts.Where(a => a.EndDate >= DateTime.Today).OrderBy(a => a.StartDate).Take(5);
 
-            //var alertList = new List<string>();
-            //foreach (var alert in firstFiveOnGoingAlerts)
-            //{
-            //    if(alert.Type == "Compliance")
-            //    {
-            //        var students = db.Students.Select(s => s.ID);
-            //        var incompliantStudents = db.ViewCompliances.Where(c => c.Status == "Denied").Select(c => c.ID).Distinct().Count();
-            //        alertList.Add(incompliantStudents + "students out of compliance.");
+            var alertList = new List<string>();
+            foreach (var alert in firstFiveOnGoingAlerts)
+            {
+                if(alert.Type == "Compliance")
+                {
+                    var students = db.Students.Select(s => s.ID);
+                    var incompliantStudents = db.Compliances.Where(c => c.IsCompliant == false).Select(c => c.ID).Distinct().Count();
+                    alertList.Add(incompliantStudents + "students out of compliance.");
 
-            //    }
-            //}
+                }
+            }
             var viewModel = new AdvisorDefaultViewModel()
             {
                 TodosList = db.Todos.Where(t => t.EndDate >= DateTime.Today).Take(5)
+                
 
             };
             return View(viewModel);
+        }
+        public ActionResult ViewDocuments()
+        {
+           
+            var documents = db.Documents.ToList();
+
+
+            return View(documents.ToList());
         }
 
         public PartialViewResult GetTodosList()
@@ -113,7 +122,11 @@ namespace SoNWebApp.Controllers
             var students = db.Students.FirstOrDefault();
             return PartialView("_StudentsPartial", students);
         }
-
+        public PartialViewResult GetAlertList()
+        {
+            var alerts = db.Alerts.FirstOrDefault();
+            return PartialView("_AlertsPartial", alerts);
+        }
         public ActionResult ProgramCoursesReport(int programNum)
         {
             var classes = db.Courses.Where(p => p.ProgramID == programNum).ToList();

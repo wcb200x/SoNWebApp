@@ -14,7 +14,9 @@
     </div>
     <div class="panel-body">
 
-        <button class="btn btn-primary col-md-2 pull-left" style="background:#AD0000; margin-bottom: 5px;" onclick="location.href='@Url.Action("Create", "Compliance")'">Create New</button>
+        <button class="btn btn-primary col-md-2 pull-left" style="background:#AD0000; " onclick="location.href='@Url.Action("Create", "Compliance")'">Create New</button>
+        <button class="btn btn-primary col-md-2 pull-left" style="background:#AD0000; margin-left: 5px;" onclick="location.href='@Url.Action("ViewDocuments", "Advisor")'">View Documents</button>
+
         <div class="row" style="margin-left:685px;">
             @using (Html.BeginForm())
             {
@@ -28,25 +30,25 @@
             <tr>
             
                 <th>
-                    @Html.DisplayNameFor(model => model.StudentNumber)
+                Student ID
                 </th>
                 <th>
-                    @Html.ActionLink("Last Name", "Index","Compliance", new { sortOrder = ViewBag.NameSortParm },false)
+                    Last Name
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FirstName)
+                First Name
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Name)
+                    Compliance Name
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ExpirationDate)
+                   Expiration Date
                 </th>
                 <th>
-                    @Html.ActionLink("IsExpired", "Index", "Compliance", new { sortOrder = ViewBag.IsExpiredSortParm }, false)
+                    @Html.DisplayNameFor(model => model.IsExpired)
                 </th>
                 <th>
-                    @Html.ActionLink("IsCompliant", "Index", "Compliance", new { sortOrder = ViewBag.IsCompliantSortParm }, false)
+                    @Html.DisplayNameFor(model => model.IsCompliant)
                 </th>
                 <th>
                     Document

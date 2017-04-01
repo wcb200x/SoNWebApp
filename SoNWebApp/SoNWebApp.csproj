@@ -589,6 +589,8 @@
     <Content Include="Views\Student\_UploadDocumentPartial.cshtml" />
     <Content Include="Views\Student\UploadDocuments.cshtml" />
     <Content Include="Views\Student\ViewDocuments.cshtml" />
+    <Content Include="Views\Advisor\ViewDocuments.cshtml" />
+    <Content Include="Views\Advisor\_AlertsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
