@@ -16,22 +16,15 @@ namespace SoNWebApp.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Compliance
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             //ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             //ViewBag.IsExpiredSortParm = sortOrder == "IsExpired" ? "IsExpired_desc" : "IsExpired";
             //ViewBag.IsCompliantSortParm = sortOrder == "IsCompliant" ? "IsCompliant_desc" : "IsCompliant";
 
 
-            //var students = from c in db.Compliances
-            //               select c;
-            //if (!String.IsNullOrEmpty(searchString))
-            //{
-            //    students = students.Where(c => c.Student.LastName.Contains(searchString)
-            //                                  || c.Student.FirstName.Contains(searchString)
-            //                                  || c.Name.Contains(searchString)
-            //                                  || c.Student.StudentNumber.ToString().Contains(searchString));
-            //}
+ 
+ 
             //switch (sortOrder)
             //{
             //    case "name_desc":
@@ -56,7 +49,7 @@ namespace SoNWebApp.Controllers
 
 
 
-            //var compliances = db.Compliances.Include(c => c.DocumentID).Include(c => c.Student);
+            var compliances = db.Compliances.Include(c => c.DocumentID).Include(c => c.Student);
 
 
             var clinicalCompliances = db.Compliances.ToList();
@@ -67,13 +60,13 @@ namespace SoNWebApp.Controllers
             {
                 ExpirationDate = c.ExpirationDate,
                 DocumentID = c.DocumentID,
-                IsExpired = c.IsExpired,
+                IsExpired = c.ExpirationDate < DateTime.Today ? true : false,
                 ID = c.ID,
                 Name = c.Name,
                 StudentNumber = c.Student.StudentNumber,
-                IsCompliant = c.IsCompliant,
                 FirstName = c.Student.FirstName,
-                LastName = c.Student.LastName
+                LastName = c.Student.LastName,
+                IsCompliant = c.IsCompliant
 
             });
 
@@ -82,7 +75,13 @@ namespace SoNWebApp.Controllers
                 viewModel.FirstOrDefault(v => v.DocumentID == doc.Id).Document = doc;
                 
             }
-     
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                viewModel = viewModel.Where(c => c.LastName.Contains(searchString)
+                                              || c.FirstName.Contains(searchString)
+                                              || c.Name.Contains(searchString)
+                                              || c.StudentNumber.ToString().Contains(searchString));
+            }
 
             return View(viewModel.ToList());
 

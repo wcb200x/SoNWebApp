@@ -67,10 +67,10 @@
                             @Html.DisplayFor(modelItem => item.FileName)
                         </td>
                         <td>
-                            @Html.ActionLink("Download Document", "GetDocument", "Student", new { documentId = item.Id }, new { @class = "btn btn-primary", @style = "background-color: #AD0000; border-color: #AD0000;" })
+                            @Html.ActionLink("Download Document", "AdvisorGetDocument", "Student", new { documentId = item.Id }, new { @class = "btn btn-primary", @style = "background-color: #AD0000; border-color: #AD0000;" })
                         </td>
                         <td>
-                            @Html.ActionLink("Delete Document", "DeleteDocument", "Student", new { id = item.Id }, false)
+                            @Html.ActionLink("Delete Document", "AdvisorDeleteDocument", "Student", new { id = item.Id }, false)
                         </td>
 
                     </tr>

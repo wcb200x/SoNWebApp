@@ -6,66 +6,75 @@
 }
 <div class="panel-danger" style="border:1px solid #808080;">
     <div class="panel-heading">
-        <h4 style="color:#FFFFFF">Upload Document</h4>
+        <h3 style="color:#FFFFFF">Upload Document</h3>
     </div>
     <div class="panel-body">
-        <div class="col-md-12">
+    
+                @using (Html.BeginForm("UploadDocument", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
 
-
-            @using (Html.BeginForm("UploadDocument", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-
-                <div class="col-md-12">
-                    <div class="col-md-4">
-                        <label for="single" class="control-label">Select from dropdown</label>
-                        <select id="single" class="form-control select2" style="border: 2px solid black;">
-                            <optgroup label="Compliance Document">
-                                @*@foreach (var item in Model.Document)
-                                    {
-                                        @Html.DisplayFor(modelItem =>item.DocumentType)
-                                    }*@
-
+                  
+                    <div class="col-md-2">
+                        <div>
+                            <label for="single" class="control-label">Compliance Type:</label>       
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div>             
+                            <select name="DocumentType" id="DocumentType">
+                                <option value="Select Type...">Select Type...</option>
                                 <option value="CPR">CPR</option>
                                 <option value="HIPPA">HIPPA</option>
-                                <option value="Blood">Bloodbourne Path</option>
-                                <option value="Insurance">Liability Insurance</option>
+                                <option value="Bloodbourne Path">Bloodbourne Path</option>
+                                <option value="Liability Insurance">Liability Insurance</option>
                                 <option value="Immunizations">Immunizations</option>
-                                <option value="Screening">Drug Screening</option>
+                                <option value="Drug Screening">Drug Screening</option>
                                 <option value="CNA">CNA</option>
-                            </optgroup>
-                        </select>
+                            </select>
                     </div>
-                    <div>
-                        <label for="single" class="control-label">Document Type:</label>
-                        <input type="text" name="DocumentType" id="DocumentType" />
                     </div>
+                        <div class="col-md-4">
+                            <div>
+                                <label for="single" class="control-label">Student Number:</label>
+                                <input type="text" name="studentNumber" id="studentNumber" />
+                            </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div>
+                                    <label for="expirationDate">Expiration Date:</label>
+                                    <input type="date" name="expirationDate" id="expirationDate" />
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <center>
+                        <div class="col-md-12">
+                            <div>
+                                <label for="file">Upload Document:</label>
+                                <input type="file" name="file" id="file" />
+                            </div>
+                            </div>
+                                </center>
 
-                    <div class="col-md-4">
-                        <div>
-                            <label for="single" class="control-label">Student Number:</label>
-                            <input type="text" name="studentNumber" id="studentNumber" />
+                            <br />
+                            <br />
+                            <br />
+                            <div class="col-md-4">
+                                <div>
+                                    <div class="btn btn-default" style="background-color: #AD0000;  font-size: medium; border-color: #AD0000; margin-bottom: 5px;"><a href="/Student/ClinicalCompliance"><font color="white">Return To Compliance</font></a></div>
+                                    <div class="btn btn-default" style="background-color: #AD0000;  font-size: medium; border-color: #AD0000; margin-bottom: 5px;"><a href="/Student/ViewDocuments"><font color="white">View Documents</font></a></div>                              
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                            <center>
+                                <input type="submit" />
+                            </center>
                         </div>
-                        <div>
-                            <label for="expirationDate">Expiration Date:</label><br />
-                            <input type="date" name="expirationDate" id="expirationDate" />
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div>
-                            <label for="file">Upload Form</label>
-                            <input type="file" name="file" id="file" />
-                        </div>
-
-                        <center>
-                            <input type="submit" />
-                        </center>
-                    </div>
-                </div>
+                        <div class="col-md-4"></div>
+                    
 
 
-            }
-            </div>
-        <div class="btn btn-default" style="background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/ClinicalCompliance"><font color="white">Return To Compliance</font></a></div>
-        <div class="btn btn-default" style="background-color: #AD0000;  font-size: medium; border-color: #AD0000;"><a href="/Student/ViewDocuments"><font color="white">View Documents</font></a></div>
+                }
+
 </div>
-</div>
+    </div>

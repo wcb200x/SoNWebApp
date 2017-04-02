@@ -208,7 +208,7 @@ namespace SoNWebApp.Controllers
             {
                 ExpirationDate = c.ExpirationDate,
                 DocumentID = c.DocumentID,
-                IsExpired = c.IsExpired,
+                IsExpired = c.ExpirationDate < DateTime.Today ? true : false,
                 ID = c.ID,
                 Name = c.Name,
                 StudentNumber = student.StudentNumber,
@@ -322,6 +322,13 @@ namespace SoNWebApp.Controllers
             db.Documents.Remove(document);
             db.SaveChanges();
             return RedirectToAction("ViewDocuments");
+        }
+        public ActionResult AdvisorDeleteDocument(int? id)
+        {
+            Document document = db.Documents.FirstOrDefault(d => d.Id == id);
+            db.Documents.Remove(document);
+            db.SaveChanges();
+            return RedirectToAction("ViewDocuments", "Advisor",false);
         }
 
         public ActionResult GetDocument(int documentID)
@@ -548,6 +555,8 @@ namespace SoNWebApp.Controllers
 
             return View(documents.ToList());
         }
+
+       
         protected override void Dispose(bool disposing)
         {
             if (disposing)
