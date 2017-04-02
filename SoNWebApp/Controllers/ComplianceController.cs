@@ -11,11 +11,13 @@ using SoNWebApp.Models.ViewModels;
 
 namespace SoNWebApp.Controllers
 {
+    [Authorize]
     public class ComplianceController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Compliance
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Index(string searchString)
         {
             //ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -104,6 +106,7 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: Compliance/Create
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Create()
         {
             var compliance = new Compliance();
@@ -118,6 +121,7 @@ namespace SoNWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Create([Bind(Include = "ID,Name,DocumentID,StudentID,ExpirationDate,IsExpired,IsCompliant")] Compliance compliance)
         {
             if (ModelState.IsValid)
@@ -138,6 +142,7 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: Compliance/Edit/5
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin,Student"))]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -157,6 +162,7 @@ namespace SoNWebApp.Controllers
         // POST: Compliance/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin,Student"))]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Name,StudentID,DocumentID,ExpirationDate,IsExpired,IsCompliant")] Compliance compliance)
@@ -199,6 +205,7 @@ namespace SoNWebApp.Controllers
         }
 
         // GET: Compliance/Delete/5
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -214,6 +221,7 @@ namespace SoNWebApp.Controllers
         }
 
         // POST: Compliance/Delete/5
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

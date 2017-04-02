@@ -2,62 +2,80 @@
 <script src="~/Scripts/dhtmlxScheduler/dhtmlxscheduler.js"></script>
 <link href="~/Scripts/dhtmlxScheduler/dhtmlxscheduler.css" rel="stylesheet" />
 
-<h2>Event Calendar using dxhtml Scheduler</h2>
 
-<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:700px; padding:10px;'>
-    <div class="dhx_cal_navline">
-        <div class="dhx_cal_prev_button">&nbsp;</div>
-        <div class="dhx_cal_next_button">&nbsp;</div>
-        <div class="dhx_cal_today_button"></div>
-        <div class="dhx_cal_date"></div>
-        <div class="dhx_cal_tab" name="day_tab" style="right: 204px;"></div>
-        <div class="dhx_cal_tab" name="week_tab" style="right: 140px;"></div>
-        <div class="dhx_cal_tab" name="month_tab" style="right: 76px;"></div>
+@{
+    ViewBag.Title = "Calendar - ";
+}
+<div class="panel panel-danger" style="border:1px solid #808080;">
+    <div class="panel-heading">
+        <h2 style="color:#FFFFFF; text-align: center;">Calendar</h2>
     </div>
-    <div class="dhx_cal_header"></div>
-    <div class="dhx_cal_data"></div>
-</div>
-<script>
-    var textofEventLastModified;
-    var isEditable = true;
-    scheduler.config.xml_date = "%m/%d/%y";
-    //scheduler.config.xml_date = "%m/%d/%Y %H:%i";
-    scheduler.init('scheduler_here', new Date(), "month");
-    scheduler.load("/Event/Data", "json");  //path to the newly created action
+    <div class="panel-body">
+        <div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:700px; padding:10px;'>
+            <div class="dhx_cal_navline">
+                <div class="dhx_cal_prev_button">&nbsp;</div>
+                <div class="dhx_cal_next_button">&nbsp;</div>
+                <div class="dhx_cal_today_button"></div>
+                <div class="dhx_cal_date"></div>
+                <div class="dhx_cal_tab" name="day_tab" style="right: 204px;"></div>
+                <div class="dhx_cal_tab" name="week_tab" style="right: 140px;"></div>
+                <div class="dhx_cal_tab" name="month_tab" style="right: 76px;"></div>
+            </div>
+            <div class="dhx_cal_header"></div>
+            <div class="dhx_cal_data"></div>
+        </div>
+        <script>
+            var textofEventLastModified;
+            var isEditable = true;
+            scheduler.config.xml_date = "%m/%d/%y";
+            //scheduler.config.xml_date = "%m/%d/%Y %H:%i";
+            scheduler.init('scheduler_here', new Date(), "month");
+            scheduler.load("/Event/Data", "json");  //path to the newly created action
 
 
-    scheduler.attachEvent("onAfterLightbox", function (e, id) {
-        textofEventLastModified = $('textarea').val();
-        var currentEvents = scheduler.getEvents();
-        var ev = currentEvents[currentEvents.length - 1];
-        //var ev = scheduler.getEvent(id);
+            scheduler.attachEvent("onAfterLightbox", function (e, id) {
+                textofEventLastModified = $('textarea').val();
+                var currentEvents = scheduler.getEvents();
+                var ev = currentEvents[currentEvents.length - 1];
+                //var ev = scheduler.getEvent(id);
 
-        var obj = currentEvents.filter(function (obj) {
-            return obj["text"] === textofEventLastModified;
-        })[0];
-
-
+                var obj = currentEvents.filter(function (obj) {
+                    return obj["text"] === textofEventLastModified;
+                })[0];
 
 
-        if (ev["text"] === textofEventLastModified)
-            console.log("text matches!");
+                if (ev["text"] === textofEventLastModified)
+                    console.log("text matches!");
 
-        var props = { "id": ev.id, "text": ev.text , "start_date": ev.start_date, "end_date": ev.end_date};
+                var props = { "id": ev.id, "text": ev.text, "start_date": ev.start_date, "end_date": ev.end_date };
 
-        $.ajax({
-            url: "/Event/Save",
-            contentType: "application/json",
-            async: true,
-            type: "POST",
-            dataType: "json",
-            data: JSON.stringify(props),
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.log("FAIL: " + errorThrown);
-            },
-            success: function (data, textStatus, jqXHR) {
-                dp.init();
-                console.log("SUCCES");
+                $.ajax({
+                    url: "/Event/Save",
+                    contentType: "application/json",
+                    async: true,
+                    type: "POST",
+                    dataType: "json",
+                    data: JSON.stringify(props),
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log("FAIL: " + errorThrown);
+                    },
+                    success: function (data, textStatus, jqXHR) {
+                        dp.init();
+                        console.log("SUCCES");
+                    }
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            function init() {
+                scheduler.config.xml_date = "%m/%d/%Y %H:%i";
+                scheduler.init("scheduler_here", new Date(2010, 6, 1), "month");
+                scheduler.load("/Event/Data");
+
+                var dp = new dataProcessor("/Event/Save");
+                dp.init(scheduler);
+                dp.setTransactionMode("POST", false);
             }
-        });
-    });
-</script>
+        </script>
+        </div>
+</div>
