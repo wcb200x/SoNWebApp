@@ -1,0 +1,16 @@
+﻿@model IEnumerable<SoNWebApp.Models.Event>
+@{
+    ViewBag.Title = "Data";
+}
+
+
+<data>
+    @foreach (var ev in Model)
+    {
+        <event id="@ev.id">
+            <start_date><![CDATA[@String.Format("{0:MM/dd/yyyy HH:mm}", @ev.start_date)]]></start_date>
+            <end_date><![CDATA[@String.Format("{0:MM/dd/yyyy HH:mm}", @ev.end_date)]]></end_date>
+            <text><![CDATA[@ev.text]]></text>
+        </event>
+    }
+</data>

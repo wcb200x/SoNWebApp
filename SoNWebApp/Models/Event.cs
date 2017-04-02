@@ -8,16 +8,16 @@ namespace SoNWebApp.Models
 {
     public class Event
     {
-        public int ID { get; set; }
-        public string Text { get; set; }
+        public int id { get; set; }
+        public string text { get; set; }
         public string Location { get; set; }
         [Display(Name = "Is Recruitment")]
         public bool IsRecruitment { get; set; }
         [Display(Name = "Start Date")]
-        public DateTime StartDate { get; set; }
+        public DateTime start_date { get; set; }
         [Display(Name = "End Date")]
-        public DateTime EndDate { get; set; }
-        public string Name { get; set; }
+        public DateTime end_date { get; set; }
+        public string Description { get; set; }
 
     }
 }

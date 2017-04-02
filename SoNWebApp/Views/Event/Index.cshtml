@@ -1,70 +1,63 @@
-﻿@model IEnumerable<SoNWebApp.Models.Event>
+﻿@*https://docs.dhtmlx.com/scheduler/how_to_start.html*@
+<script src="~/Scripts/dhtmlxScheduler/dhtmlxscheduler.js"></script>
+<link href="~/Scripts/dhtmlxScheduler/dhtmlxscheduler.css" rel="stylesheet" />
 
+<h2>Event Calendar using dxhtml Scheduler</h2>
 
-@{
-    ViewBag.Title = "Events Index - ";
-}
-
-<div class="panel panel-danger" style="border:1px solid #808080;">
-    <div class="panel-heading">
-        <h3 style="color:#FFFFFF; text-align: center;">Event Index</h3>
+<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:700px; padding:10px;'>
+    <div class="dhx_cal_navline">
+        <div class="dhx_cal_prev_button">&nbsp;</div>
+        <div class="dhx_cal_next_button">&nbsp;</div>
+        <div class="dhx_cal_today_button"></div>
+        <div class="dhx_cal_date"></div>
+        <div class="dhx_cal_tab" name="day_tab" style="right: 204px;"></div>
+        <div class="dhx_cal_tab" name="week_tab" style="right: 140px;"></div>
+        <div class="dhx_cal_tab" name="month_tab" style="right: 76px;"></div>
     </div>
-    <div class="panel-body">
+    <div class="dhx_cal_header"></div>
+    <div class="dhx_cal_data"></div>
+</div>
+<script>
+    var textofEventLastModified;
+    var isEditable = true;
+    scheduler.config.xml_date = "%m/%d/%y";
+    //scheduler.config.xml_date = "%m/%d/%Y %H:%i";
+    scheduler.init('scheduler_here', new Date(), "month");
+    scheduler.load("/Event/Data", "json");  //path to the newly created action
 
-        <button class="btn btn-primary col-md-2 pull-left" style="background:#AD0000; margin-bottom: 5px;" onclick="location.href='@Url.Action("Create", "Event")'">Create New</button>
 
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Text)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Location)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IsRecruitment)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.StartDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.EndDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th></th>
-            </tr>
+    scheduler.attachEvent("onAfterLightbox", function (e, id) {
+        textofEventLastModified = $('textarea').val();
+        var currentEvents = scheduler.getEvents();
+        var ev = currentEvents[currentEvents.length - 1];
+        //var ev = scheduler.getEvent(id);
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Text)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Location)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IsRecruitment)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StartDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EndDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                    </td>
-                </tr>
+        var obj = currentEvents.filter(function (obj) {
+            return obj["text"] === textofEventLastModified;
+        })[0];
+
+
+
+
+        if (ev["text"] === textofEventLastModified)
+            console.log("text matches!");
+
+        var props = { "id": ev.id, "text": ev.text , "start_date": ev.start_date, "end_date": ev.end_date};
+
+        $.ajax({
+            url: "/Event/Save",
+            contentType: "application/json",
+            async: true,
+            type: "POST",
+            dataType: "json",
+            data: JSON.stringify(props),
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log("FAIL: " + errorThrown);
+            },
+            success: function (data, textStatus, jqXHR) {
+                dp.init();
+                console.log("SUCCES");
             }
-
-        </table>
-        </div>
-    </div>
+        });
+    });
+</script>
