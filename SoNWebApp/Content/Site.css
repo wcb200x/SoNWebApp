@@ -66,4 +66,8 @@ select, select.form-control {
 
     width:100%;
 }
+body > div.dhx_cal_light.dhx_cal_light_wide > div.dhx_cal_larea > div:nth-child(2) > div.dhx_section_time
+{
+    width:10%;
+}
 

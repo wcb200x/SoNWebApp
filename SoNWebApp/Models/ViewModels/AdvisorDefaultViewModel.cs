@@ -7,7 +7,7 @@ namespace SoNWebApp.Models.ViewModels
 {
     public class AdvisorDefaultViewModel
     {
-        public IEnumerable<Alerts> AlertList { get; set; }
+        public IEnumerable<string> AlertList { get; set; }
         public IEnumerable<Todos> TodosList { get; set; }
     }
 }

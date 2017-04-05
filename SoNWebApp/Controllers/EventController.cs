@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Helpers;
 using System.Web.Mvc;
-using System.Xml.Linq;
 using SoNWebApp.Models;
-using DHTMLX.Common;
-using DHTMLX.Scheduler;
-using DHTMLX.Scheduler.Data;
+
 
 namespace SoNWebApp.Controllers
 {

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SoNWebApp.Models.Alerts>
+﻿@model IEnumerable<string>
 
 
 <table border="1" style="color:black; width: 100%;border:1px solid #808080;">
@@ -13,7 +13,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Type);
+               @item
             </td>
         </tr>
     }

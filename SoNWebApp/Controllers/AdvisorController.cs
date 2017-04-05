@@ -1,6 +1,7 @@
 ﻿using SoNWebApp.Models;
 using SoNWebApp.Models.ViewModels;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -81,21 +82,25 @@ namespace SoNWebApp.Controllers
         }
         public ActionResult AdDefault()
         {
-            var firstFiveOnGoingAlerts = db.Alerts.Where(a => a.EndDate >= DateTime.Today).OrderBy(a => a.StartDate).Take(5);
+            
+            var firstFiveOnGoingAlerts = db.Alerts.Where(a => a.EndDate >= DateTime.Today).OrderBy(a => a.StartDate).Take(5).ToList();
 
             var alertList = new List<string>();
             foreach (var alert in firstFiveOnGoingAlerts)
             {
-                if(alert.Type == "Compliance")
+                if (alert.Type == "Compliance")
                 {
                     var students = db.Students.Select(s => s.ID);
-                    var incompliantStudents = db.Compliances.Where(c => c.IsCompliant == false).Select(c => c.ID).Distinct().Count();
-                    alertList.Add(incompliantStudents + "students out of compliance.");
-
+                    var incompliantStudents = db.Compliances.Where(c => c.IsCompliant == false).Select(c => c.StudentID).Distinct().ToList().Count();
+                    alertList.Add(incompliantStudents + " students out of compliance.");
+                    alert.Message = incompliantStudents.ToString();
+                    db.SaveChanges();
                 }
             }
+        
             var viewModel = new AdvisorDefaultViewModel()
             {
+                AlertList = alertList,
                 TodosList = db.Todos.Where(t => t.EndDate >= DateTime.Today).Take(5)
                 
 
@@ -124,8 +129,21 @@ namespace SoNWebApp.Controllers
         }
         public PartialViewResult GetAlertList()
         {
-            var alerts = db.Alerts.FirstOrDefault();
-            return PartialView("_AlertsPartial", alerts);
+            var firstFiveOnGoingAlerts = db.Alerts.Where(a => a.EndDate >= DateTime.Today).OrderBy(a => a.StartDate).Take(5);
+
+            var alertList = new List<string>();
+            foreach (var alert in firstFiveOnGoingAlerts)
+            {
+                if (alert.Type == "Compliance")
+                {
+                    var students = db.Students.Select(s => s.ID);
+                    var incompliantStudents = db.Compliances.Where(c => c.IsCompliant == false).Select(c => c.ID).Distinct().Count();
+                    alertList.Add(incompliantStudents + " students out of compliance.");
+
+                }
+            }
+
+            return PartialView("_AlertsPartial", alertList);
         }
         public ActionResult ProgramCoursesReport(int programNum)
         {

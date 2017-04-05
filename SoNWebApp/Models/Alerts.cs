@@ -15,5 +15,7 @@ namespace SoNWebApp.Models
         public DateTime StartDate { get; set; }
         [Display(Name = "End Date")]
         public DateTime EndDate { get; set; }
+
+        public string Message { get; set; }
     }
 }
