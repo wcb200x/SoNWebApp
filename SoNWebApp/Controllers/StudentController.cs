@@ -555,8 +555,7 @@ namespace SoNWebApp.Controllers
 
             return View(documents.ToList());
         }
-
-       
+  
         protected override void Dispose(bool disposing)
         {
             if (disposing)

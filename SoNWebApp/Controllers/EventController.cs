@@ -13,7 +13,7 @@ namespace SoNWebApp.Controllers
         //http://scheduler-net.com/docs/simple-.net-mvc-application-with-scheduler.html#step_2_add_the_scheduler_reference
 
         public ApplicationDbContext _db = new ApplicationDbContext();
-
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Index()
         {
             //try { 
@@ -65,7 +65,7 @@ namespace SoNWebApp.Controllers
             //events for loading to scheduler
             //return new SchedulerAjaxData(_db.Events);
         }
-
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
         public ActionResult Save(string id, string text, string start_date, string end_date)
         {
 
@@ -79,6 +79,7 @@ namespace SoNWebApp.Controllers
                 existingEvent.start_date = newStartDate;
                 existingEvent.end_date = newEndDate;
                 existingEvent.text = text;
+                _db.SaveChanges();
             }
             else
             {

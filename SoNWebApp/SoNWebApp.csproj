@@ -601,6 +601,7 @@
     <Content Include="Views\Advisor\ViewDocuments.cshtml" />
     <Content Include="Views\Advisor\_AlertsPartial.cshtml" />
     <Content Include="Views\Event\Data.cshtml" />
+    <Content Include="Views\Student\Calendar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

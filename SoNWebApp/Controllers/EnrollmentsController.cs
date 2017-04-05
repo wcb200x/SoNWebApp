@@ -12,7 +12,7 @@ using System.Collections;
 namespace SoNWebApp.Controllers
 {
 
-    
+    [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
     public class EnrollmentsController : Controller
     {
  

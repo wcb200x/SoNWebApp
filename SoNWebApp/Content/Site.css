@@ -70,4 +70,7 @@ body > div.dhx_cal_light.dhx_cal_light_wide > div.dhx_cal_larea > div:nth-child(
 {
     width:10%;
 }
+.dhx_cal_event_clear{
 
+    height: 100% !important;
+}
