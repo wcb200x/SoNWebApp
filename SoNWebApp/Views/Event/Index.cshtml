@@ -62,6 +62,45 @@
                             console.log("SUCCES");
                         }
                     });
+                    eventWasJustDeleted = false;
+                    dp.init();
+                });
+                scheduler.attachEvent("onBeforeEventDelete", function () {
+                    textofEventLastModified = $('textarea').val();
+                    var currentEvents = scheduler.getEvents();
+                    var ev = currentEvents[currentEvents.length - 1];
+                    //var ev = scheduler.getEvent(id);
+
+                    var obj = currentEvents.filter(function (obj) {
+                        return obj["text"] === textofEventLastModified;
+                    })[0];
+
+                    if (obj["text"] === textofEventLastModified) {
+                        //Create
+                    } else {
+                        //Edit
+                    }
+        
+
+                    var props = { "id": obj.id, "text": obj.text, "start_date": obj.start_date, "end_date": obj.end_date };
+
+                    $.ajax({
+                        url: "/Event/Delete",
+                        contentType: "application/json",
+                        async: true,
+                        type: "POST",
+                        dataType: "json",
+                        data: JSON.stringify(props),
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.log("FAIL: " + errorThrown);
+                        },
+                        success: function (data, textStatus, jqXHR) {
+                            dp.init();
+                            console.log("SUCCES");
+                        }
+                    
+                    });
+                eventWasJustDeleted = true;
                 });
             </script>
 

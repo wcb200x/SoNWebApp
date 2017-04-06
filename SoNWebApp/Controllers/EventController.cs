@@ -79,7 +79,6 @@ namespace SoNWebApp.Controllers
                 existingEvent.start_date = newStartDate;
                 existingEvent.end_date = newEndDate;
                 existingEvent.text = text;
-                _db.SaveChanges();
             }
             else
             {
@@ -99,6 +98,26 @@ namespace SoNWebApp.Controllers
 
             return View("Index");
         }
+        [Authorize(Roles = ("Advisor,Admin,SuperAdmin"))]
+
+        public ActionResult Delete(string id, string text, string start_date, string end_date)
+        {
+
+            var existingEvent = _db.Events.FirstOrDefault(e => e.id.ToString() == id);
+            var newStartDate = Convert.ToDateTime(start_date);
+            var newEndDate = Convert.ToDateTime(end_date);
+
+
+            if (existingEvent != null)
+            {
+                _db.Events.Remove(existingEvent);
+                _db.SaveChanges();
+            }
+
+            return View("Index");
+        }
+
+
 
         //public ActionResult Save(Event updatedEvent, FormCollection formData)
         //{
