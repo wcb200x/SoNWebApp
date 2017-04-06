@@ -1,6 +1,8 @@
 ﻿<script src="~/Scripts/dhtmlxScheduler/dhtmlxscheduler.js"></script>
 <link href="~/Scripts/dhtmlxScheduler/dhtmlxscheduler.css" rel="stylesheet" />
-
+@{
+    ViewBag.Title = "Calendar - ";
+}
     <div class="panel panel-danger">
         <div class="panel-heading calendar-panel" style="color:white;padding-top: 25px; padding-bottom:25px">
             <h2 style="text-align:center;">Calendar</h2>
@@ -25,7 +27,7 @@
             <script>
                 var textofEventLastModified;
                 var isEditable = true;
-                scheduler.config.xml_date = "%m-%d-%Y";
+                scheduler.config.xml_date = "%m/%d/%Y";
                 scheduler.init('scheduler_here', new Date(), "month");
                 scheduler.load("/Event/Data", "json");  //path to the newly created action
 
