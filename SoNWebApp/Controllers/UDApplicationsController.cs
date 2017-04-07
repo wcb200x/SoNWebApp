@@ -132,6 +132,21 @@ namespace SoNWebApp.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult StudentStatus(int? id)
+        {
+            if (id == null)
+            {
+                var curentUserEmail = HttpContext.User.Identity.Name;
+                var student = db.Students.FirstOrDefault(s => s.EmailAddress == curentUserEmail);
+
+                var application = db.UDApplications.FirstOrDefault(p => p.StudentNumber == student.StudentNumber);
+
+                return View(application);
+            }
+
+                return View();
+        }
         public IEnumerable<string> Status()
         {
             return new List<string>

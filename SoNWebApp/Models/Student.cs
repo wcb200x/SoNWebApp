@@ -55,6 +55,7 @@ namespace SoNWebApp.Models
         public IEnumerable<SelectListItem> Genders { get; set; }
         public IEnumerable<SelectListItem> States { get; set; }
         public IEnumerable<SelectListItem> Standings { get; set; }
+        public IEnumerable<SelectListItem> Races { get; set; }
 
     }
 

@@ -46,6 +46,10 @@
                             @Html.ActionLink("Apply for Upper Division","Create","UDApplications",false,false)
                             </p>
                             <p>
+                                Already Applied? Check your status here!<br/>
+                             <a href="@Url.Action("StudentStatus", "UDApplications")">View Application Status</a>
+                            </p>
+                            <p>
                                 Link to current students<br />
                                 <a href="https://louisville.edu/nursing/current-students">https://louisville.edu/nursing/current-students</a>
                             </p>

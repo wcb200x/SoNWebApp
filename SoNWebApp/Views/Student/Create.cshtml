@@ -17,14 +17,14 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.StudentNumber, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.StudentNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.StudentNumber, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.StudentNumber), Value = "" } })
                         @Html.ValidationMessageFor(model => model.StudentNumber, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.FirstName) } })
                         @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.MiddleName, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.MiddleName) } })
                         @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -40,14 +40,14 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.LastName) } })
                         @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.Race, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Race, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.DropDownListFor(model => model.Race, Model.Races, "Select Race...", new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Race, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.EmailAddress) } })
                         @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.PhoneNumber) } })
                         @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.CellNumber, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.CellNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.CellNumber, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.CellNumber) } })
                         @Html.ValidationMessageFor(model => model.CellNumber, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.Address) } })
                         @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.City) } })
                         @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.ZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.ZipCode), Value= "" } })
                         @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control", @placeholder = @Html.DisplayNameFor(m => m.Country) } })
                         @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
                     </div>
                 </div>

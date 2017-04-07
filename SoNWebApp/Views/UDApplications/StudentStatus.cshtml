@@ -1,0 +1,84 @@
+﻿@model SoNWebApp.Models.UDApplication
+@{
+    ViewBag.Title = "Upper Division Application Status - ";
+}
+
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h3 style="color:white;">Upper Division Application Status</h3>
+        </div>
+        <div class="panel-body">
+       
+                <div class="form-horizontal">
+
+       
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group" style="margin-top: 20px;">
+                        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-3">
+                            @Html.DisplayFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MiddleName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-3">
+                            @Html.DisplayFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-3">
+                            @Html.DisplayFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-3">
+                            @Html.DisplayFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-3">
+                            @Html.DisplayFor(model => model.Status, new { htmlAttributes = new { @class = "form-control"} })
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    @if (Model.Status == "Approved")
+                    {
+                        <p style="font-weight:700; text-align:center;"> Congratuations! You have been accepted into the University of Louisville School of Nursing Upper Division! </p>
+                        <p style="font-weight:700; text-align:center;">Please check your email for more information!</p>
+                    }
+                    @if (Model.Status == "Being Reviewed")
+                    {
+                        <p style="font-weight:700; text-align:center;"> Your application to the University of Louisville School of Nursing Upper Division is currently being reviewed. </p>
+                        <p style="font-weight:700; text-align:center;"> Please check back later for a decision. Thank you for your patience.</p>
+                    }
+                    @if (Model.Status == "Wait Listed")
+                    {
+                        <p style="font-weight:700; text-align:center;"> You have been wait listed to the University of Louisville School of Nursing Upper Division.</p>
+                        <p style="font-weight:700; text-align:center;"> Please check back later for a decision. Thank you for your patience.</p>
+                    }
+                
+        </div>
+ 
+
+        <p>
+            @Html.ActionLink("Back to home", "Default", "Student", false, false)
+        </p>
+</div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

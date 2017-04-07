@@ -59,6 +59,7 @@ namespace SoNWebApp.Controllers
         // GET: Student/Create
         public ActionResult Create()
         {
+            var race = Race();
             var gender = Genders();
             var student = new Student();
             var state = States();
@@ -66,6 +67,7 @@ namespace SoNWebApp.Controllers
             student.States = GetStatesListItems(state);
             student.Genders = GetGenderListItems(gender);
             student.Standings = GetStandingListItems(standing);
+            student.Races = GetRaceListItems(race);
 
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name");
             ViewBag.CampusID = new SelectList(db.Campuses, "CampusID", "Name");
@@ -87,6 +89,8 @@ namespace SoNWebApp.Controllers
             student.States = GetStatesListItems(state);
             var gender = Genders();
             student.Genders = GetGenderListItems(gender);
+            var race = Race();
+            student.Races = GetRaceListItems(race);
 
             if (ModelState.IsValid)
             {
@@ -121,6 +125,8 @@ namespace SoNWebApp.Controllers
             student.States = GetStatesListItems(state);
             var standing = Standing();
             student.Standings = GetStandingListItems(standing);
+            var race = Race();
+            student.Races = GetRaceListItems(race);
 
             ViewBag.ProgramID = new SelectList(db.Programs, "ID", "Name", student.ProgramID);
             ViewBag.CampusID = new SelectList(db.Campuses, "CampusID", "Name", student.CampusID);
@@ -141,6 +147,8 @@ namespace SoNWebApp.Controllers
             student.States = GetStatesListItems(state);
             var standing = Standing();
             student.Standings = GetStandingListItems(standing);
+            var race = Race();
+            student.Races = GetRaceListItems(race);
 
             if (ModelState.IsValid)
             {
@@ -555,7 +563,34 @@ namespace SoNWebApp.Controllers
 
             return View(documents.ToList());
         }
-  
+
+        public IEnumerable<string> Race()
+        {
+            return new List<string>
+            {
+                "American Indian or Alaska Native",
+                "Asian",
+                "Black or African American",
+                "Hispanic or Latino",
+                "Native Hawaiian or Other Pacific Islander",
+                "White, Non-Hispanic or Latino",
+                
+            };
+
+        }
+        public IEnumerable<SelectListItem> GetRaceListItems(IEnumerable<string> items)
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var element in items)
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = element,
+                    Text = element
+                });
+            }
+            return selectList;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
