@@ -117,6 +117,29 @@ namespace SoNWebApp.Controllers
                     alert.Message = application.ToString();
                     db.SaveChanges();
                 }
+                if(alert.Type == "GPA")
+                {
+                    var students = db.Students.ToList();
+
+                    var allgpa = new List<decimal>();
+                    foreach (var gpa in students)
+                    {
+                        var gpas = gpa.GPA;
+
+                        allgpa.Add(gpas);
+                        
+                    }
+
+                    var sumgpa = allgpa.Sum();
+                    var countofgpa = db.Students.Where(s => s.GPA > 0.0M).Distinct().Count();
+
+                    var averagegpa = sumgpa / countofgpa;
+
+                    alertList.Add(averagegpa + " is the current average GPA of all students.");
+                    alert.Message = averagegpa.ToString();
+                    db.SaveChanges();
+
+                }
             }
         
             var viewModel = new AdvisorDefaultViewModel()
