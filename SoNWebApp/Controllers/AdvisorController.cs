@@ -75,6 +75,12 @@ namespace SoNWebApp.Controllers
         {
             return View(db.Students.ToList());
         }
+        public ActionResult ComplianceReport()
+        {
+            var students = db.Compliances.Where(c => c.IsCompliant == false).ToList();
+
+            return View(students);
+        }
         public ActionResult GPAReport(decimal gpaThreshold)
         {
             var Student = db.Students.Where(s => s.GPA >= gpaThreshold && s.HasGraduated == false).ToList();

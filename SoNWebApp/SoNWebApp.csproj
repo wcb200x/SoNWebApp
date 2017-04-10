@@ -599,6 +599,7 @@
     <Content Include="Views\Event\Data.cshtml" />
     <Content Include="Views\Student\Calendar.cshtml" />
     <Content Include="Views\UDApplications\StudentStatus.cshtml" />
+    <Content Include="Views\Advisor\ComplianceReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
