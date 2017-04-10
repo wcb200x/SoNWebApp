@@ -276,19 +276,21 @@ namespace SoNWebApp.Controllers
             return PartialView("_TodosPartial", todos);
         }
         [HttpPost]
-        public ActionResult UploadDocument(int studentNumber, DateTime expirationDate, string DocumentType, HttpPostedFileBase file)
+        public ActionResult UploadDocument(DateTime expirationDate, string DocumentType, HttpPostedFileBase file)
         {
             byte[] uploadedFile = new byte[file.InputStream.Length];
             file.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
 
-            var student = db.Students.FirstOrDefault(s => s.StudentNumber == studentNumber);
+            var curentUserEmail = HttpContext.User.Identity.Name;
+            var studentloggedin = db.Students.FirstOrDefault(s => s.EmailAddress == curentUserEmail);
 
-            if (student != null)
+
+            if (studentloggedin != null)
             {
                 var documentModel = new Document
                 {
-                    StudentID = student.ID,
-                    StudentNumber = studentNumber,
+                    StudentID = studentloggedin.ID,
+                    StudentNumber = studentloggedin.StudentNumber,
                     ExpirationDate = expirationDate,
                     DocumentType = DocumentType,
                     UploadedBy = HttpContext.User.Identity.Name,
@@ -302,8 +304,8 @@ namespace SoNWebApp.Controllers
                 db.SaveChanges();
 
 
-                var documentRecord = db.Documents.FirstOrDefault(d => d.StudentID == student.ID && d.DocumentType == DocumentType);
-                var ccRecord = db.Compliances.FirstOrDefault(d => d.StudentID == student.ID && d.Name == DocumentType);
+                var documentRecord = db.Documents.FirstOrDefault(d => d.StudentID == studentloggedin.ID && d.DocumentType == DocumentType);
+                var ccRecord = db.Compliances.FirstOrDefault(d => d.StudentID == studentloggedin.ID && d.Name == DocumentType);
 
                 ccRecord.DocumentID = documentRecord.Id;
                 ccRecord.Name = documentRecord.DocumentType;

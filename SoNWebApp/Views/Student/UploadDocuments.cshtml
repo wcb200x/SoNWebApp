@@ -13,12 +13,14 @@
                 @using (Html.BeginForm("UploadDocument", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
 
-                  
-                    <div class="col-md-2">
+                  <center>
+                    <div class="col-md-3">
                         <div>
                             <label for="single" class="control-label">Compliance Type:</label>       
                             </div>
                         </div>
+                      </center>
+                      <center>
                         <div class="col-md-2">
                             <div>             
                             <select name="DocumentType" id="DocumentType">
@@ -33,18 +35,15 @@
                             </select>
                     </div>
                     </div>
-                        <div class="col-md-4">
-                            <div>
-                                <label for="single" class="control-label">Student Number:</label>
-                                <input type="text" name="studentNumber" id="studentNumber" />
-                            </div>
-                            </div>
-                            <div class="col-md-4">
+                          </center>
+                      <center>
+                            <div class="col-md-6">
                                 <div>
                                     <label for="expirationDate">Expiration Date:</label>
                                     <input type="date" name="expirationDate" id="expirationDate" />
                                 </div>
                             </div>
+                            </center>
                             <br />
                             <br />
                             <center>
@@ -58,19 +57,20 @@
 
                             <br />
                             <br />
-                            <br />
-                            <div class="col-md-4">
+                            <br />                         
+                             <div class="col-md-12">
+                                <center>
+                                    <input type="submit" />
+                                </center>
+                            </div>
+                            <div class="col-md-12">
                                 <div>
                                     <div class="btn btn-default" style="background-color: #AD0000;  font-size: medium; border-color: #AD0000; margin-bottom: 5px;"><a href="/Student/ClinicalCompliance"><font color="white">Return To Compliance</font></a></div>
                                     <div class="btn btn-default" style="background-color: #AD0000;  font-size: medium; border-color: #AD0000; margin-bottom: 5px;"><a href="/Student/ViewDocuments"><font color="white">View Documents</font></a></div>                              
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                            <center>
-                                <input type="submit" />
-                            </center>
-                        </div>
-                        <div class="col-md-4"></div>
+                          
+                        
                     
 
 
