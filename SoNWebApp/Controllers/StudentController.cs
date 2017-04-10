@@ -12,6 +12,7 @@ using System.IO;
 
 namespace SoNWebApp.Controllers
 {
+    [Authorize]
     public class StudentController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

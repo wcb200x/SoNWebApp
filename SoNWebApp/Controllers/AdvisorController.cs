@@ -92,8 +92,23 @@ namespace SoNWebApp.Controllers
                 {
                     var students = db.Students.Select(s => s.ID);
                     var incompliantStudents = db.Compliances.Where(c => c.IsCompliant == false).Select(c => c.StudentID).Distinct().ToList().Count();
-                    alertList.Add(incompliantStudents + " students out of compliance.");
+                    alertList.Add(incompliantStudents + " student(s) out of compliance.");
                     alert.Message = incompliantStudents.ToString();
+                    db.SaveChanges();
+                }
+                if(alert.Type == "Event")
+                {
+                    var events = db.Events.Where(s => s.start_date > DateTime.Now).FirstOrDefault().text ;
+                    var eventtime = db.Events.Where(s => s.start_date > DateTime.Now).FirstOrDefault().start_date;
+                    alertList.Add(events + " is the next event on the calendar." + " It is on " + eventtime);
+                    alert.Message = events;
+                    db.SaveChanges();
+                }
+                if (alert.Type == "Application")
+                {
+                    var application = db.UDApplications.Where(s => s.Status != "Approved" && s.Status != "Wait Listed" && s.Status != "Denied" && s.Status != "Being Reviewed").ToList().Count();
+                    alertList.Add(application + " Upper Division application(s) have not yet been seen.");
+                    alert.Message = application.ToString();
                     db.SaveChanges();
                 }
             }

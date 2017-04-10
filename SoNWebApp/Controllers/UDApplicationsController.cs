@@ -53,11 +53,22 @@ namespace SoNWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,FirstName,MiddleName,LastName,Email,StreetAddress,StreetAddress2,City,State,ZipCode,HomeNumber,CellNumber,StudentNumber,Program1,Semester,CurrentCourses,PersonalQualEssay,NurseExperience,Legal1,Legal2,Legal3,Legal4,Legal5,Legal6,ExplainLegal,ConfirmLegal,Status")] UDApplication uDApplication)
         {
+       
             if (ModelState.IsValid)
             {
-                db.UDApplications.Add(uDApplication);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (User.IsInRole("Advisor") || (User.IsInRole("Admin")) || (User.IsInRole("SuperAdmin")))
+                {
+                    db.UDApplications.Add(uDApplication);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+
+                    db.UDApplications.Add(uDApplication);
+                    db.SaveChanges();
+                    return RedirectToAction("Default", "Student", false);
+                }
             }
             var state = States();
             uDApplication.States = GetStatesListItems(state);

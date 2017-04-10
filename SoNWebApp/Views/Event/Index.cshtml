@@ -25,9 +25,11 @@
                 <div class="dhx_cal_data"></div>
             </div>
             <script>
+                scheduler.config.full_day = true;
+
                 var textofEventLastModified;
                 var isEditable = true;
-                scheduler.config.xml_date = "%m/%d/%Y";
+                scheduler.config.xml_date = "%m/%d/%Y %H:%i";
                 scheduler.init('scheduler_here', new Date(), "month");
                 scheduler.load("/Event/Data", "json");  //path to the newly created action
 
