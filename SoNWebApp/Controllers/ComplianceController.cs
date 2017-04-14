@@ -56,7 +56,7 @@ namespace SoNWebApp.Controllers
 
             var clinicalCompliances = db.Compliances.ToList();
             var ccdocidList = clinicalCompliances.Select(d => d.DocumentID).ToList();
-            var documents = db.Documents.Where(d => ccdocidList.Contains(d.Id)).ToList();
+            var documents = db.Documents.Where(d => ccdocidList.Contains(d.Id) && d.Active == true).ToList();
 
             var viewModel = clinicalCompliances.Select(c => new AdvisorCCIndexViewModel
             {
@@ -69,6 +69,7 @@ namespace SoNWebApp.Controllers
                 FirstName = c.Student.FirstName,
                 LastName = c.Student.LastName,
                 IsCompliant = c.IsCompliant
+               
 
             });
 

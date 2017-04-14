@@ -70,8 +70,8 @@ namespace SoNWebApp.Controllers
         {
 
             var existingEvent = _db.Events.FirstOrDefault(e => e.id.ToString() == id);
-            var newStartDate = Convert.ToDateTime(start_date);
-            var newEndDate = Convert.ToDateTime(end_date);
+            var newStartDate = Convert.ToDateTime(start_date).AddHours(3);
+            var newEndDate = Convert.ToDateTime(end_date).AddHours(3);
 
 
             if (existingEvent != null)

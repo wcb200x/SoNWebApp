@@ -211,7 +211,7 @@ namespace SoNWebApp.Controllers
 
             var clinicalCompliances = db.Compliances.ToList();
             var ccdocidList = clinicalCompliances.Select(d => d.DocumentID);
-            var documents = db.Documents.Where(d => ccdocidList.Contains(d.Id));
+            var documents = db.Documents.Where(d => ccdocidList.Contains(d.Id) && d.Active == true);
 
             var viewModel = compliances.Select(c => new StudentCCIndexViewModel
             {
@@ -278,12 +278,26 @@ namespace SoNWebApp.Controllers
         [HttpPost]
         public ActionResult UploadDocument(DateTime expirationDate, string DocumentType, HttpPostedFileBase file)
         {
+
+
+
             byte[] uploadedFile = new byte[file.InputStream.Length];
             file.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
 
             var curentUserEmail = HttpContext.User.Identity.Name;
             var studentloggedin = db.Students.FirstOrDefault(s => s.EmailAddress == curentUserEmail);
 
+            if (!db.Compliances.Any(c => c.StudentID == studentloggedin.ID && c.Name == DocumentType))
+            {
+                db.Compliances.Add(new Compliance
+                {
+                    StudentID = studentloggedin.ID,
+                    Name = DocumentType,
+                    ExpirationDate = expirationDate
+
+                });
+                    
+            }
 
             if (studentloggedin != null)
             {
@@ -298,32 +312,35 @@ namespace SoNWebApp.Controllers
                     ContentType = file.ContentType,
                     FileName = file.FileName,
                     FileBytes = uploadedFile,
-                    
+                    Active = true
+
                 };
                 db.Documents.Add(documentModel);
                 db.SaveChanges();
 
 
-                var documentRecord = db.Documents.FirstOrDefault(d => d.StudentID == studentloggedin.ID && d.DocumentType == DocumentType);
+                var documentRecord = db.Documents.FirstOrDefault(d => d.StudentID == studentloggedin.ID && d.DocumentType == DocumentType && d.Active == true);
                 var ccRecord = db.Compliances.FirstOrDefault(d => d.StudentID == studentloggedin.ID && d.Name == DocumentType);
 
                 ccRecord.DocumentID = documentRecord.Id;
                 ccRecord.Name = documentRecord.DocumentType;
                 ccRecord.ExpirationDate = documentRecord.ExpirationDate;
-          
+
                 db.SaveChanges();
                 if (ccRecord.ExpirationDate < DateTime.Today)
                 {
+                    documentRecord.Active = false;
                     ccRecord.IsExpired = true;
                 }
                 else
                 {
+                    documentRecord.Active = true;
                     ccRecord.IsExpired = false;
                 }
                 db.SaveChanges();
 
             }
-
+        
 
             return View("UploadDocuments");
         }
@@ -348,9 +365,9 @@ namespace SoNWebApp.Controllers
             var student = db.Students.FirstOrDefault(s => s.EmailAddress == curentUserEmail);
 
 
-            var allDocumentsForStudent = db.Documents.Where(d => d.StudentID == student.ID);
+            var allDocumentsForStudent = db.Documents.Where(d => d.StudentID == student.ID && d.Active == true);
 
-            var oneDocumentFromStudent = allDocumentsForStudent.Where(d => d.Id == documentID).FirstOrDefault();
+            var oneDocumentFromStudent = allDocumentsForStudent.Where(d => d.Id == documentID && d.Active == true).FirstOrDefault();
 
             if (oneDocumentFromStudent != null)
             {
@@ -360,8 +377,8 @@ namespace SoNWebApp.Controllers
         }
         public ActionResult AdvisorGetDocument(int documentID)
         {
-         
-            var oneDocumentFromStudent = db.Documents.Where(d => d.Id == documentID).FirstOrDefault();
+
+            var oneDocumentFromStudent = db.Documents.Where(d => d.Id == documentID && d.Active == true).FirstOrDefault();
 
             if (oneDocumentFromStudent != null)
             {
@@ -561,7 +578,7 @@ namespace SoNWebApp.Controllers
             var curentUserEmail = HttpContext.User.Identity.Name;
             var student = db.Students.FirstOrDefault(s => s.EmailAddress == curentUserEmail);
 
-            var documents = db.Documents.Where(c => c.StudentID == student.ID);
+            var documents = db.Documents.Where(c => c.StudentID == student.ID && c.Active == true);
 
 
             return View(documents.ToList());

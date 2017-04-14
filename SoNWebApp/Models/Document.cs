@@ -23,5 +23,6 @@ namespace SoNWebApp.Models
         public string ContentType { get; set; }
         public string FileName { get; set; }
         public string UploadedBy { get; set; }
+        public bool Active { get; set; }
     }
 }

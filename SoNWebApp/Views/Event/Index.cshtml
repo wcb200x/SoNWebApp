@@ -1,5 +1,6 @@
 ﻿<script src="~/Scripts/dhtmlxScheduler/dhtmlxscheduler.js"></script>
 <link href="~/Scripts/dhtmlxScheduler/dhtmlxscheduler.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
 @{
     ViewBag.Title = "Calendar - ";
 }
@@ -33,7 +34,8 @@
                 scheduler.init('scheduler_here', new Date(), "month");
                 scheduler.load("/Event/Data", "json");  //path to the newly created action
 
-
+                //document.getElementsByClassName('.dhx_cal_data').style[overflow-y] = "hidden";
+                $('.dhx_cal_data').css("overflow-y", "hidden");
                 scheduler.attachEvent("onAfterLightbox", function (e, id) {
                     textofEventLastModified = $('textarea').val();
                     var currentEvents = scheduler.getEvents();
