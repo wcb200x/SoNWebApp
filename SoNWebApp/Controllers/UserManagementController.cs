@@ -145,33 +145,33 @@ namespace SoNWebApp.Controllers
             return selectList;
         }
 
-        //[Authorize(Roles = "Admin")]
-        //public ActionResult Delete(string id = null)
-        //{
-        //    var Db = new ApplicationDbContext();
-        //    var user = Db.Users.First(u => u.UserName == id);
-        //    var model = new EditUserViewModel(user);
-        //    if (user == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return System.Web.UI.WebControls.View(model);
-        //}
+        [Authorize(Roles = "SuperAdmin")]
+        public ActionResult Delete(string id)
+        {
+            var Db = new ApplicationDbContext();
+            var user = Db.Users.First(u => u.Id == id);
+            var model = new EditUserViewModel(user);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(model);
+        }
 
 
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //[Authorize(Roles = "Admin")]
-        //public ActionResult DeleteConfirmed(string id, string roleName)
-        //{
-        //    //    var Db = new ApplicationDbContext();
-        //        var user = db.Users.First(u => u.Id == id);
-        //    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-        //    userManager.RemoveFromRolesAsync(user.Id, roleName);
-        //    //    Db.Users.Remove(user);
-        //    //    Db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "SuperAdmin")]
+        public ActionResult DeleteConfirmed(string id)
+        {
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var Db = new ApplicationDbContext();
+            var user = Db.Users.First(u => u.Id == id);
+            userManager.RemoveFromRolesAsync(user.Id);
+            Db.Users.Remove(user);
+             Db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
 
         //[Authorize(Roles = "Admin")]
@@ -206,4 +206,4 @@ namespace SoNWebApp.Controllers
         //    }
         //    return View();
     }
-    }
+}

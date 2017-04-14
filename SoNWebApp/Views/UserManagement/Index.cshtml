@@ -44,7 +44,8 @@
                 </div>
 
                 <div class="col-md-4">
-                    <a href="@Url.Action("Edit", "UserManagement", new {@id = list[i].Id})">Edit</a> 
+                    <a href="@Url.Action("Edit", "UserManagement", new {@id = list[i].Id})">Edit</a> |
+                    <a href="@Url.Action("Delete", "UserManagement", new {@id = list[i].Id})">Delete</a> 
                 </div>
             </div>
     }

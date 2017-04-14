@@ -77,6 +77,7 @@ namespace SoNWebApp.Controllers
         }
         public ActionResult ComplianceReport()
         {
+            
             var students = db.Compliances.Where(c => c.IsCompliant == false).ToList();
 
             return View(students);

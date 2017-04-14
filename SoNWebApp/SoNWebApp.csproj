@@ -600,6 +600,7 @@
     <Content Include="Views\Student\Calendar.cshtml" />
     <Content Include="Views\UDApplications\StudentStatus.cshtml" />
     <Content Include="Views\Advisor\ComplianceReport.cshtml" />
+    <Content Include="Views\UserManagement\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
