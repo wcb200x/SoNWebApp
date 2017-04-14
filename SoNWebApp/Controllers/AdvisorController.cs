@@ -65,7 +65,7 @@ namespace SoNWebApp.Controllers
         {
             var viewModel = new StudentRecordsViewModel()
             {
-                StudentsList = db.Students,
+                StudentsList = db.Students.ToList(),
 
                 TodosList = db.Todos.Where(t => t.EndDate >= DateTime.Today).Take(5)
             };
@@ -104,8 +104,8 @@ namespace SoNWebApp.Controllers
                 }
                 if(alert.Type == "Event")
                 {
-                    var events = db.Events.Where(s => s.start_date > DateTime.Now).FirstOrDefault().text ;
-                    var eventtime = db.Events.Where(s => s.start_date > DateTime.Now).FirstOrDefault().start_date;
+                    var events = db.Events.Where(s => s.start_date > DateTime.Now).OrderBy(d => d.start_date).FirstOrDefault().text ;
+                    var eventtime = db.Events.Where(s => s.start_date > DateTime.Now).OrderBy(d => d.start_date).FirstOrDefault().start_date;
                     alertList.Add(events + " is the next event on the calendar." + " It is on " + eventtime);
                     alert.Message = events;
                     db.SaveChanges();
@@ -168,7 +168,7 @@ namespace SoNWebApp.Controllers
         }
         public PartialViewResult GetStudentsList()
         {
-            var students = db.Students.FirstOrDefault();
+            var students = db.Students.ToList();
             return PartialView("_StudentsPartial", students);
         }
         public PartialViewResult GetAlertList()
