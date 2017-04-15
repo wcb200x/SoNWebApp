@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using SoNWebApp.Models;
 using System.Collections;
+using System.Web.Helpers;
 
 namespace SoNWebApp.Controllers
 {
@@ -308,6 +309,14 @@ namespace SoNWebApp.Controllers
                 });
             }
             return selectList;
+        }
+        public JsonResult GetCourses(int ProgramID)
+        {
+            var coursesList = new List<SelectListItem>();
+
+            var courses = db.Courses.Where(c => c.ProgramID == ProgramID).Select(course => new SelectListItem {Text = course.Subject, Value = course.Id.ToString()}).ToList();
+
+            return Json(courses);
         }
         protected override void Dispose(bool disposing)
         {

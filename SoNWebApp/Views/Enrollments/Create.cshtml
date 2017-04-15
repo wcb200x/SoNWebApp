@@ -1,5 +1,7 @@
 ﻿@model SoNWebApp.Models.Enrollment
 
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
 @{
     ViewBag.Title = "Create Enrollment - ";
 }
@@ -70,3 +72,26 @@
         </div>
         </div>
 </div>
+
+<script>
+    $("#ProgramID").change(function () {
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GetCourses", "Enrollments")',
+            dataType: 'json',
+            data: { ProgramID: $("#ProgramID").val() },
+            success: function (courses) {
+                $("#CourseID").empty();
+                $.each(courses, function (i,course) {                                        
+                    $("#CourseID").append('<option value="' + course.Value + '">' + course.Text + '</option>');
+                });
+            },
+            error: function (ex) {
+                $("#ProgramID").append('<option value="' + '">' + '</option>');
+                alert('Failed to retrieve courses.');
+            }
+        });
+    });
+
+
+</script>

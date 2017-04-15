@@ -26,33 +26,36 @@ namespace SoNWebApp.Controllers
 
         // GET: Student/Details/5
         [Authorize]
-        public ActionResult Details(int? id, string actualgrade, string GradePointAverage)
+        public ActionResult Details(int? id)
         {
-            //actualgrade = db.Enrollments.FirstOrDefault(e => e.StudentID == id).Grade;
-
-            var enrollments = db.Enrollments.Where(e => e.StudentID == id);
-            var actualGradeList = new List<decimal>();
-            foreach (var enrollment in enrollments)
-            {
-                var actualGrade = GetCourseGrade(enrollment.Grade);
-                actualGradeList.Add(actualGrade);
-            }
-
-
-            var testGpaSum = actualGradeList.Sum();
-            var testGpaGradeCount = actualGradeList.Count() * 4;
-
-            var testGpa = (testGpaSum / testGpaGradeCount) * 4.0M;
-
-
-            //GradePointAverage = db.Students.FirstOrDefault(s => s.ID == id).GPA.ToString();
-            //GradePointAverage = actualgrade;            
-
-
             Student student = db.Students.FirstOrDefault(s => s.ID == id);
-            student.GPA = testGpa;
 
-            db.SaveChanges();
+            //actualgrade = db.Enrollments.FirstOrDefault(e => e.StudentID == id).Grade;
+            if (db.Enrollments.Any(e => e.StudentID == id))
+            {
+                var enrollments = db.Enrollments.Where(e => e.StudentID == id);
+                var actualGradeList = new List<decimal>();
+                foreach (var enrollment in enrollments)
+                {
+                    var actualGrade = GetCourseGrade(enrollment.Grade);
+                    actualGradeList.Add(actualGrade);
+                }
+
+
+                var testGpaSum = actualGradeList.Sum();
+                var testGpaGradeCount = actualGradeList.Count() * 4;
+
+                var testGpa = (testGpaSum / testGpaGradeCount) * 4.0M;
+
+
+                //GradePointAverage = db.Students.FirstOrDefault(s => s.ID == id).GPA.ToString();
+                //GradePointAverage = actualgrade;            
+
+
+                student.GPA = testGpa;
+
+                db.SaveChanges();
+            }
 
             return View(student);
         }

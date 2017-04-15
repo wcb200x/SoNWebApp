@@ -105,11 +105,15 @@ namespace SoNWebApp.Controllers
                 }
                 if(alert.Type == "Event")
                 {
-                    var events = db.Events.Where(s => s.start_date > DateTime.Now).OrderBy(d => d.start_date).FirstOrDefault().text ;
-                    var eventtime = db.Events.Where(s => s.start_date > DateTime.Now).OrderBy(d => d.start_date).FirstOrDefault().start_date;
-                    alertList.Add(events + " is the next event on the calendar." + " It is on " + eventtime);
-                    alert.Message = events;
-                    db.SaveChanges();
+                    if (db.Events.Any(e => e.start_date >= DateTime.Today))
+                    {
+                        var events = db.Events.Where(s => s.start_date > DateTime.Now).OrderBy(d => d.start_date).FirstOrDefault().text;
+                        var eventtime = db.Events.Where(s => s.start_date > DateTime.Now).OrderBy(d => d.start_date).FirstOrDefault().start_date;
+                        alertList.Add(events + " is the next event on the calendar." + " It is on " + eventtime);
+                        alert.Message = events;
+                        db.SaveChanges();
+                    }
+                    
                 }
                 if (alert.Type == "Application")
                 {
